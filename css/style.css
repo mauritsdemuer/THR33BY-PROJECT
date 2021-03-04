@@ -29,9 +29,11 @@ nav {
   color: white;
 }
 
+.navbar-nav:hover,
 .nav-link:hover,
-.navbar-brand:hover {
-  color: #d01012;
+.navbar-brand:hover,
+.navbar-dark:hover {
+  color: #d01012 !important;
 }
 
 .nav-item:hover {
@@ -44,6 +46,8 @@ nav {
 
 .my-carousel {
   margin: 0 auto;
+  max-width: 80%;
+  grid-area: "carousel";
 }
 
 .carousel-caption {
@@ -70,8 +74,4 @@ nav {
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   display: none;
-}
-
-.my-carousel {
-  grid-area: "carousel";
 }
