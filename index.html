@@ -3,88 +3,115 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        /
+    </style>
     <script src="./js/javascript.js" defer></script>
-    <title>Reisbureau</title>
+    <title>THR33BY Reisbureau</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
-<body>
-    <h1 class="titles" id="pagetitle">Welkom bij het interdimensionaal Reisbureau</h1>
-    <nav class="navbar navbar-dark bg-dark" id="header">
+
+<body class="text-white bg-body">
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg sticky-top" id="header">
         <ul id="headermenu">
-            <li class="menuitems m-1">
-                <a href="#">
-                    Registreren
-                </a>
-            </li>
-            <li class="menuitems m-1">
-                <a href="#">
-                    Aanmelden
-                </a>
-            </li>
-            <li class="menuitems m-1">
-                <a href="index.html">
-                    Home
-                </a>
-            </li>
-            <li class="menuitems m-1">
-                <a href="#">
-                    Lord of the rings
-                </a>
-            </li>
-            <li class="menuitems m-1">
-                <a href="#">
-                    FIFA
-                </a>
-            </li>
-            <li class="menuitems m-1">
-                <a href="#">
-                Fortnite
-                </a>
-            </li>
-        </ul>
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">THR33BY</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"></button>
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <span class="navbar-text">
+                    <ul class="navbar-nav me-auto nav-fill mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lego.html">Lego Masters</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">FIFA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Fortnite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Lord of The Rings</a>
+                        </li>
+                    </ul>
+                  </span>
+            </div>
+
     </nav>
-    <h2>Kies je wereld</h2>
-    <ul id="possible destinations">
-        <li>
-            <h3 class="possible travels">Lego</h3>
-            <a href="lego.html">
-                <img class="travelimages" src="./images/lego.png">
-            </a>
-        </li>
-        <li>
-            <h3 class="possible travels">Lord of the rings</h3>
-            <a href="#">
-                <img class="travelimages" src="./images/sauron.jpg">
-            </a>
-        </li>
-        <li>
-            <h3 class="possible travels">FIFA</h3>
-            <a href="#">
-                <img class="travelimages" src="./images/FIFA.jpg">
-            </a>
-        </li>
-        <li>
-            <h3 class="possible travels">Fortnite</h3>
-            <a href="#">
-                <img class="travelimages" src="./images/fortnite_logo.png">
-            </a>
-        </li>
 
-    </ul>
-
-    <h2 class="titles" id="about">over ons</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et risus est. Aenean dapibus sed augue sed aliquet. Curabitur in placerat mi. Etiam porttitor ante quis efficitur rutrum. Integer faucibus arcu turpis, sit amet convallis ante aliquet
-        a. Etiam pellentesque nisi sit amet nulla convallis, bibendum fermentum eros ornare. Praesent finibus convallis condimentum. Praesent urna sapien, fermentum sed nulla sed, sagittis vulputate lacus. Vivamus vel quam id dolor laoreet ultrices venenatis
-        ut odio. Ut consequat pretium tincidunt. Sed feugiat efficitur mauris ut facilisis. Nullam nisl tellus, ornare sit amet feugiat vel, blandit at est. In efficitur dolor sit amet urna interdum, sit amet vestibulum mauris efficitur. Nulla porttitor
-        felis velit, vel cursus nisl fermentum a. Etiam vitae risus eros.</p>
+    <!--END NAV-->
 
 
+    <!--CAROUSEL-->
+    <div class="container-fluid my-carousel" style="max-height: 500px;">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <a href="lego.html">
+                        <img class="d-block w-100" src="./images/legomasters_large_withlogo.png" alt="Lego Masters">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lego Masters</h5>
+                        <p>Lego Minifigs ordenen doe je hier!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <a href="#">
+                        <img class="d-block w-100" src="./images/fifa_large_withlogo.png" alt="FIFA">
+                    </a>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>FIFA</h5>
+                        <p>Zin in een potje virtuel voetballen? ⚽</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./images/lotr_large_withlogo.png" alt="LTotR">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>LotR</h5>
+                        <p>Word een echte tovenaar zoals Gandalf. 🧙‍♂</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="./images/fortnite_large_withlogo.png" alt="Fortnite">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Fortnite</h5>
+                        <p>Schieten en... bouwen? Yep, dat gebeurt hier. 🔫</p>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <!-- <span class="carousel-control-prev-icon" aria-hidden="true">--><img class="arrow-image" src="./images/pijltje_links.svg">
+                <!--</span>-->
+                <span class="sr-only">Vorige</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <!-- <span class="carousel-control-next-icon" aria-hidden="true">--><img class="arrow-image" src="./images/pijltje_rechts.svg"></img>
+                <!--</span>-->
+                <span class="sr-only">Volgende</span>
+
+            </a>
+        </div>
+    </div>
 </body>
 
 </html>
