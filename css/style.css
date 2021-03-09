@@ -75,10 +75,6 @@ nav {
     display: none;
 }
 
-.broodtekst {
-    font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .text-title {
     font-size: 2.25em !important;
     text-decoration: underline;
@@ -88,4 +84,46 @@ nav {
 .fillertext {
     font-size: 1em !important;
     text-align: justify;
+}
+
+@media (max-width: 1200px) {
+    .nav-item {
+        font-size: 1em;
+        text-decoration: none;
+    }
+    .text-title {
+        font-size: 1.15em !important;
+        text-decoration: underline;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.8em !important;
+        text-align: justify;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .text-title {
+        font-size: 0.8em !important;
+        text-decoration: underline;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.8em !important;
+        text-align: left;
+    }
+}
+
+@media (max-width: 400px) {
+    .text-title {
+        font-size: 1em !important;
+        text-decoration: underline;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.7em !important;
+        text-align: left;
+    }
+
 }
