@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-        /
     </style>
     <script src="./js/javascript.js" defer></script>
     <title>THR33BY Reisbureau</title>
@@ -18,100 +17,182 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </head>
 
-
 <body class="text-white bg-body">
     <!--NAV-->
-    <nav class="navbar navbar-expand-lg sticky-top" id="header">
-        <ul id="headermenu">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">THR33BY</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"></button>
-                <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <span class="navbar-text">
-                    <ul class="navbar-nav me-auto nav-fill mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="lego.html">Lego Masters</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">FIFA</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Fortnite</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Lord of The Rings</a>
-                        </li>
-                    </ul>
-                  </span>
-            </div>
-
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top d-flex justify-content-end" id="header">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+            <span class="navbar-toggler-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <a class="navbar-brand" href="#"><span class="navbar-text">THR33BY Reisbureau</span></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item m-3">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item m-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#legoMastersModal" href="lego.html">Lego Masters</a>
+                </li>
+                <li class="nav-item m-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">FIFA</a>
+                </li>
+                <li class="nav-item m-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">Lord of the Rings</a>
+                </li>
+                <li class="nav-item m-3">
+                    <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">Fortnite</a>
+                </li>
+            </ul>
+        </div>
     </nav>
-
     <!--END NAV-->
 
-
     <!--CAROUSEL-->
-    <div class="container-fluid my-carousel" style="max-height: 500px;">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="lego.html">
-                        <img class="d-block w-100" src="./images/legomasters_large_withlogo.png" alt="Lego Masters">
+    <div class="container-fluid my-carousel mb-5" style="max-height: 500px;">
+        <div class="row mb-5">
+            <div class="col-12">
+                <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="2"></li>
+                        <li data-target="#carouselIndicators" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="carousel-image">
+                                <img class="d-block w-100 img-fluid" data-toggle="modal" data-target="#legoMastersModal" src="./images/legomasters_large_withlogo.png" alt="Lego Masters">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Lego Masters</h5>
+                                    <p>Bob de Bouwer is niks vergeleken met jou.👷‍♂️</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-image">
+                                <a href="#">
+                                    <img class="d-block w-100 img-fluid" data-toggle="modal" data-target="#reisErrorModal" src="./images/fifa_large_withlogo.png" alt="FIFA">
+                                </a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>FIFA</h5>
+                                    <p>Zin in een potje virtueel voetballen? ⚽</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-image">
+                                <a href="#"><img class="d-block w-100 img-fluid" data-toggle="modal" data-target="#reisErrorModal" src="./images/lotr_large_withlogo.png" alt="LotR">
+                                </a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>LotR</h5>
+                                    <p>Word een echte tovenaar zoals Gandalf. 🧙‍♂</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="carousel-image">
+                                <a href="#"><img class="d-block w-100 img-fluid" data-toggle="modal" data-target="#reisErrorModal" src="./images/fortnite_large_withlogo.png" alt="Fortnite">
+                                </a>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Fortnite</h5>
+                                    <p>Schieten en... bouwen? Yep, dat gebeurt hier. 🔫</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+                        <img class="arrow-image img-fluid" src="./images/pijltje_links.svg">
+                        <span class="sr-only">Vorige</span>
                     </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Lego Masters</h5>
-                        <p>Lego Minifigs ordenen doe je hier!</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="#">
-                        <img class="d-block w-100" src="./images/fifa_large_withlogo.png" alt="FIFA">
+                    <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+                        <img class="arrow-image img-fluid" src="./images/pijltje_rechts.svg"></img>
+                        <span class="sr-only">Volgende</span>
                     </a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>FIFA</h5>
-                        <p>Zin in een potje virtuel voetballen? ⚽</p>
-                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="./images/lotr_large_withlogo.png" alt="LTotR">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>LotR</h5>
-                        <p>Word een echte tovenaar zoals Gandalf. 🧙‍♂</p>
-                    </div>
+            </div>
+        </div>
+        <!--END CAROUSEL-->
+
+        <!--TEKSTJE ONDER CAROUSEL-->
+        <div class="row mb-5">
+            <div class="col-1">
+                <p></p>
+            </div>
+
+            <div class="col-4">
+                <h2 class="text-title">Reizen met THR33BY</h2>
+                <p class="fillertext">We bieden je verscheidene themareizen aan in onze virtuele reiscatalogus. Kies uit bouwen in Fortnite, online voetballen, je innerlijke Bob de Bouwer ontgrendelen in Lego Masters of word een echte elf of tovenaar in Lord of the Rings!</p>
+                <p class="fillertext" style="color:rgb(22, 22, 22)">You found an easter egg, A winner is you!</p>
+                <p class="fillertext">Maak je keuze door op een van de links in de navigatiebalk te klikken of klik op de afbeelding van de reis van je keuze.</p>
+            
+            </div>
+            <div class="col-2">
+                <p></p>
+            </div>
+
+            <div class="col-4">
+                <h2 class="text-title">About us</h2>
+                <p class="fillertext"><b>Team THR33BY</b> bestaat uit drie leden: <b>Jenny Michielsen</b>, <b>Maurits De Muer</b> en <b>Yoram Lenaers</b>. Als studenten op AP hogeschool vormen ze een klein pseudogezinnetje met Maurits als het zoontje.
+                    <p class="fillertext" style="color:rgb(22, 22, 22)">You found a second easter egg, A winner is you!</p>
+                    <p class="fillertext">Hierdoor is hun samenwerking optimaal en wordt er dus veel werk op korte tijd verzet. Hieronder ziet u een groepsfoto van deze drie wonderbaarlijke mensen!</p>
+            </div>
+
+            <div class="col-1">
+                <p></p>
+            </div>
+
+        </div>
+        <div class="row mb-5 align-items-center">
+            <!-- <div class="col d-flex justify-content-center">
+                <img class="img fluid" id="stooges" src="./images/three_stooges.jpg">
+            </div>-->
+        </div>
+    </div>
+    <!--END TEKSTJE ONDER CAROUSEL-->
+
+    <!--MODAL-->
+    <div class="modal fade" id="reisErrorModal" tabindex="-1" role="dialog" aria-labelledby="reisErrorModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: black" id="reisErrorModalHeader">Fout opgetreden!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
+            <span aria-hidden="true">&times;</span>
+          </button>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="./images/fortnite_large_withlogo.png" alt="Fortnite">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Fortnite</h5>
-                        <p>Schieten en... bouwen? Yep, dat gebeurt hier. 🔫</p>
+                <div class="modal-body" style="color:black">
+                    U kan niet reizen naar dit thema.<br> <b>Reden:</b> Niet ingeschreven.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Ander thema kiezen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END MODAL-->
+
+    <!--LEGOMASTERS MODAL-->
+    <div class="modal fade" id="legoMastersModal" tabindex="-1" role="dialog" aria-labelledby="legoMastersCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" style="color: black" id="legoMastersModalHeader">Kies je dienst</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                        </div>
+                        <div class="modal-body" style="color:black">
+                            Wat wens je te doen binnenin Lego Masters?<br><br>
+                            <a href="lego.html" class="btn btn-outline-dark" role="button">Lego Minifigs ordenen</a>
+                            <button type="button" class="btn btn-outline-dark">Fake optie 1</button>
+                            <button type="button" class="btn btn-outline-dark">Fake optie 2</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Reis annuleren</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <!-- <span class="carousel-control-prev-icon" aria-hidden="true">--><img class="arrow-image" src="./images/pijltje_links.svg">
-                <!--</span>-->
-                <span class="sr-only">Vorige</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <!-- <span class="carousel-control-next-icon" aria-hidden="true">--><img class="arrow-image" src="./images/pijltje_rechts.svg"></img>
-                <!--</span>-->
-                <span class="sr-only">Volgende</span>
-
-            </a>
-        </div>
-    </div>
+    <!--END LEGOMASTERS MODAL-->
 </body>
 
 </html>

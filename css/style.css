@@ -1,77 +1,91 @@
-body {
-  grid-template-areas: "header, header, header" "body, body, body" "carousel, carousel, carousel";
-  display: grid;
-}
-
 .bg-body {
-  background-color: rgb(22, 22, 22);
-  font-family: "PT Sans", sans-serif;
+    background-color: rgb(22, 22, 22);
+    font-family: "PT Sans", sans-serif !important;
 }
 
-/*img {
-    max-width: 30%;
-}*/
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic-webfont.eot');
+    src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'), url('Roboto-ThinItalic-webfont.woff') format('woff'), url('Roboto-ThinItalic-webfont.ttf') format('truetype'), url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+    (under the Apache Software License). font-weight: 200;
+    font-style: italic;
+}
 
 nav {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  background-color: black;
-  grid-area: "header";
-  height: 160%;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    background-color: black;
+    grid-area: "header";
+    height: 160%;
 }
 
 .nav-item {
-  font-size: 2em;
-  text-decoration: none;
+    font-size: 2em;
+    text-decoration: none;
 }
 
 .nav-link {
-  color: white;
+    color: white;
 }
 
+.navbar-nav:hover,
 .nav-link:hover,
-.navbar-brand:hover {
-  color: #d01012;
+.navbar-brand:hover,
+.navbar-dark:hover {
+    color: #d01012 !important;
 }
 
 .nav-item:hover {
-  border-bottom: 5px solid yellow;
+    border-bottom: 5px solid yellow;
 }
 
 .navbar-brand {
-  color: white;
+    color: white;
 }
 
-.my-carousel {
-  margin: 0 auto;
+.my-carousel,
+.container-fluid {
+    margin: 0 auto;
+    max-width: 80%;
 }
 
 .carousel-caption {
-  position: relative;
-  margin-bottom: 100px;
-  background-color: rgba(218, 214, 214, 0.2);
-  font-size: 2em;
-  font-weight: bold;
-  align-self: center;
-  z-index: 10;
-  padding: 3%;
+    position: relative;
+    margin-bottom: 100px;
+    background-color: rgba(218, 214, 214, 0.2);
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    z-index: 10;
+    padding: 3%;
 }
 
-.carousel-caption > h5 {
-  font-size: 2.75em;
-  align-self: center;
+.carousel-caption>h5 {
+    font-size: 2.75em;
+    align-self: center;
 }
 
 .arrow-image {
-  height: 35%;
-  width: 35%;
+    height: 35%;
+    width: 35%;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  display: none;
+    display: none;
 }
 
-.my-carousel {
-  grid-area: "carousel";
+.broodtekst {
+    font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.text-title {
+    font-size: 2.25em !important;
+    text-decoration: underline;
+    margin-bottom: 10pt;
+}
+
+.fillertext {
+    font-size: 1em !important;
+    text-align: justify;
 }
