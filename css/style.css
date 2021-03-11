@@ -22,6 +22,7 @@ nav {
 .nav-item {
     font-size: 2em;
     text-decoration: none;
+    color: white;
 }
 
 .nav-link {
@@ -32,15 +33,19 @@ nav {
 .nav-link:hover,
 .navbar-brand:hover,
 .navbar-dark:hover {
-    color: #d01012 !important;
+    color: rgb(146, 98, 201) !important;
 }
 
-.nav-item:hover {
-    border-bottom: 5px solid yellow;
+.navbar-text {
+    color: rgb(146, 98, 201) !important;
+    font-weight: bold;
+    font-size: 2em;
 }
 
-.navbar-brand {
-    color: white;
+.welkom-text {
+    max-width: 75%;
+    margin-top: 3%;
+    margin-left: 11%;
 }
 
 .my-carousel,
@@ -51,7 +56,7 @@ nav {
 
 .carousel-caption {
     position: relative;
-    margin-bottom: 100px;
+    margin-bottom: 40px;
     background-color: rgba(218, 214, 214, 0.2);
     font-size: 2em;
     font-weight: bold;
@@ -75,17 +80,69 @@ nav {
     display: none;
 }
 
-.broodtekst {
-    font-family: "Roboto", Verdana, Geneva, Tahoma, sans-serif;
-}
-
 .text-title {
     font-size: 2.25em !important;
-    text-decoration: underline;
+    font-weight: bold;
     margin-bottom: 10pt;
 }
 
 .fillertext {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
     text-align: justify;
+    padding-bottom: 10%;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.clicked {
+    color: rgb(105, 71, 145) !important;
+    border-bottom: 0.095em solid rgb(146, 98, 201);
+}
+
+@media (max-width: 1200px) {
+    .navbar-text {
+        font-size: 1.8em;
+    }
+    .nav-item {
+        font-size: 1em;
+        text-decoration: none;
+    }
+    .text-title {
+        font-size: 1.4em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.8em !important;
+        text-align: justify;
+    }
+}
+
+@media (max-width: 800px) {
+    .navbar-text {
+        font-size: 1.4em;
+    }
+    .text-title {
+        font-size: 1.3em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.8em !important;
+        text-align: left;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar-text {
+        font-size: 1.2em;
+    }
+    .text-title {
+        font-size: 1em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.7em !important;
+        text-align: left;
+    }
 }
