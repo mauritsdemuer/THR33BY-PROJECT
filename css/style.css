@@ -33,19 +33,21 @@ nav {
 .nav-link:hover,
 .navbar-brand:hover,
 .navbar-dark:hover {
-    color: rgb(146, 98, 201) !important;
+    color: #d01012 !important;
 }
 
-.navbar-text {
-    color: rgb(146, 98, 201) !important;
-    font-weight: bold;
-    font-size: 2em;
+.nav-item:hover {
+    border-bottom: 5px solid yellow;
+}
+
+.navbar-brand {
+    color: white;
 }
 
 .welkom-text {
-    max-width: 75%;
-    margin-top: 3%;
-    margin-left: 11%;
+  max-width: 75%;
+  margin-top: 3%;
+  margin-left: 11%;
 }
 
 .my-carousel,
@@ -87,24 +89,12 @@ nav {
 }
 
 .fillertext {
-    font-size: 1.5em !important;
+    font-size: 1em !important;
     text-align: justify;
     padding-bottom: 10%;
 }
 
-.nav-link {
-    color: white !important;
-}
-
-.clicked {
-    color: rgb(105, 71, 145) !important;
-    border-bottom: 0.095em solid rgb(146, 98, 201);
-}
-
 @media (max-width: 1200px) {
-    .navbar-text {
-        font-size: 1.8em;
-    }
     .nav-item {
         font-size: 1em;
         text-decoration: none;
@@ -120,9 +110,6 @@ nav {
 }
 
 @media (max-width: 800px) {
-    .navbar-text {
-        font-size: 1.4em;
-    }
     .text-title {
         font-size: 1.3em !important;
         margin-bottom: 10pt;
@@ -134,9 +121,6 @@ nav {
 }
 
 @media (max-width: 400px) {
-    .navbar-text {
-        font-size: 1.2em;
-    }
     .text-title {
         font-size: 1em !important;
         margin-bottom: 10pt;
@@ -145,4 +129,5 @@ nav {
         font-size: 0.7em !important;
         text-align: left;
     }
+
 }
