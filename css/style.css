@@ -1,3 +1,5 @@
+/*GENERAL*/
+
 .bg-body {
     background-color: rgb(22, 22, 22);
     font-family: "PT Sans", sans-serif !important;
@@ -26,28 +28,34 @@ nav {
 }
 
 .nav-link {
-    color: white;
+    color: white !important;
+}
+
+.clicked {
+    color: rgb(105, 71, 145) !important;
+    border-bottom: 0.095em solid rgb(146, 98, 201);
 }
 
 .navbar-nav:hover,
 .nav-link:hover,
 .navbar-brand:hover,
 .navbar-dark:hover {
-    color: #d01012 !important;
+    color: rgb(146, 98, 201) !important;
 }
 
-.nav-item:hover {
-    border-bottom: 5px solid yellow;
+.navbar-text {
+    color: rgb(146, 98, 201) !important;
+    font-weight: bold;
+    font-size: 2em;
 }
 
-.navbar-brand {
-    color: white;
-}
+
+/*HOME PAGE*/
 
 .welkom-text {
-  max-width: 75%;
-  margin-top: 3%;
-  margin-left: 11%;
+    max-width: 75%;
+    margin-top: 3%;
+    margin-left: 11%;
 }
 
 .my-carousel,
@@ -89,12 +97,21 @@ nav {
 }
 
 .fillertext {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
     text-align: justify;
     padding-bottom: 10%;
 }
 
+
+/*LEGO PAGE*/
+
+
+/*MEDIA QUERIES*/
+
 @media (max-width: 1200px) {
+    .navbar-text {
+        font-size: 1.8em;
+    }
     .nav-item {
         font-size: 1em;
         text-decoration: none;
@@ -110,6 +127,9 @@ nav {
 }
 
 @media (max-width: 800px) {
+    .navbar-text {
+        font-size: 1.4em;
+    }
     .text-title {
         font-size: 1.3em !important;
         margin-bottom: 10pt;
@@ -121,6 +141,9 @@ nav {
 }
 
 @media (max-width: 400px) {
+    .navbar-text {
+        font-size: 1.2em;
+    }
     .text-title {
         font-size: 1em !important;
         margin-bottom: 10pt;
@@ -129,5 +152,4 @@ nav {
         font-size: 0.7em !important;
         text-align: left;
     }
-
 }
