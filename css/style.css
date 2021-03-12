@@ -22,7 +22,7 @@ nav {
 }
 
 .nav-item {
-    font-size: 2em;
+    font-size: 2.5em !important;
     text-decoration: none;
     color: white;
 }
@@ -46,7 +46,8 @@ nav {
 .navbar-text {
     color: rgb(146, 98, 201) !important;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 2.8em;
+    padding: 2%;
 }
 
 
@@ -91,13 +92,13 @@ nav {
 }
 
 .text-title {
-    font-size: 2.25em !important;
+    font-size: 2.6em !important;
     font-weight: bold;
     margin-bottom: 10pt;
 }
 
 .fillertext {
-    font-size: 1.5em !important;
+    font-size: 2em !important;
     text-align: justify;
     padding-bottom: 10%;
 }
@@ -108,28 +109,36 @@ nav {
 
 /*MEDIA QUERIES*/
 
-@media (max-width: 1200px) {
+@media (max-width: 1800px) {
     .navbar-text {
-        font-size: 1.8em;
+        font-size: 1.6em !important;
     }
+
     .nav-item {
-        font-size: 1em;
+        font-size: 1.3em !important;
         text-decoration: none;
     }
+
     .text-title {
-        font-size: 1.4em !important;
+        font-size: 1.3em !important;
         margin-bottom: 10pt;
     }
+
     .fillertext {
-        font-size: 0.8em !important;
+        font-size: 1em !important;
         text-align: justify;
     }
 }
 
 @media (max-width: 800px) {
     .navbar-text {
-        font-size: 1.4em;
+        font-size: 1.1em !important;
     }
+
+    .nav-item {
+        font-size: 1em !important;
+    }
+
     .text-title {
         font-size: 1.3em !important;
         margin-bottom: 10pt;
@@ -144,10 +153,12 @@ nav {
     .navbar-text {
         font-size: 1.2em;
     }
+
     .text-title {
         font-size: 1em !important;
         margin-bottom: 10pt;
     }
+
     .fillertext {
         font-size: 0.7em !important;
         text-align: left;
