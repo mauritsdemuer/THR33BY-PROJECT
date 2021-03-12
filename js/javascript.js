@@ -13,14 +13,21 @@ function getDataFromForm(form, data) {
   return chosenData;
 }
 
-// sorting button
+// start sorting button
 let startSortButton = document.getElementById("startSorting");
 let counter = 0;
 startSortButton.addEventListener("click", function () {
   counter = getDataFromForm("sortForm", "sortButton");
   if (isNaN(counter)) {
-    alert("Dit is geen geldige waaride. Probeer opnieuw!");
+    alert("Dit is geen geldige waarde. Probeer opnieuw!");
   } else {
     showText(counter, "counter");
   }
+});
+
+// sort set button
+let sortSetButton = document.getElementById("sortSet");
+sortSetButton.addEventListener("click", function () {
+  counter--;
+  showText(counter, "counter");
 });
