@@ -74,7 +74,7 @@
       </div>
       <div class="row m-5">
         <div class="col-lg-4 col-sm-12">
-          <form>
+          <form id="sortForm">
             <div class="form-group">
               <label for="formGroupExampleInput"
                 >Hoeveel minifigs wil je ordenen?</label
@@ -83,9 +83,10 @@
                 type="text"
                 class="form-control mt-2"
                 id="formGroupExampleInput"
+                name="sortButton"
                 placeholder="Geef hier het aantal minifigs in"
               />
-              <button type="button" class="btn btn-light mt-2">
+              <button type="button" class="btn btn-light mt-2" id="startSorting">
                 Aantal bevestigen
               </button>
             </div>
