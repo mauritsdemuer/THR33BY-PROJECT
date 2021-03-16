@@ -1,165 +1,161 @@
 /*GENERAL*/
 
 .bg-body {
-  background-color: rgb(22, 22, 22);
-  font-family: "PT Sans", sans-serif !important;
-}
-
-@font-face {
-  font-family: "Roboto", italic;
-  src: url("Roboto-ThinItalic-webfont.eot");
-  src: url("Roboto-ThinItalic-webfont.eot?#iefix") format("embedded-opentype"),
-    url("Roboto-ThinItalic-webfont.woff") format("woff"),
-    url("Roboto-ThinItalic-webfont.ttf") format("truetype"),
-    url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
-  font-weight: 200;
-}
-
-nav {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  background-color: black;
-  grid-area: "header";
-  height: 160%;
-}
-
-.nav-item {
-  font-size: 2.5em !important;
-  text-decoration: none;
-  color: white;
-}
-
-.nav-link {
-  color: white !important;
-}
-
-.clicked {
-  color: rgb(105, 71, 145) !important;
-  border-bottom: 0.095em solid rgb(146, 98, 201);
-}
-
-.navbar-nav:hover,
-.nav-link:hover,
-.navbar-brand:hover,
-.navbar-dark:hover {
-  color: rgb(146, 98, 201) !important;
-}
-
-.navbar-text {
-  color: rgb(146, 98, 201) !important;
-  font-weight: bold;
-  font-size: 2.8em;
-  padding: 2%;
-}
-
-/*HOME PAGE*/
-
-.welkom-text {
-  max-width: 75%;
-  margin-top: 3%;
-  margin-left: 11%;
-}
-
-.my-carousel,
-.container-fluid {
-  margin: 0 auto;
-  max-width: 80%;
-}
-
-.carousel-caption {
-  position: relative;
-  margin-bottom: 40px;
-  background-color: rgba(218, 214, 214, 0.2);
-  font-size: 2em;
-  font-weight: bold;
-  align-self: center;
-  z-index: 10;
-  padding: 3%;
-}
-
-.carousel-caption > h5 {
-  font-size: 2.75em;
-  align-self: center;
-}
-
-.arrow-image {
-  height: 35%;
-  width: 35%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  display: none;
-}
-
-.text-title {
-  font-size: 2.6em !important;
-  font-weight: bold;
-  margin-bottom: 10pt;
-}
-
-.fillertext {
-  font-size: 2em !important;
-  text-align: justify;
-  padding-bottom: 10%;
-}
-
-/*LEGO PAGE*/
-
-/*MEDIA QUERIES*/
-
-@media (max-width: 1800px) {
-  .navbar-text {
-    font-size: 1.6em !important;
+    background-color: rgb(22, 22, 22);
+    font-family: "PT Sans", sans-serif !important;
   }
-
+  
+  @font-face {
+    font-family: "Roboto", italic;
+    src: url("Roboto-ThinItalic-webfont.eot");
+    src: url("Roboto-ThinItalic-webfont.eot?#iefix") format("embedded-opentype"),
+      url("Roboto-ThinItalic-webfont.woff") format("woff"),
+      url("Roboto-ThinItalic-webfont.ttf") format("truetype"),
+      url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
+    font-weight: 200;
+  }
+  
+  nav {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    background-color: black;
+    grid-area: "header";
+    height: 160%;
+  }
+  
   .nav-item {
-    font-size: 1.3em !important;
+    font-size: 2em !important;
     text-decoration: none;
+    color: white;
   }
-
+  
+  .nav-link {
+    color: white !important;
+  }
+  
+  .clicked {
+    color: rgb(105, 71, 145) !important;
+    border-bottom: 0.095em solid rgb(146, 98, 201);
+  }
+  
+  .navbar-nav:hover,
+  .nav-link:hover,
+  .navbar-brand:hover,
+  .navbar-dark:hover {
+    color: rgb(146, 98, 201) !important;
+  }
+  
+  .navbar-text {
+    color: rgb(146, 98, 201) !important;
+    font-weight: bold;
+    font-size: 2.25em;
+    padding: 2%;
+  }
+  
+  /*HOME PAGE*/
+  
+  .welkom-text {
+    max-width: 75%;
+    margin-top: 3%;
+    margin-left: 11%;
+  }
+  
+  .my-carousel,
+  .container-fluid {
+    margin: 0 auto;
+    max-width: 80%;
+  }
+  
+  .carousel-caption {
+    position: relative;
+    margin-bottom: 40px;
+    background-color: rgba(218, 214, 214, 0.2);
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    z-index: 10;
+    padding: 3%;
+  }
+   
+  .arrow-image {
+    height: 35%;
+    width: 35%;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    display: none;
+  }
+  
   .text-title {
-    font-size: 1.3em !important;
+    font-size: 2em !important;
+    font-weight: bold;
     margin-bottom: 10pt;
   }
-
+  
   .fillertext {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
     text-align: justify;
+    padding-bottom: 10%;
   }
-}
-
-@media (max-width: 800px) {
-  .navbar-text {
-    font-size: 1.1em !important;
+  
+  /*LEGO PAGE*/
+  
+  /*MEDIA QUERIES*/
+  
+  @media (max-width: 1800px) {
+    .navbar-text {
+      font-size: 1.6em !important;
+    }
+  
+    .nav-item {
+      font-size: 1.3em !important;
+      text-decoration: none;
+    }
+  
+    .text-title {
+      font-size: 1.3em !important;
+      margin-bottom: 10pt;
+    }
+  
+    .fillertext {
+      font-size: 1em !important;
+      text-align: justify;
+    }
   }
-
-  .nav-item {
-    font-size: 1em !important;
+  
+  @media (max-width: 800px) {
+    .navbar-text {
+      font-size: 1.1em !important;
+    }
+  
+    .nav-item {
+      font-size: 1em !important;
+    }
+  
+    .text-title {
+      font-size: 1.3em !important;
+      margin-bottom: 10pt;
+    }
+    .fillertext {
+      font-size: 0.8em !important;
+      text-align: left;
+    }
   }
-
-  .text-title {
-    font-size: 1.3em !important;
-    margin-bottom: 10pt;
+  
+  @media (max-width: 400px) {
+    .navbar-text {
+      font-size: 1.2em;
+    }
+  
+    .text-title {
+      font-size: 1em !important;
+      margin-bottom: 10pt;
+    }
+  
+    .fillertext {
+      font-size: 0.7em !important;
+      text-align: left;
+    }
   }
-  .fillertext {
-    font-size: 0.8em !important;
-    text-align: left;
-  }
-}
-
-@media (max-width: 400px) {
-  .navbar-text {
-    font-size: 1.2em;
-  }
-
-  .text-title {
-    font-size: 1em !important;
-    margin-bottom: 10pt;
-  }
-
-  .fillertext {
-    font-size: 0.7em !important;
-    text-align: left;
-  }
-}
+  
