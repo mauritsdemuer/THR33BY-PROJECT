@@ -2,7 +2,7 @@
 const minifiglocations = ["./images/minifigs/brick_suit.jpg", "./images/minifigs/burninate.jpg", "./images/mninifigs/female_programmer.jpg", "./images/minifigs/lift_bro.jpg"];
 const setlocations = ["./images/legosets/creator_set.jpg", "./images/legosets/fishing_store_set.jpg", "./images/legosets/friends_set.jpeg", "./images/legosets/ideas_set.jpg"];
 let showText = function (text, id) {
-  let changeText = document.getElementById(id);
+let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
 };
@@ -19,7 +19,7 @@ function getDataFromForm(form, data) {
 let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
-startSortButton.addEventListener("click", function () {
+  startSortButton.addEventListener("click", function () {
   counterDown = getDataFromForm("sortForm", "sortButton");
   if (isNaN(counterDown) || counterDown === "") {
     alert("Dit is geen geldige waarde. Probeer opnieuw!");
@@ -53,6 +53,20 @@ sortSetButton.addEventListener("click", function () {
     alert("U bent klaar met sorteren!");
     location.reload();
   } else {
+    let random =  Math.floor(Math.random(0*minifiglocations.length));
+    let minifigImage = document.getElementById("minifigImage");
+    minifigImage.src = minifiglocations[random];
+    minifiglocations.splice(minifiglocations[random]);
+    random =  Math.floor(Math.random(0*setlocations.length));
+    let random2 =  Math.floor(Math.random(0*setlocations.length));
+    if(random2 === random){
+      random2++;
+    }
+    let setImage1 = document.getElementById("setImage1");
+    let setImage2 = document.getElementById("setImage2");
+    setImage1.src = setlocations[random];
+    setImage2.src = setlocations[random2];
+    
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
   }
