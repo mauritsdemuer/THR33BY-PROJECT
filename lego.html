@@ -1,37 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./css/style.css" />
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
     </style>
     <script src="./js/javascript.js" defer></script>
     <title>THR33BY Reisbureau</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body class="text-white bg-body">
+  <body class="text-white bg-body">
     <!--nav-->
-    <nav class="navbar navbar-dark navbar-expand-lg sticky-top d-flex justify-content-end" id="header">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+    <nav
+      class="navbar navbar-dark navbar-expand-lg sticky-top d-flex justify-content-end"
+      id="header"
+    >
+      <button
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#collapse_target"
+      >
         <span class="navbar-toggler-icon"> </span>
       </button>
-        <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand" href="#"><span class="navbar-text text-uppercase">thr33by reisbureau</span></a
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <a class="navbar-brand" href="#"
+          ><span class="navbar-text text-uppercase">thr33by reisbureau</span></a
         >
         <ul class="navbar-nav ml-auto">
           <li class="nav-item m-3">
             <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item m-3">
-                <a class="nav-link active clicked" data-toggle="modal" data-target="#legoMastersModal" href="lego.html">Lego Masters</a
+          </li>
+          <li class="nav-item m-3">
+            <a
+              class="nav-link active clicked"
+              data-toggle="modal"
+              data-target="#legoMastersModal"
+              href="lego.html"
+              >Lego Masters</a
             >
           </li>
           <li class="nav-item m-3">
@@ -86,7 +118,11 @@
                 name="sortButton"
                 placeholder="Geef hier het aantal minifigs in"
               />
-              <button type="button" class="btn btn-light mt-2" id="startSorting">
+              <button
+                type="button"
+                class="btn btn-light mt-2"
+                id="startSorting"
+              >
                 Aantal bevestigen
               </button>
             </div>
@@ -95,7 +131,7 @@
             <strong>Aantal minifigs nog te ordenen:</strong>
             <p id="counterDown">Arbitrair getalletje</p>
             <strong>Aantal minifigs al geordend:</strong>
-            <p id="counterUp"> Arbitrair getalletje 2</p>
+            <p id="counterUp">Arbitrair getalletje 2</p>
           </div>
           <img
             class="img-fluid"
@@ -139,6 +175,15 @@
           <button type="button" id="sortSet" class="btn btn-light mt-2 visible">
             Set bevestigen
           </button>
+          <button
+            type="button"
+            id="stopSort"
+            class="btn btn-light mt-2 visible d-none"
+            data-toggle="modal"
+            data-target="#stopSortModal"
+          >
+            Stoppen met ordenen
+          </button>
         </div>
       </div>
     </div>
@@ -151,6 +196,7 @@
       aria-labelledby="reisErrorModalCenterTitle"
       aria-hidden="true"
     >
+      <!--REIS ERROR MODAL-->
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -182,4 +228,54 @@
         </div>
       </div>
     </div>
+    <!--END REIS ERROR MODAL-->
+
+    <!--STOP SORTING CONFIRMATION MODAL-->
+    <div
+      class="modal fade"
+      id="stopSortModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="stopSortingModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title"
+              style="color: black"
+              id="stopSortingModalHeader"
+            >
+              Stoppen met ordenen.
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body" style="color: black">
+            Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark"
+              onclick="window.location.reload();"
+            >
+              Ja
+            </button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal">
+              Nee
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END STOP SORTING CONFIRMATION MODAL-->
+  </body>
 </html>
