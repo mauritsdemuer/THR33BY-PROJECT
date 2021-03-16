@@ -1,4 +1,6 @@
 // place text in html elements
+
+
 let showText = function(text, id) {
     let changeText = document.getElementById(id);
     changeText.textContent = text;
@@ -24,6 +26,8 @@ startSortButton.addEventListener("click", function() {
     } else {
         showText(counterDown, "counterDown");
         showText(counterUp, "counterUp");
+        $("#sortForm").addClass("d-none");
+    
     }
 });
 
@@ -32,10 +36,14 @@ let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", function() {
     counterDown--;
     counterUp++;
-    if (counterDown < 0) { alert("U bent klaar met sorteren!") } else {
+    if (counterDown < 0) { 
+        alert("U bent klaar met sorteren!");
+        location.reload(); } else {
 
         showText(counterDown, "counterDown");
         showText(counterUp, "counterUp");
+        
     }
 
 });
+
