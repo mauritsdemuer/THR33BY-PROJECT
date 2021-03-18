@@ -7,6 +7,11 @@ let showText = function (text, id) {
   return;
 };
 
+// random function
+const randomizeArray = (array) => {
+  return Math.floor(Math.random() * array.length);
+}
+
 // get data from form
 function getDataFromForm(form, data) {
   let chosenForm = document.getElementById(form);
@@ -26,13 +31,13 @@ startSortButton.addEventListener("click", function () {
   } else {
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    let random =  Math.floor(Math.random()*minifiglocations.length);
+    let random = randomizeArray(minifiglocations);
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = minifiglocations[random];
     minifiglocations.splice(minifiglocations[random]);
-    random =  Math.floor(Math.random()*setlocations.length);
-    let random2 =  Math.floor(Math.random()*setlocations.length);
-    if(random2 === random){
+    random = randomizeArray(setlocations);
+    let random2 = randomizeArray(setlocations);
+    if (random2 === random) {
       random2++;
     }
     let setImage1 = document.getElementById("setImage1");
@@ -55,13 +60,13 @@ sortSetButton.addEventListener("click", function () {
   } else {
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    let random =  Math.floor(Math.random()*minifiglocations.length);
+    let random =randomizeArray(minifiglocations);
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = minifiglocations[random];
     minifiglocations.splice(minifiglocations[random]);
-    random =  Math.floor(Math.random()*setlocations.length);
-    let random2 =  Math.floor(Math.random()*setlocations.length);
-    if(random2 === random){
+    random =randomizeArray(setlocations);
+    let random2 = randomizeArray(setlocations);
+    if (random2 === random) {
       random2++;
     }
     let setImage1 = document.getElementById("setImage1");
