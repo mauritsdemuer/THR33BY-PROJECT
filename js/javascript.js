@@ -1,6 +1,16 @@
 // place text in html elements
-const minifiglocations = ["./images/minifigs/brick_suit.jpg", "./images/minifigs/burninate.jpg", "./images/mninifigs/female_programmer.jpg", "./images/minifigs/lift_bro.jpg"];
-const setlocations = ["./images/legosets/creator_set.jpg", "./images/legosets/fishing_store_set.jpg", "./images/legosets/friends_set.jpeg", "./images/legosets/ideas_set.jpg"];
+const minifiglocations = [
+  "./images/minifigs/brick_suit.jpg",
+  "./images/minifigs/burninate.jpg",
+  "./images/mninifigs/female_programmer.jpg",
+  "./images/minifigs/lift_bro.jpg",
+];
+const setlocations = [
+  "./images/legosets/creator_set.jpg",
+  "./images/legosets/fishing_store_set.jpg",
+  "./images/legosets/friends_set.jpeg",
+  "./images/legosets/ideas_set.jpg",
+];
 let showText = function (text, id) {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
@@ -10,7 +20,7 @@ let showText = function (text, id) {
 // random function
 const randomizeArray = (array) => {
   return Math.floor(Math.random() * array.length);
-}
+};
 
 // get data from form
 function getDataFromForm(form, data) {
@@ -54,17 +64,17 @@ let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", function () {
   counterDown--;
   counterUp++;
-  if (counterDown < 0) {
+  showText(counterDown, "counterDown");
+  showText(counterUp, "counterUp");
+  if (counterDown === 0) {
     alert("U bent klaar met sorteren!");
     location.reload();
   } else {
-    showText(counterDown, "counterDown");
-    showText(counterUp, "counterUp");
-    let random =randomizeArray(minifiglocations);
+    let random = randomizeArray(minifiglocations);
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = minifiglocations[random];
     minifiglocations.splice(minifiglocations[random]);
-    random =randomizeArray(setlocations);
+    random = randomizeArray(setlocations);
     let random2 = randomizeArray(setlocations);
     if (random2 === random) {
       random2++;
