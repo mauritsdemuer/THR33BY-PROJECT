@@ -1,3 +1,32 @@
+// minifig Inline
+let inline1 = document.getElementById("inline1");
+
+inline1.addEventListener("click", function () {
+  let minifigImage = document.getElementById("minifigImage");
+  minifigImage.src = "./images/minifigs/brick_suit.jpg";
+});
+
+let inline2 = document.getElementById("inline2");
+
+inline2.addEventListener("click", function () {
+  let minifigImage = document.getElementById("minifigImage");
+  minifigImage.src = "./images/minifigs/burninate.jpg";
+});
+
+let inline3 = document.getElementById("inline3");
+
+inline3.addEventListener("click", function () {
+  let minifigImage = document.getElementById("minifigImage");
+  minifigImage.src = "./images/minifigs/female_programmer.jpg";
+});
+
+let inline4 = document.getElementById("inline4");
+
+inline4.addEventListener("click", function () {
+  let minifigImage = document.getElementById("minifigImage");
+  minifigImage.src = "./images/minifigs/lift_bro.jpg";
+});
+
 // place text in html elements
 const minifiglocations = [
   "./images/minifigs/brick_suit.jpg",
