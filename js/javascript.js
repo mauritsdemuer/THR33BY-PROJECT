@@ -31,7 +31,7 @@ inline4.addEventListener("click", function () {
 const minifiglocations = [
   "./images/minifigs/brick_suit.jpg",
   "./images/minifigs/burninate.jpg",
-  "./images/mninifigs/female_programmer.jpg",
+  "./images/minifigs/female_programmer.jpg",
   "./images/minifigs/lift_bro.jpg",
 ];
 
@@ -50,7 +50,7 @@ let showText = function (text, id) {
 
 // random function
 const randomizeArray = (array) => {
-  return Math.floor(Math.random() * array.length);
+  return minifiglocations.splice(Math.floor(Math.random() * array.length));
 };
 
 // get data from form
@@ -74,11 +74,12 @@ startSortButton.addEventListener("click", function () {
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
     let random = randomizeArray(minifiglocations);
+    console.log(random)
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = minifiglocations[random];
-    minifiglocations.splice(minifiglocations[random]);
-    random = randomizeArray(setlocations);
+    //random = randomizeArray(setlocations);
     let random2 = randomizeArray(setlocations);
+    console.log(random2)
     if (random2 === random) {
       random2++;
     }
@@ -106,11 +107,13 @@ sortSetButton.addEventListener("click", function () {
       location.reload();
     } else {
       let random = randomizeArray(minifiglocations);
+      console.log(random);
       let minifigImage = document.getElementById("minifigImage");
       minifigImage.src = minifiglocations[random];
       minifiglocations.splice(minifiglocations[random]);
       random = randomizeArray(setlocations);
       let random2 = randomizeArray(setlocations);
+      console.log(random2);
       if (random2 === random) {
         random2++;
       }
