@@ -98,6 +98,7 @@ startSortButton.addEventListener("click", function () {
     $("#sortForm").addClass("d-none");
     $("#stopSort").removeClass("d-none");
     $("#inlineSet").removeClass("d-none");
+    $("#setSelection").removeClass("d-none");
   }
 });
 
