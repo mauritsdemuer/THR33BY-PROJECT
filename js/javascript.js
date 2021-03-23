@@ -4,6 +4,11 @@ let inline1 = document.getElementById("inline1");
 inline1.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
   minifigImage.src = "./images/minifigs/brick_suit.jpg";
+  let setImage1 = document.getElementById("setImage1");
+  let setImage2 = document.getElementById("setImage2");
+  setImage1.src = randomizeArray(setlocations);
+  setImage2.src = randomizeArray(setlocations);
+
 });
 
 let inline2 = document.getElementById("inline2");
@@ -11,6 +16,11 @@ let inline2 = document.getElementById("inline2");
 inline2.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
   minifigImage.src = "./images/minifigs/burninate.jpg";
+  let setImage1 = document.getElementById("setImage1");
+  let setImage2 = document.getElementById("setImage2");
+  setImage1.src = randomizeArray(setlocations);
+  setImage2.src = randomizeArray(setlocations);
+
 });
 
 let inline3 = document.getElementById("inline3");
@@ -18,6 +28,9 @@ let inline3 = document.getElementById("inline3");
 inline3.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
   minifigImage.src = "./images/minifigs/female_programmer.jpg";
+  let setimage1= document.getElementById("setimage1")
+  setImage1.src=randomizeArray(setlocations);
+  setimage2.src=randomizeArray(setlocations);
 });
 
 let inline4 = document.getElementById("inline4");
@@ -25,6 +38,11 @@ let inline4 = document.getElementById("inline4");
 inline4.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
   minifigImage.src = "./images/minifigs/lift_bro.jpg";
+  let setImage1 = document.getElementById("setImage1");
+  let setImage2 = document.getElementById("setImage2");
+  setImage1.src = randomizeArray(setlocations);
+  setImage2.src = randomizeArray(setlocations);
+
 });
 
 // place text in html elements
@@ -50,7 +68,7 @@ let showText = function (text, id) {
 
 // random function
 const randomizeArray = (array) => {
-  return minifiglocations.splice(Math.floor(Math.random() * array.length));
+  return array[Math.floor(Math.random() * array.length)];
 };
 
 // get data from form
@@ -73,21 +91,13 @@ startSortButton.addEventListener("click", function () {
   } else {
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    let random = randomizeArray(minifiglocations);
-    console.log(random)
     let minifigImage = document.getElementById("minifigImage");
-    minifigImage.src = minifiglocations[random];
+    minifigImage.src = randomizeArray(minifiglocations);
     //random = randomizeArray(setlocations);
-    let random2 = randomizeArray(setlocations);
-    console.log(random2)
-    if (random2 === random) {
-      random2++;
-    }
-
     let setImage1 = document.getElementById("setImage1");
     let setImage2 = document.getElementById("setImage2");
-    setImage1.src = setlocations[random];
-    setImage2.src = setlocations[random2];
+    setImage1.src = randomizeArray(setlocations);
+    setImage2.src = randomizeArray(setlocations);
     $("#sortForm").addClass("d-none");
     $("#stopSort").removeClass("d-none");
     $("#inlineSet").removeClass("d-none");
@@ -109,18 +119,12 @@ sortSetButton.addEventListener("click", function () {
       let random = randomizeArray(minifiglocations);
       console.log(random);
       let minifigImage = document.getElementById("minifigImage");
-      minifigImage.src = minifiglocations[random];
-      minifiglocations.splice(minifiglocations[random]);
-      random = randomizeArray(setlocations);
-      let random2 = randomizeArray(setlocations);
-      console.log(random2);
-      if (random2 === random) {
-        random2++;
-      }
+      minifigImage.src = randomizeArray(minifiglocations);
+      //minifiglocations.splice(minifiglocations[random]);
       let setImage1 = document.getElementById("setImage1");
       let setImage2 = document.getElementById("setImage2");
-      setImage1.src = setlocations[random];
-      setImage2.src = setlocations[random2];
-    }
+      setImage1.src = randomizeArray(setlocations);
+      setImage2.src = randomizeArray(setlocations);
+      }
   }
 });
