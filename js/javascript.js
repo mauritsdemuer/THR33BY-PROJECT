@@ -3,54 +3,51 @@ let inline1 = document.getElementById("inline1");
 
 inline1.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/brick_suit.jpg";
+  minifigImage.src = "./images/minifigs/brick_suit.png";
   let setImage1 = document.getElementById("setImage1");
   let setImage2 = document.getElementById("setImage2");
   setImage1.src = randomizeArray(setlocations);
   setImage2.src = randomizeArray(setlocations);
-
 });
 
 let inline2 = document.getElementById("inline2");
 
 inline2.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/burninate.jpg";
+  minifigImage.src = "./images/minifigs/dragon_suit.png";
   let setImage1 = document.getElementById("setImage1");
   let setImage2 = document.getElementById("setImage2");
   setImage1.src = randomizeArray(setlocations);
   setImage2.src = randomizeArray(setlocations);
-
 });
 
 let inline3 = document.getElementById("inline3");
 
 inline3.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/female_programmer.jpg";
-  let setimage1= document.getElementById("setimage1")
-  setImage1.src=randomizeArray(setlocations);
-  setimage2.src=randomizeArray(setlocations);
+  minifigImage.src = "./images/minifigs/female_programmer.png";
+  let setimage1 = document.getElementById("setimage1");
+  setImage1.src = randomizeArray(setlocations);
+  setimage2.src = randomizeArray(setlocations);
 });
 
 let inline4 = document.getElementById("inline4");
 
 inline4.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/lift_bro.jpg";
+  minifigImage.src = "./images/minifigs/lift_bro.png";
   let setImage1 = document.getElementById("setImage1");
   let setImage2 = document.getElementById("setImage2");
   setImage1.src = randomizeArray(setlocations);
   setImage2.src = randomizeArray(setlocations);
-
 });
 
 // place text in html elements
 const minifiglocations = [
-  "./images/minifigs/brick_suit.jpg",
-  "./images/minifigs/burninate.jpg",
-  "./images/minifigs/female_programmer.jpg",
-  "./images/minifigs/lift_bro.jpg",
+  "./images/minifigs/brick_suit.png",
+  "./images/minifigs/dragon_suit.png",
+  "./images/minifigs/female_programmer.png",
+  "./images/minifigs/lift_bro.png",
 ];
 
 const setlocations = [
@@ -125,6 +122,6 @@ sortSetButton.addEventListener("click", function () {
       let setImage2 = document.getElementById("setImage2");
       setImage1.src = randomizeArray(setlocations);
       setImage2.src = randomizeArray(setlocations);
-      }
+    }
   }
 });
