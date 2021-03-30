@@ -1,4 +1,4 @@
-// minifig Inline
+// minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
 let inline1 = document.getElementById("inline1");
 
 inline1.addEventListener("click", function () {
@@ -42,7 +42,7 @@ inline4.addEventListener("click", function () {
   setImage2.src = randomizeArray(setlocations);
 });
 
-// place text in html elements
+// voorlopige minifiglocaties (pre API)
 const minifiglocations = [
   "./images/minifigs/brick_suit.png",
   "./images/minifigs/dragon_suit.png",
@@ -50,6 +50,7 @@ const minifiglocations = [
   "./images/minifigs/lift_bro.png",
 ];
 
+//voorlopige setlocaties (pre API)
 const setlocations = [
   "./images/legosets/creator_set.jpg",
   "./images/legosets/fishing_store_set.jpg",
@@ -57,45 +58,56 @@ const setlocations = [
   "./images/legosets/ideas_set.jpg",
 ];
 
-let showText = function (text, id) {
+//functie om tekst te vervangen
+let showText =  (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
 };
 
-// random function
+// random function met een array als input die dan meteen een object uit dat array teruggeeft
 const randomizeArray = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
 
-// get data from form
-function getDataFromForm(form, data) {
+// Functie om data van formulier op te halen
+const getDataFromForm = (form, data) => {
   let chosenForm = document.getElementById(form);
   let formData = new FormData(chosenForm);
   let chosenData = formData.get(data);
   return chosenData;
 }
 
-// start sorting button
+// initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden.
 let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
 
-startSortButton.addEventListener("click", function () {
+startSortButton.addEventListener("click",  () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
+  //check of de gebruiker een nummer ingeeft
   if (isNaN(counterDown) || counterDown === "") {
     alert("Dit is geen geldige waarde. Probeer opnieuw!");
-  } else {
+  } 
+  else {
+    //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
+
+    //minifig image wordt random ingeladen vanuit een array
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = randomizeArray(minifiglocations);
-    //random = randomizeArray(setlocations);
+
+    //geeft een random waarde aan de set images vanuit een array
     let setImage1 = document.getElementById("setImage1");
     let setImage2 = document.getElementById("setImage2");
     setImage1.src = randomizeArray(setlocations);
     setImage2.src = randomizeArray(setlocations);
-    $("#sortForm").addClass("d-none");
+
+    //verbergt het initiele sorteerformulier tot er gerefresht wordt
+    $("#sortForm").addClass("d-none"); 
+
+    //verwijdert de d-none class zodat de content zichtbaar wordt on click.
     $("#stopSort").removeClass("d-none");
     $("#inlineSet").removeClass("d-none");
     $("#setSelection").removeClass("d-none");
@@ -105,20 +117,22 @@ startSortButton.addEventListener("click", function () {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", function () {
-  if (counterDown != 0) {
+  //eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen.
+  if (counterDown !== 0) {
     counterDown--;
     counterUp++;
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
     if (counterDown === 0) {
+      //alert wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
       alert("U bent klaar met sorteren!");
       location.reload();
     } else {
-      let random = randomizeArray(minifiglocations);
-      console.log(random);
+      //bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
       let minifigImage = document.getElementById("minifigImage");
       minifigImage.src = randomizeArray(minifiglocations);
-      //minifiglocations.splice(minifiglocations[random]);
+
+      //setimage wordt voorlopig nog random geselecteerd
       let setImage1 = document.getElementById("setImage1");
       let setImage2 = document.getElementById("setImage2");
       setImage1.src = randomizeArray(setlocations);
