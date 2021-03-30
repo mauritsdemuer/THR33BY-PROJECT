@@ -112,26 +112,26 @@
         <div class="col-lg-4 col-sm-12">
           <form class="visible" id="sortForm">
             <div class="form-group" id="formToHideAfterClick">
-              <label for="formGroupExampleInput"
+              <label class="fillertext" for="formGroupExampleInput"
                 >Hoeveel minifigs wil je ordenen?</label
               >
               <input
                 type="text"
-                class="form-control mt-2"
+                class="form-control mt-2 fillertext"
                 id="formGroupExampleInput"
                 name="sortButton"
                 placeholder="Geef hier het aantal minifigs in"
               />
               <button
                 type="button"
-                class="btn btn-light mt-2"
+                class="btn btn-light mt-2 fillertext"
                 id="startSorting"
               >
                 Aantal bevestigen
               </button>
             </div>
           </form>
-          <div class="alert alert-info" role="alert">
+          <div class="alert alert-info fillertext" role="alert">
             <strong>Aantal minifigs nog te ordenen:</strong>
             <p id="counterDown">0</p>
             <strong>Aantal minifigs al geordend:</strong>
@@ -146,10 +146,10 @@
         </div>
         <div class="col-lg-2"></div>
         <div class="col-lg-6 col-md-12 d-none" id="setSelection">
-          <h3 class="visible">Naam van minifig</h3>
-          <h4 class="visible">Sets waar deze in voorkomt</h4>
+          <h3 class="visible fillertext">Naam van minifig</h3>
+          <h4 class="visible fillertext">Sets waar deze in voorkomt</h4>
 
-          <div class="custom-control custom-radio">
+          <div class="custom-control custom-radio fillertext">
             <input
               type="radio"
               id="customRadio1"
@@ -164,7 +164,7 @@
                 alt="placeholder"
             /></label>
           </div>
-          <div class="custom-control custom-radio visible">
+          <div class="custom-control custom-radio visible fillertext">
             <input
               type="radio"
               id="customRadio2"
@@ -179,13 +179,13 @@
                 alt="placeholder2"
             /></label>
           </div>
-          <button type="button" id="sortSet" class="btn btn-light mt-2 visible">
+          <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
             Set bevestigen
           </button>
           <button
             type="button"
             id="stopSort"
-            class="btn btn-light mt-2 visible d-none"
+            class="btn btn-light mt-2 visible d-none fillertext"
             data-toggle="modal"
             data-target="#stopSortModal"
           >
