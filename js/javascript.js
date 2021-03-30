@@ -123,11 +123,7 @@ sortSetButton.addEventListener("click", function () {
     counterUp++;
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    if (counterDown === 0) {
-      //alert wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
-      alert("U bent klaar met sorteren!");
-      location.reload();
-    } else {
+
       //bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
       let minifigImage = document.getElementById("minifigImage");
       minifigImage.src = randomizeArray(minifiglocations);
@@ -137,6 +133,11 @@ sortSetButton.addEventListener("click", function () {
       let setImage2 = document.getElementById("setImage2");
       setImage1.src = randomizeArray(setlocations);
       setImage2.src = randomizeArray(setlocations);
-    }
+    
   }
+  if (counterDown === 0) {
+    //alert wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
+    alert("U bent klaar met sorteren!");
+    location.reload();
+  } 
 });
