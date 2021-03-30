@@ -1,7 +1,7 @@
 /*GENERAL*/
 
 .bg-body {
-  background-color: rgb(22, 22, 22);
+  background-color: #2b2e35;
   font-family: "PT Sans", sans-serif !important;
 }
 
@@ -15,8 +15,8 @@
   font-weight: 200;
 }
 
-.logoplane {
-  width: 7%;
+.logonav {
+  width: 75%;
 }
 
 nav {
@@ -25,6 +25,10 @@ nav {
   background-color: black;
   grid-area: "header";
   height: 160%;
+}
+
+.navbar {
+  background-color: #141414;
 }
 
 .nav-item {
@@ -38,19 +42,19 @@ nav {
 }
 
 .clicked {
-  color: rgb(105, 71, 145) !important;
-  border-bottom: 0.095em solid rgb(146, 98, 201);
+  color: #e93582 !important;
+  border-bottom: 0.095em solid #e93582;
 }
 
 .navbar-nav:hover,
 .nav-link:hover,
 .navbar-brand:hover,
 .navbar-dark:hover {
-  color: rgb(146, 98, 201) !important;
+  color: #e93582 !important;
 }
 
 .navbar-text {
-  color: rgb(146, 98, 201) !important;
+  color: white !important;
   font-weight: bold;
   font-size: 2.25em;
   padding: 2%;
