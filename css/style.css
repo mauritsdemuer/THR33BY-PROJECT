@@ -99,12 +99,13 @@ nav {
   font-size: 2em !important;
   font-weight: bold;
   margin-bottom: 10pt;
+  color: #e93582 !important;
 }
 
 .fillertext {
   font-size: 1.5em !important;
   text-align: justify;
-  padding-bottom: 10%;
+  padding-bottom: 5%;
 }
 
 /*LEGO PAGE*/
