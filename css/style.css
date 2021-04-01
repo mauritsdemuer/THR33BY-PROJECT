@@ -1,243 +1,225 @@
 /*GENERAL*/
 
 body {
-  min-height: 100vh;
-  /* mobile viewport bug fix */
-  min-height: -webkit-fill-available;
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
 }
 
 .bg-body {
-  background-color: #2b2e35;
-  font-family: "PT Sans", sans-serif !important;
+    background-color: #2b2e35;
+    font-family: "PT Sans", sans-serif !important;
 }
 
 @font-face {
-  font-family: "Roboto", italic;
-  src: url("Roboto-ThinItalic-webfont.eot");
-  src: url("Roboto-ThinItalic-webfont.eot?#iefix") format("embedded-opentype"),
-    url("Roboto-ThinItalic-webfont.woff") format("woff"),
-    url("Roboto-ThinItalic-webfont.ttf") format("truetype"),
-    url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
-  font-weight: 200;
+    font-family: "Roboto", italic;
+    src: url("Roboto-ThinItalic-webfont.eot");
+    src: url("Roboto-ThinItalic-webfont.eot?#iefix") format("embedded-opentype"), url("Roboto-ThinItalic-webfont.woff") format("woff"), url("Roboto-ThinItalic-webfont.ttf") format("truetype"), url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
+    font-weight: 200;
 }
 
 .logonav {
-  width: 75%;
+    width: 75%;
 }
 
 nav {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  background-color: black;
-  grid-area: "header";
-  height: 150%;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    background-color: black;
+    grid-area: "header";
+    height: 150%;
 }
 
 .navbar {
-  background-color: #141414;
+    background-color: #141414;
 }
 
 .nav-item {
-  font-size: 2em !important;
-  text-decoration: none;
-  color: white;
+    font-size: 2em !important;
+    text-decoration: none;
+    color: white;
 }
 
 .nav-link {
-  color: white !important;
+    color: white !important;
 }
 
 .clicked {
-  color: #e93582 !important;
-  border-bottom: 0.095em solid #e93582;
+    color: #e93582 !important;
+    border-bottom: 0.095em solid #e93582;
 }
 
 .navbar-nav:hover,
 .nav-link:hover,
 .navbar-brand:hover,
 .navbar-dark:hover {
-  color: #e93582 !important;
+    color: #e93582 !important;
 }
 
 .navbar-text {
-  color: white !important;
-  font-weight: bold;
-  font-size: 2.25em;
-  padding: 2%;
-}
-
-/*HOME PAGE*/
-
-.welkom-text {
-  max-width: 75%;
-  margin-top: 3%;
-  margin-left: 11%;
-}
-
-.my-carousel,
-.container-fluid {
-  margin: 0 auto;
-  max-width: 80%;
-}
-
-.carousel-caption {
-  position: relative;
-  margin-bottom: 40px;
-  background-color: rgba(218, 214, 214, 0.2);
-  font-size: 2em;
-  font-weight: bold;
-  align-self: center;
-  z-index: 10;
-  padding: 3%;
-}
-
-.arrow-image {
-  height: 35%;
-  width: 35%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  display: none;
-}
-
-.text-title {
-  font-size: 2em !important;
-  font-weight: bold;
-  margin-bottom: 10pt;
-  color: #e93582 !important;
-}
-
-.fillertext {
-  font-size: 1.5em !important;
-  text-align: justify;
-  padding-bottom: 5%;
-}
-
-/*LEGO PAGE*/
-.minifigInline {
-  max-width: 85%;
-  max-height: 100%;
-}
-
-ul.images {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  width: 900px;
-  overflow-x: auto;
-}
-
-ul.images li {
-  list-style: none;
-  flex: 0 0 auto;
-  width: 150px;
-  height: 150px;
+    color: white !important;
+    font-weight: bold;
+    font-size: 2.25em;
+    padding: 2%;
 }
 
 footer {
-  background-color: #141414 !important;
+    background-color: #141414 !important;
 }
 
 .footertext {
-  padding: 1%;
+    padding: 1%;
 }
 
 .foottext {
-  text-align: left;
-  font-size: 0.8em;
+    text-align: left;
+    font-size: 0.8em;
 }
 
 .footer-title {
-  color: #e93582 !important;
-  font-size: 0.9rem !important;
+    color: #e93582 !important;
+    font-size: 0.9rem !important;
 }
 
 .fab {
-  font-size: 1.7rem;
-  width: 2rem;
+    font-size: 1.7rem;
+    width: 2rem;
+    text-align: right !important;
 }
 
 .footer-link:link,
 .footer-link:active,
 .footer-link:visited,
 .footer-link:hover {
-  text-decoration: none;
-  color: white;
+    text-decoration: none;
+    color: white;
 }
+
+.content-wrapper {
+    padding-bottom: 35% !important;
+}
+
+
+/*HOME PAGE*/
+
+.welkom-text {
+    max-width: 75%;
+    margin-top: 3%;
+    margin-left: 11%;
+}
+
+.my-carousel,
+.container-fluid {
+    margin: 0 auto;
+    max-width: 80%;
+}
+
+.carousel-caption {
+    position: relative;
+    margin-bottom: 40px;
+    background-color: rgba(218, 214, 214, 0.2);
+    font-size: 2em;
+    font-weight: bold;
+    align-self: center;
+    z-index: 10;
+    padding: 3%;
+}
+
+.arrow-image {
+    height: 35%;
+    width: 35%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+.text-title {
+    font-size: 2em !important;
+    font-weight: bold;
+    margin-bottom: 10pt;
+    color: #e93582 !important;
+}
+
+.fillertext {
+    font-size: 1.5em !important;
+    text-align: justify;
+    padding-bottom: 5%;
+}
+
+
+/*LEGO PAGE*/
+
+.minifigInline {
+    max-width: 85%;
+    max-height: 100%;
+}
+
+ul.images {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 900px;
+    overflow-x: auto;
+}
+
+ul.images li {
+    list-style: none;
+    flex: 0 0 auto;
+    width: 150px;
+    height: 150px;
+}
+
 
 /*MEDIA QUERIES*/
 
 @media (max-width: 1800px) {
-  .navbar-text {
-    font-size: 1.6em !important;
-  }
-
-  .nav-item {
-    font-size: 1.3em !important;
-    text-decoration: none;
-  }
-
-  .text-title {
-    font-size: 1.3em !important;
-    margin-bottom: 10pt;
-  }
-
-  .fillertext {
-    font-size: 1em !important;
-    text-align: justify;
-  }
-
-  footer {
-    margin-top: 25rem;
-    width: 100vw;
-  }
+    .navbar-text {
+        font-size: 1.6em !important;
+    }
+    .nav-item {
+        font-size: 1.3em !important;
+        text-decoration: none;
+    }
+    .text-title {
+        font-size: 1.3em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 1em !important;
+        text-align: justify;
+    }
 }
 
 @media (max-width: 800px) {
-  .navbar-text {
-    font-size: 1.1em !important;
-  }
-
-  .nav-item {
-    font-size: 1em !important;
-  }
-
-  .text-title {
-    font-size: 1.3em !important;
-    margin-bottom: 10pt;
-  }
-  .fillertext {
-    font-size: 0.8em !important;
-    text-align: left;
-  }
-
-  footer {
-    margin-top: 38vh !important;
-    width: 100vw;
-    min-height: 100% !important;
-  }
+    .navbar-text {
+        font-size: 1.1em !important;
+    }
+    .nav-item {
+        font-size: 1em !important;
+    }
+    .text-title {
+        font-size: 1.3em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.8em !important;
+        text-align: left;
+    }
 }
 
 @media (max-width: 400px) {
-  .navbar-text {
-    font-size: 1.2em;
-  }
-
-  .text-title {
-    font-size: 1em !important;
-    margin-bottom: 10pt;
-  }
-
-  .fillertext {
-    font-size: 0.7em !important;
-    text-align: left;
-  }
-
-  footer {
-    margin-top: 5rem;
-    width: 100vw;
-    min-height: 100% !important;
-  }
+    .navbar-text {
+        font-size: 1.2em;
+    }
+    .text-title {
+        font-size: 1em !important;
+        margin-bottom: 10pt;
+    }
+    .fillertext {
+        font-size: 0.7em !important;
+        text-align: left;
+    }
 }
