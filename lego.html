@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
@@ -18,58 +16,31 @@
     <script src="https://kit.fontawesome.com/edf7182f3b.js" crossorigin="anonymous"></script>
 
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
     </style>
     <script src="./js/javascript.js" defer></script>
     <title>THR33BY Travel</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 
-  <body class="text-white bg-body">
-  
+<body class="text-white bg-body">
+
     <!--nav-->
-    <nav
-      class="navbar navbar-dark shadow-lg navbar-expand-lg sticky-top d-flex justify-content-end"
-      id="header"
-    >
-      <button
-        class="navbar-toggler"
-        data-toggle="collapse"
-        data-target="#collapse_target"
-      >
+    <nav class="navbar navbar-dark shadow-lg navbar-expand-lg sticky-top d-flex justify-content-end" id="header">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
         <span class="navbar-toggler-icon"> </span>
       </button>
-      <div class="collapse navbar-collapse" id="collapse_target">
-        <a class="navbar-brand" href="#"><img class="logonav" src="./images/logo.png"></a>
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item m-3">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item m-3">
-            <a
-              class="nav-link active clicked"
-              href="lego.html"
-              >Lego Masters</a
+        <div class="collapse navbar-collapse" id="collapse_target">
+            <a class="navbar-brand" href="#"><img class="logonav" src="./images/logo.png"></a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item m-3">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item m-3">
+                    <a class="nav-link active clicked" href="lego.html">Lego Masters</a
             >
           </li>
           <li class="nav-item m-3">
@@ -105,7 +76,7 @@
     <!--end nav-->
 
     <!--content-->
-    <div class="container-fluid">
+    <div class="container-fluid content-wrapper pb-5">
       <div class="row m-5">
         <h2 class="text-uppercase font-weight-bold text-center">
           Minifigs ordenen
@@ -115,16 +86,21 @@
         <ul class="images d-none" id="inlineSet">
           <!-- inline list van minifigs zodat er een overzicht bovenaan staat -->
           <li><a id = "inline1" href="#"><img class = "minifigInline" src="./images/minifigs/brick_suit.png" alt="brick_suit"></a></li>
-          <li><a id = "inline2" href="#"><img class = "minifigInline"  src="./images/minifigs/dragon_suit.png" alt="dragon_suit"></a></li>
-          <li><a id = "inline3" href="#"><img class = "minifigInline"  src="./images/minifigs/female_programmer.png" alt="female_programmer"></a></li>
-          <li><a id = "inline4" href="#"><img class = "minifigInline"  src="./images/minifigs/lift_bro.png" alt="lift_bro"></a></li>
-        </ul>
-      <div class="row m-5">
-        <div class="col-lg-4 col-sm-12">
-          <form class="visible" id="sortForm">
-            <div class="form-group" id="formToHideAfterClick">
-              <label class="fillertext" for="formGroupExampleInput"
-                >Hoeveel minifigs wil je ordenen?</label
+                <li>
+                    <a id="inline2" href="#"><img class="minifigInline" src="./images/minifigs/dragon_suit.png" alt="dragon_suit"></a>
+                </li>
+                <li>
+                    <a id="inline3" href="#"><img class="minifigInline" src="./images/minifigs/female_programmer.png" alt="female_programmer"></a>
+                </li>
+                <li>
+                    <a id="inline4" href="#"><img class="minifigInline" src="./images/minifigs/lift_bro.png" alt="lift_bro"></a>
+                </li>
+            </ul>
+            <div class="row m-5">
+                <div class="col-lg-4 col-sm-12">
+                    <form class="visible" id="sortForm">
+                        <div class="form-group" id="formToHideAfterClick">
+                            <label class="fillertext" for="formGroupExampleInput">Hoeveel minifigs wil je ordenen?</label
               >
               <input
                 type="text"
@@ -174,151 +150,104 @@
                 src="./images/legomasters_large_withlogo.png"
                 alt="placeholder"
             /></label>
-          </div>
-          <div class="custom-control custom-radio visible fillertext">
-            <input
-              type="radio"
-              id="customRadio2"
-              name="customRadio"
-              class="custom-control-input visible"
-            />
-            <label class="custom-control-label visible" for="customRadio2"
-              ><img
+                        </div>
+                        <div class="custom-control custom-radio visible fillertext">
+                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input visible" />
+                            <label class="custom-control-label visible" for="customRadio2"><img
                 class="img-fluid visible w-50 h-50"
                 id="setImage2"
                 src="./images/lotr_large_withlogo.png"
                 alt="placeholder2"
             /></label>
-          </div>
-          <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
+                        </div>
+                        <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
             Set bevestigen
           </button>
-          <button
-            type="button"
-            id="stopSort"
-            class="btn btn-light mt-2 visible d-none fillertext"
-            data-toggle="modal"
-            data-target="#stopSortModal"
-          >
+                        <button type="button" id="stopSort" class="btn btn-light mt-2 visible d-none fillertext" data-toggle="modal" data-target="#stopSortModal">
             Stoppen met ordenen
           </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-</div>
+        </div>
 
         <!--FOOTER-->
-        <footer class="page-footer text-lg-start sticky-bottom">
-          <div class ="container">           
-          <div class ="row">
-              <div class ="footertext col-7 mt-auto pl-5">
-          <p class="footer-title text-uppercase">© 2021 THR33BY || About us</p>
-          <p class="foottext">Team THR33BY bestaat uit drie studenten van AP hogeschool: Jenny Michielsen, Maurits De Muer en Yoram Lenaers.</p>
-          <p class="footer-title"></p>
+        <footer class="navbar d-none d-lg-block text-lg-start fixed-bottom  mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="footertext col-7 mt-auto pl-5">
+                        <p class="footer-title text-uppercase">© 2021 THR33BY || About us</p>
+                        <p class="foottext">Team THR33BY bestaat uit drie studenten van AP hogeschool: Jenny Michielsen, Maurits De Muer en Yoram Lenaers.</p>
+                        <p class="footer-title"></p>
+                    </div>
+                    <div class="col-3"></div>
+                    <div class="col-2 mt-auto pb-4">
+                        <a class="footer-link" href=""><i class="fab fa-facebook-square"></i></a>
+                        <a class="footer-link" href=""><i class="fab fa-twitter-square"></i></a>
+                        <a class="footer-link" href=""><i class="fab fa-instagram-square"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class ="col-3"></div>
-            <div class ="col-2 mt-auto pb-4">
-              <a class ="footer-link" href=""><i class="fab fa-facebook-square"></i></a>
-              <a class ="footer-link" href=""><i class="fab fa-twitter-square"></i></a>
-              <a class ="footer-link" href=""><i class="fab fa-instagram-square"></i></a>
-          </div>
-          </div>
-      </div>
-  </div> 
+            </div>
         </footer>
-  <!--FOOTER-->
+        <!--FOOTER-->
 
-    
-    <div
-      class="modal fade"
-      id="reisErrorModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="reisErrorModalCenterTitle"
-      aria-hidden="true"
-    >
-      <!--REIS ERROR MODAL-->
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5
-              class="modal-title"
-              style="color: black"
-              id="reisErrorModalHeader"
-            >
-              Fout opgetreden!
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Sluiten"
-            >
+
+        <div class="modal fade" id="reisErrorModal" tabindex="-1" role="dialog" aria-labelledby="reisErrorModalCenterTitle" aria-hidden="true">
+            <!--REIS ERROR MODAL-->
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black" id="reisErrorModalHeader">
+                            Fout opgetreden!
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body" style="color: black">
-            U kan niet reizen naar dit thema.<br />
-            <b>Reden:</b> Niet ingeschreven.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-dismiss="modal">
+                    </div>
+                    <div class="modal-body" style="color: black">
+                        U kan niet reizen naar dit thema.<br />
+                        <b>Reden:</b> Niet ingeschreven.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">
               Ander thema kiezen
             </button>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--END REIS ERROR MODAL-->
+        <!--END REIS ERROR MODAL-->
 
-    <!--STOP SORTING CONFIRMATION MODAL-->
-    <div
-      class="modal fade"
-      id="stopSortModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="stopSortingModalCenterTitle"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5
-              class="modal-title"
-              style="color: black"
-              id="stopSortingModalHeader"
-            >
-              Stoppen met ordenen.
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Sluiten"
-            >
+        <!--STOP SORTING CONFIRMATION MODAL-->
+        <div class="modal fade" id="stopSortModal" tabindex="-1" role="dialog" aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" style="color: black" id="stopSortingModalHeader">
+                            Stoppen met ordenen.
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body" style="color: black">
-            Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-dark"
-              onclick="window.location.reload();"
-            >
+                    </div>
+                    <div class="modal-body" style="color: black">
+                        Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" onclick="window.location.reload();">
               Ja
             </button>
-            <button type="button" class="btn btn-dark" data-dismiss="modal">
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">
               Nee
             </button>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!--END STOP SORTING CONFIRMATION MODAL-->
+        <!--END STOP SORTING CONFIRMATION MODAL-->
 
-      <!--ending content-->
-  </body>
+        <!--ending content-->
+</body>
+
 </html>
