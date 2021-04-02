@@ -66,6 +66,14 @@ nav {
   padding: 2%;
 }
 
+.strongtext {
+  font-weight: bold;
+}
+
+#legoModalText {
+  padding: 2%;
+}
+
 footer {
   background-color: #141414 !important;
 }
@@ -151,7 +159,7 @@ footer {
 .fillertext {
   font-size: 1.5em !important;
   text-align: justify;
-  padding-bottom: 5%;
+  padding-bottom: 2%;
 }
 
 /* LEGO PAGE */
@@ -244,6 +252,10 @@ ul.images li {
     font-size: 0.8em !important;
     text-align: left;
   }
+
+  .logonav {
+    width: 60%;
+  }
 }
 
 @media (max-width: 400px) {
@@ -257,5 +269,9 @@ ul.images li {
   .fillertext {
     font-size: 0.7em !important;
     text-align: left;
+  }
+
+  .logonav {
+    width: 50%;
   }
 }

@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"> </span>
         </button>
         <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand" href="#"><img class="logonav" src="./images/logo.png"></a>
+            <a class="navbar-brand" href="#"><img class="logonav" src="./images/logo.png" alt="THR33BY Logo"></a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item m-3">
                     <a class="nav-link active clicked" href="#">Home</a>
@@ -61,7 +61,8 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <h2 class="text-title">Reizen met THR33BY</h2>
-                    <p class="fillertext">We bieden je verscheidene themareizen aan in onze virtuele reiscatalogus. Maak hieronder in het carousel jouw keuze. De opties bestaan uit: Battle Royale in Fortnite, online voetballen in FIFA, je innerlijke Bob de Bouwer ontgrendelen
+                    <p class="fillertext">We bieden je verscheidene themareizen aan in onze virtuele reiscatalogus. Maak hieronder in het carousel jouw keuze.</p>
+                    <p class="fillertext">De opties bestaan uit: Battle Royale in Fortnite, online voetballen in FIFA, je innerlijke Bob de Bouwer ontgrendelen
                         in Lego Masters, of word een echte elf of tovenaar in Lord of the Rings! Maak je keuze door op een van de links in de navigatiebalk te klikken of klik op de afbeelding van de reis van je keuze.</p>
                 </div>
             </div>
@@ -113,11 +114,11 @@
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
-                            <img class="arrow-image img-fluid" src="./images/pijltje_links.svg">
+                            <img class="arrow-image img-fluid" src="./images/pijltje_links.svg" alt="Pijltje links">
                             <span class="sr-only">Vorige</span>
                         </a>
                         <a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
-                            <img class="arrow-image img-fluid" src="./images/pijltje_rechts.svg"></img>
+                            <img class="arrow-image img-fluid" src="./images/pijltje_rechts.svg" alt="Pijltje rechts"></img>
                             <span class="sr-only">Volgende</span>
                         </a>
                     </div>
@@ -154,13 +155,14 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="reisErrorModalHeader">Fout opgetreden!</h5>
+                    <h5 class="modal-title strongtext" id="reisErrorModalHeader">Fout opgetreden!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
             <span aria-hidden="true">&times;</span>
           </button>
                 </div>
                 <div class="modal-body">
-                    U kan niet reizen naar dit thema.<br> <b>Reden:</b> Niet ingeschreven.
+                    <p>U kan niet reizen naar dit thema.</p>
+                    <b>Reden:</b> Niet ingeschreven.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">Ander thema kiezen</button>
@@ -175,13 +177,13 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="legoMastersModalHeader">Kies je dienst</h5>
+                    <h5 class="modal-title strongtext" id="legoMastersModalHeader">Dienst kiezen.</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                    Wat wens je te doen binnenin Lego Masters?<br><br>
+                    <p id="legoModalText">Wat wens je te doen binnenin Lego Masters?</p>
                     <a href="lego.html" class="btn btn-outline-dark modal-button" role="button">Lego Minifigs ordenen</a>
                     <button type="button" class="btn btn-outline-dark modal-button">Fake optie 1</button>
                     <button type="button" class="btn btn-outline-dark modal-button">Fake optie 2</button>
