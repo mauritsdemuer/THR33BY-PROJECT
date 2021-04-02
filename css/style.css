@@ -201,6 +201,10 @@ ul.images li {
   border: none !important;
 }
 
+.modal-button:hover {
+  background-color: #f876af !important;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 1800px) {
