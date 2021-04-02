@@ -50,7 +50,7 @@ const minifiglocations = [
   "./images/minifigs/lift_bro.png",
 ];
 
-//voorlopige setlocaties (pre API)
+// voorlopige setlocaties (pre API)
 const setlocations = [
   "./images/legosets/creator_set.jpg",
   "./images/legosets/fishing_store_set.jpg",
@@ -58,8 +58,8 @@ const setlocations = [
   "./images/legosets/ideas_set.jpg",
 ];
 
-//functie om tekst te vervangen
-let showText =  (text, id) => {
+// functie om tekst te vervangen
+let showText = (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
@@ -76,20 +76,19 @@ const getDataFromForm = (form, data) => {
   let formData = new FormData(chosenForm);
   let chosenData = formData.get(data);
   return chosenData;
-}
+};
 
 // initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden.
 let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
 
-startSortButton.addEventListener("click",  () => {
+startSortButton.addEventListener("click", () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
   //check of de gebruiker een nummer ingeeft
   if (isNaN(counterDown) || counterDown === "") {
     alert("Dit is geen geldige waarde. Probeer opnieuw!");
-  } 
-  else {
+  } else {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
@@ -105,7 +104,7 @@ startSortButton.addEventListener("click",  () => {
     setImage2.src = randomizeArray(setlocations);
 
     //verbergt het initiele sorteerformulier tot er gerefresht wordt
-    $("#sortForm").addClass("d-none"); 
+    $("#sortForm").addClass("d-none");
 
     //verwijdert de d-none class zodat de content zichtbaar wordt on click.
     $("#stopSort").removeClass("d-none");
@@ -117,27 +116,25 @@ startSortButton.addEventListener("click",  () => {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", function () {
-  //eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen.
+  // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen.
   if (counterDown !== 0) {
     counterDown--;
     counterUp++;
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
 
-      //bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
-      let minifigImage = document.getElementById("minifigImage");
-      minifigImage.src = randomizeArray(minifiglocations);
+    // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
+    let minifigImage = document.getElementById("minifigImage");
+    minifigImage.src = randomizeArray(minifiglocations);
 
-      //setimage wordt voorlopig nog random geselecteerd
-      let setImage1 = document.getElementById("setImage1");
-      let setImage2 = document.getElementById("setImage2");
-      setImage1.src = randomizeArray(setlocations);
-      setImage2.src = randomizeArray(setlocations);
-    
+    // setimage wordt voorlopig nog random geselecteerd
+    let setImage1 = document.getElementById("setImage1");
+    let setImage2 = document.getElementById("setImage2");
+    setImage1.src = randomizeArray(setlocations);
+    setImage2.src = randomizeArray(setlocations);
   }
   if (counterDown === 0) {
-    //alert wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
-    alert("U bent klaar met sorteren!");
-    location.reload();
-  } 
+    // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
+    $("#finishSortModal").modal("toggle");
+  }
 });
