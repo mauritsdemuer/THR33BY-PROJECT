@@ -73,9 +73,9 @@
         </ul>
       </div>
     </nav>
-    <!--end nav-->
+    <!--END NAV-->
 
-    <!--content-->
+    <!--CONTENT-->
     <div class="container-fluid content-wrapper pb-5">
       <div class="row m-5">
         <h2 class="text-uppercase font-weight-bold text-center">
@@ -84,7 +84,7 @@
       </div>
       <div class="row m-5">
         <ul class="images d-none" id="inlineSet">
-          <!-- inline list van minifigs zodat er een overzicht bovenaan staat -->
+          <!--INLINE LIST MINI FIGS-->
           <li><a id = "inline1" href="#"><img class = "minifigInline" src="./images/minifigs/brick_suit.png" alt="brick_suit"></a></li>
                 <li>
                     <a id="inline2" href="#"><img class="minifigInline" src="./images/minifigs/dragon_suit.png" alt="dragon_suit"></a>
@@ -192,8 +192,7 @@
         </footer>
         <!--FOOTER-->
 
-
-        <div class="modal fade" id="reisErrorModal" tabindex="-1" role="dialog" aria-labelledby="reisErrorModalCenterTitle" aria-hidden="true">
+        <div class="modal fade rounded-0" id="reisErrorModal" tabindex="-1" role="dialog" aria-labelledby="reisErrorModalCenterTitle" aria-hidden="true">
             <!--REIS ERROR MODAL-->
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -205,12 +204,12 @@
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
-                    <div class="modal-body" style="color: black">
+                    <div class="modal-body">
                         U kan niet reizen naar dit thema.<br />
                         <b>Reden:</b> Niet ingeschreven.
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">
+                        <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
               Ander thema kiezen
             </button>
                     </div>
@@ -220,25 +219,25 @@
         <!--END REIS ERROR MODAL-->
 
         <!--STOP SORTING CONFIRMATION MODAL-->
-        <div class="modal fade" id="stopSortModal" tabindex="-1" role="dialog" aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
+        <div class="modal fade rounded-0" id="stopSortModal" tabindex="-1" role="dialog" aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" style="color: black" id="stopSortingModalHeader">
+                        <h5 class="modal-title" id="stopSortingModalHeader">
                             Stoppen met ordenen.
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
               <span aria-hidden="true">&times;</span>
             </button>
                     </div>
-                    <div class="modal-body" style="color: black">
+                    <div class="modal-body">
                         Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-dark" onclick="window.location.reload();">
+                        <button type="button" class="btn btn-dark modal-button" onclick="window.location.reload();">
               Ja
             </button>
-                        <button type="button" class="btn btn-dark" data-dismiss="modal">
+                        <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
               Nee
             </button>
                     </div>
@@ -246,8 +245,32 @@
             </div>
         </div>
         <!--END STOP SORTING CONFIRMATION MODAL-->
+        
+         <!--DONE SORTING MODAL-->
+         <div class="modal fade rounded-0" id="finishSortModal" tabindex="-1" role="dialog" aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="doneSortingModalHeader">
+                          U bent klaar met sorteren.
+                      </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten" onclick="window.location.reload();">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                  </div>
+                  <div class="modal-body">
+                      Alle minifigs zijn gesorteerd!<br>Goed gedaan. 👍
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-dark modal-button" onclick="window.location.reload();">
+            OK
+          </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--DONE SORTING MODAL END-->
 
-        <!--ending content-->
+        <!--END CONTENT-->
 </body>
-
 </html>
