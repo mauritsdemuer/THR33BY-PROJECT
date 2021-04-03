@@ -189,17 +189,11 @@ ul.images li {
 .modal-body,
 .modal-header,
 .modal-footer,
-.modal-title {
+.modal-title,
+.modal-content {
   background-color: #2b2e35;
   color: white !important;
-}
-
-.modal-header {
-  border-bottom: 0 !important;
-}
-
-.modal-footer {
-  border-top: 0 !important;
+  border: 0 !important;
 }
 
 .modal-button {
@@ -237,7 +231,7 @@ ul.images li {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
   .navbar-text {
     font-size: 1.1em !important;
   }
@@ -258,7 +252,7 @@ ul.images li {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 800px) {
   .navbar-text {
     font-size: 1.2em;
   }
