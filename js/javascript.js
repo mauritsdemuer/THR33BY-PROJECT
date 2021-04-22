@@ -1,70 +1,32 @@
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
 //param number is user input over aantal te ordenen minifigs
-const getMinifigs = async(number) =>{
-let result = await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`,{
-  headers: {
-    'Accept': 'application/json'
-  }
-});
-let response = await result.json();
+const getMinifigs = async (number) => {
+  let result = await fetch(
+    `https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  );
+  let response = await result.json();
 
+  return response.results;
+};
 
-return response.results;
-}
-
-const changeInlineImages = (inlineId, mainPicId, response)=>{
-let minifigImage = document.getElementById(mainPicId);
-minifigImage.src = response.set_img_url;
-let inline1 = document.getElementById(inlineId);
-inline1.src = response.set_img_url;
-}
-
+const changeInlineImages = (inlineId, response) => {
+  let inline1 = document.getElementById(inlineId);
+  inline1.addEventListener("click", () => {
+    let minifigImage = document.getElementById("minifigImage");
+    minifigImage.src = inline1.src;
+    minifigImage.alt = response.name;
+  });
+  inline1.src = response.set_img_url;
+  inline1.alt = response.name;
+};
 
 // minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
 let inline1 = document.getElementById("inline1");
-
-inline1.addEventListener("click", function () {
-  let minifigImage = document.getElementById("minifigImage");
-  let inline1 = document.getElementById("inlineimage1");
-
-  minifigImage.src = inline1.src;
-  let setImage1 = document.getElementById("setImage1");
-  let setImage2 = document.getElementById("setImage2");
-  setImage1.src = randomizeArray(setlocations);
-  setImage2.src = randomizeArray(setlocations);
-});
-
-let inline2 = document.getElementById("inline2");
-
-inline2.addEventListener("click", function () {
-  let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/dragon_suit.png";
-  let setImage1 = document.getElementById("setImage1");
-  let setImage2 = document.getElementById("setImage2");
-  setImage1.src = randomizeArray(setlocations);
-  setImage2.src = randomizeArray(setlocations);
-});
-
-let inline3 = document.getElementById("inline3");
-
-inline3.addEventListener("click", function () {
-  let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/female_programmer.png";
-  let setimage1 = document.getElementById("setimage1");
-  setImage1.src = randomizeArray(setlocations);
-  setimage2.src = randomizeArray(setlocations);
-});
-
-let inline4 = document.getElementById("inline4");
-
-inline4.addEventListener("click", function () {
-  let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/lift_bro.png";
-  let setImage1 = document.getElementById("setImage1");
-  let setImage2 = document.getElementById("setImage2");
-  setImage1.src = randomizeArray(setlocations);
-  setImage2.src = randomizeArray(setlocations);
-});
 
 // voorlopige minifiglocaties (pre API)
 const minifiglocations = [
@@ -107,6 +69,23 @@ let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
 
+// maak <li> met a, img & img attributes aan
+const createFigImageList = (id) => {
+  let ul = document.getElementById("inlineSet");
+  let li = document.createElement("li");
+  let a = document.createElement("a");
+  let image = document.createElement("img");
+  image.setAttribute("class", "minifigInline");
+  image.setAttribute("src", "");
+  image.setAttribute("id", id);
+  image.setAttribute("alt", "");
+
+  // alles aan elkaar hangen
+  ul.appendChild(li);
+  li.appendChild(a);
+  a.appendChild(image);
+};
+
 startSortButton.addEventListener("click", () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
   //check of de gebruiker een nummer ingeeft
@@ -116,11 +95,14 @@ startSortButton.addEventListener("click", () => {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    getMinifigs(counterDown).then(results => {
-      console.log(results)
-    changeInlineImages("inlineimage1","minifigImage", results[0])})
-    //minifig image wordt random ingeladen vanuit een array
 
+    // creëer x <li> adhv hoeveelheid gegeven user input
+    for (let i = 0; i < counterDown; i++) {
+      getMinifigs(counterDown).then((results) => {
+        createFigImageList(i);
+        changeInlineImages(i, results[i]);
+      });
+    }
 
     //geeft een random waarde aan de set images vanuit een array
     let setImage1 = document.getElementById("setImage1");
@@ -163,5 +145,3 @@ sortSetButton.addEventListener("click", function () {
     $("#finishSortModal").modal("toggle");
   }
 });
-
-
