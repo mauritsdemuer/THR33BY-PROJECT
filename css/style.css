@@ -169,6 +169,10 @@ footer {
   max-height: 100%;
 }
 
+.boldTitle {
+  font-weight: bold;
+}
+
 ul.images {
   margin: 0;
   padding: 0;

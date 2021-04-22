@@ -20,6 +20,7 @@ const changeInlineImages = (inlineId, response) => {
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = response.name;
+    showText(response.name, "minifigName");
   });
   inline1.src = response.set_img_url;
   inline1.alt = response.name;
@@ -103,6 +104,12 @@ startSortButton.addEventListener("click", () => {
         changeInlineImages(i, results[i]);
       });
     }
+
+    getMinifigs(counterDown).then((results) => {
+    let defImage = document.getElementById("minifigImage");
+    defImage.src = results[0].set_img_url;
+    showText(results[0].name, "minifigName");
+    });
 
     //geeft een random waarde aan de set images vanuit een array
     let setImage1 = document.getElementById("setImage1");
