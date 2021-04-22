@@ -1,5 +1,3 @@
-const fetch = require("node-fetch");
-
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
 //param number is user input over aantal te ordenen minifigs
 const getMinifigs = async(number) =>{
@@ -10,21 +8,23 @@ let result = await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${apiKey}
 });
 let response = await result.json();
 console.log(response.results[0].set_img_url);
+let minifigImage = document.getElementById("minifigImage");
+minifigImage.src = response.results[0].set_img_url;
+let inline1 = document.getElementById("inlineimage1");
+inline1.src = response.results[0].set_img_url;
+
+return response.results;
 }
 
-getMinifigs(4);
 
-
-
-
-
-/*
 // minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
 let inline1 = document.getElementById("inline1");
 
 inline1.addEventListener("click", function () {
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src = "./images/minifigs/brick_suit.png";
+  let inline1 = document.getElementById("inlineimage1");
+
+  minifigImage.src = inline1.src;
   let setImage1 = document.getElementById("setImage1");
   let setImage2 = document.getElementById("setImage2");
   setImage1.src = randomizeArray(setlocations);
@@ -113,10 +113,9 @@ startSortButton.addEventListener("click", () => {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-
+    getMinifigs(counterDown).then(results => {console.log(results)});
     //minifig image wordt random ingeladen vanuit een array
-    let minifigImage = document.getElementById("minifigImage");
-    minifigImage.src = randomizeArray(minifiglocations);
+
 
     //geeft een random waarde aan de set images vanuit een array
     let setImage1 = document.getElementById("setImage1");
@@ -159,4 +158,5 @@ sortSetButton.addEventListener("click", function () {
     $("#finishSortModal").modal("toggle");
   }
 });
-*/
+
+
