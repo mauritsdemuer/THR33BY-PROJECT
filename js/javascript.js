@@ -1,3 +1,24 @@
+const fetch = require("node-fetch");
+
+const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
+//param number is user input over aantal te ordenen minifigs
+const getMinifigs = async(number) =>{
+let result = await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`,{
+  headers: {
+    'Accept': 'application/json'
+  }
+});
+let response = await result.json();
+console.log(response.results[0].set_img_url);
+}
+
+getMinifigs(4);
+
+
+
+
+
+/*
 // minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
 let inline1 = document.getElementById("inline1");
 
@@ -138,3 +159,4 @@ sortSetButton.addEventListener("click", function () {
     $("#finishSortModal").modal("toggle");
   }
 });
+*/
