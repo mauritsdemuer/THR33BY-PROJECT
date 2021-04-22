@@ -7,13 +7,16 @@ let result = await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${apiKey}
   }
 });
 let response = await result.json();
-console.log(response.results[0].set_img_url);
-let minifigImage = document.getElementById("minifigImage");
-minifigImage.src = response.results[0].set_img_url;
-let inline1 = document.getElementById("inlineimage1");
-inline1.src = response.results[0].set_img_url;
+
 
 return response.results;
+}
+
+const changeInlineImages = (inlineId, mainPicId, response)=>{
+let minifigImage = document.getElementById(mainPicId);
+minifigImage.src = response.set_img_url;
+let inline1 = document.getElementById(inlineId);
+inline1.src = response.set_img_url;
 }
 
 
@@ -113,7 +116,9 @@ startSortButton.addEventListener("click", () => {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    getMinifigs(counterDown).then(results => {console.log(results)});
+    getMinifigs(counterDown).then(results => {
+      console.log(results)
+    changeInlineImages("inlineimage1","minifigImage", results[0])})
     //minifig image wordt random ingeladen vanuit een array
 
 
