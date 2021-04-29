@@ -69,7 +69,7 @@ const getDataFromForm = (form, data) => {
   return chosenData;
 };
 
-// initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden.
+// initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden
 let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
@@ -107,6 +107,8 @@ startSortButton.addEventListener("click", () => {
     counterDown % 1 != 0
   ) {
     $("#inputErrorModal").modal();
+  } else if (counterDown > 30) {
+    $("#tooManyModal").modal();
   } else {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
@@ -138,7 +140,7 @@ startSortButton.addEventListener("click", () => {
     //verbergt het initiele sorteerformulier tot er gerefresht wordt
     $("#sortForm").addClass("d-none");
 
-    //verwijdert de d-none class zodat de content zichtbaar wordt on click.
+    //verwijdert de d-none class zodat de content zichtbaar wordt on click
     $("#stopSort").removeClass("d-none");
     $("#inlineSet").removeClass("d-none");
     $("#setSelection").removeClass("d-none");
@@ -148,7 +150,7 @@ startSortButton.addEventListener("click", () => {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", function () {
-  // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen.
+  // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
   if (counterDown !== 0) {
     counterDown--;
     counterUp++;
@@ -171,7 +173,7 @@ sortSetButton.addEventListener("click", function () {
     );
   }
   if (counterDown === 0) {
-    // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh.
+    // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh
     $("#finishSortModal").modal("toggle");
   }
 });
