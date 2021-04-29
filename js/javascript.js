@@ -103,7 +103,7 @@ startSortButton.addEventListener("click", () => {
   if (
     isNaN(counterDown) ||
     counterDown === "" ||
-    counterDown < 0 ||
+    counterDown <= 0 ||
     counterDown % 1 != 0
   ) {
     alert("Dit is geen geldige waarde. Probeer opnieuw!");
