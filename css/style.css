@@ -162,6 +162,11 @@ footer {
 }
 
 /* LEGO PAGE */
+
+#minifigImage{
+  width: 40rem !important;
+  height: 40rem !important;
+}
 #contwrap {
   margin-bottom: 5rem !important;
 }
