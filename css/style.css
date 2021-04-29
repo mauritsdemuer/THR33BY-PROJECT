@@ -1,5 +1,4 @@
 /* GENERAL */
-
 body {
   min-height: 100vh;
   /* mobile viewport bug fix */
@@ -163,16 +162,13 @@ footer {
 
 /* LEGO PAGE */
 
-#minifigImage{
-  width: 40rem !important;
-  height: 40rem !important;
-}
-#contwrap {
-  margin-bottom: 5rem !important;
+#minifigImage {
+  width: 30rem !important;
+  height: 30rem !important;
 }
 
-#inlineSet {
-  /*border: 3px solid #e93582 !important;*/
+#contwrap {
+  margin-bottom: 5rem !important;
 }
 
 #inlineSet::-webkit-scrollbar {
@@ -180,6 +176,7 @@ footer {
   height: 1rem;
   padding: 1rem !important;
 }
+
 /* Track */
 
 #inlineSet::-webkit-scrollbar-track {
@@ -187,6 +184,7 @@ footer {
   border-radius: 10px;
   border: solid 5px transparent;
 }
+
 /* Handle */
 
 #inlineSet::-webkit-scrollbar-thumb {
@@ -250,59 +248,77 @@ ul.images li {
 .modal-button:hover {
   background-color: #f876af !important;
 }
+
 /* MEDIA QUERIES */
 
+/* DESKTOP BIG */
 @media (max-width: 1800px) {
-  .navbar-text {
-    font-size: 1.6em !important;
-  }
   .nav-item {
-    font-size: 1.3em !important;
+    font-size: 2em !important;
     text-decoration: none;
   }
   .text-title {
-    font-size: 1.3em !important;
+    font-size: 2.5em !important;
     margin-bottom: 10pt;
   }
   .fillertext {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
     text-align: justify;
+  }
+
+  #minifigImage {
+    width: 30rem !important;
+    height: 30rem !important;
   }
 }
 
+/* DESKTOP MEDIUM */
 @media (max-width: 1300px) {
-  .navbar-text {
-    font-size: 1.1em !important;
-  }
   .nav-item {
-    font-size: 1em !important;
+    font-size: 1.5em !important;
+    text-decoration: none;
   }
+
   .text-title {
-    font-size: 1.3em !important;
+    font-size: 2em !important;
     margin-bottom: 10pt;
   }
+
   .fillertext {
-    font-size: 0.8em !important;
+    font-size: 1.5em !important;
     text-align: left;
   }
   .logonav {
     width: 60%;
   }
+
+  #minifigImage {
+    width: 20rem !important;
+    height: 20rem !important;
+  }
 }
 
+/* TABLET & MOBILE */
 @media (max-width: 800px) {
-  .navbar-text {
-    font-size: 1.2em;
-  }
-  .text-title {
+  .nav-item {
     font-size: 1em !important;
+    text-decoration: none;
+  }
+
+  .text-title {
+    font-size: 1.5em !important;
     margin-bottom: 10pt;
   }
   .fillertext {
-    font-size: 0.7em !important;
+    font-size: 1em !important;
     text-align: left;
   }
   .logonav {
     width: 50%;
+  }
+
+  #minifigImage {
+    width: 10rem !important;
+    height: 10rem !important;
   }
 }
