@@ -157,7 +157,7 @@ footer {
 
 .fillertext {
   font-size: 1.5em !important;
-  text-align: justify;
+  text-align: left;
   padding-bottom: 2%;
 }
 
@@ -260,8 +260,13 @@ ul.images li {
     margin-bottom: 10pt;
   }
   .fillertext {
+<<<<<<< Updated upstream
     font-size: 1em !important;
     text-align: justify;
+=======
+    font-size: 1.1em !important;
+    text-align: left;
+>>>>>>> Stashed changes
   }
 }
 
@@ -277,7 +282,11 @@ ul.images li {
     margin-bottom: 10pt;
   }
   .fillertext {
+<<<<<<< Updated upstream
     font-size: 0.8em !important;
+=======
+    font-size: 1.2em !important;
+>>>>>>> Stashed changes
     text-align: left;
   }
   .logonav {
