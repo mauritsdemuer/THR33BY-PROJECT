@@ -144,6 +144,8 @@ startSortButton.addEventListener("click", () => {
     $("#stopSort").removeClass("d-none");
     $("#inlineSet").removeClass("d-none");
     $("#setSelection").removeClass("d-none");
+    $("#minifigAlert").removeClass("d-none");
+    $("#minifigImage").removeClass("d-none");
   }
 });
 
