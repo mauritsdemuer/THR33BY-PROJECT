@@ -185,6 +185,10 @@ footer {
 
 /* LEGO PAGE */
 
+#gameRules {
+  padding-bottom: 5%;
+}
+
 #minifigImage {
   width: 25rem !important;
   height: 25rem !important;
@@ -343,5 +347,9 @@ ul.images li {
     width: 10rem !important;
     height: 10rem !important;
     padding-bottom: 10%;
+  }
+
+  #gameRules {
+    width: 100%;
   }
 }
