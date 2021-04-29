@@ -5,45 +5,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="manifest" href="./images/site.webmanifest">
     <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5">
+
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
+
     <script src="https://kit.fontawesome.com/edf7182f3b.js" crossorigin="anonymous"></script>
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
     </style>
+
     <script src="./js/javascript.js" defer></script>
+
     <title>THR33BY Lego: Minifigs sorteren</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"/>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/bundle.js"></script>
-
 </head>
 
 <body class="text-white bg-body">
-
     <!--nav-->
     <nav class="navbar navbar-dark shadow-lg navbar-expand-lg sticky-top d-flex justify-content-end" id="header">
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
         <span class="navbar-toggler-icon"> </span>
       </button>
-        <div class="collapse navbar-collapse" id="collapse_target">
-            <a class="navbar-brand" href="index.html"><img class="logonav" src="./images/logo.png" alt="THR33BY Logo"></a>
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item m-3">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-                <li class="nav-item m-3">
-                    <a class="nav-link active clicked" href="lego.html">Lego Masters</a
-            >
+
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <a class="navbar-brand" href="index.html"><img class="logonav" src="./images/logo.png" alt="THR33BY Logo"></a>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item m-3">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+
+            <li class="nav-item m-3">
+              <a class="nav-link active clicked" href="lego.html">Lego Masters</a>
           </li>
           <li class="nav-item m-3">
             <a
@@ -78,7 +84,7 @@
     <!--END NAV-->
 
     <!--CONTENT-->
-    <div class="container-fluid content-wrapper pb-5">
+    <div class="container-fluid content-wrapper pb-5" id="contwrap">
       <div class="row m-5">
         <h2 class="text-uppercase font-weight-bold text-center">
           Minifigs ordenen
@@ -99,20 +105,20 @@
                     <a id="inline4" href="#"><img class="minifigInline" src="./images/minifigs/lift_bro.png" alt="lift_bro"></a>
                 </li>
                 -->
-            </ul>
+        </ul>
+      </div>
             <div class="row m-5">
                 <div class="col-lg-4 col-sm-12">
                     <form class="visible" id="sortForm">
                         <div class="form-group" id="formToHideAfterClick">
-                            <label class="fillertext" for="formGroupExampleInput">Hoeveel minifigs wil je ordenen?</label
-              >
+                            <label class="fillertext" for="formGroupExampleInput">Hoeveel minifigs wil je ordenen?</label>
               <input
                 type="text"
                 class="form-control mt-2 fillertext"
                 id="formGroupExampleInput"
                 name="sortButton"
-                placeholder="Geef hier het aantal minifigs in"
-              />
+                placeholder="Geef hier het aantal minifigs in"/>
+
               <button
                 type="button"
                 class="btn btn-light mt-2 fillertext"
@@ -120,61 +126,73 @@
               >
                 Aantal bevestigen
               </button>
-            </div>
-          </form>
-          <div class="alert alert-info fillertext" role="alert">
-            <strong>Aantal minifigs nog te ordenen:</strong>
-            <p id="counterDown">0</p>
-            <strong>Aantal minifigs al geordend:</strong>
-            <p id="counterUp">0</p>
-          </div>
-          <img
-            class="img-fluid"
-            id="minifigImage"
-            src="./images/legomasters_large_withlogo.png"
-            alt="placeholder"
-          />
-        </div>
-        <div class="col-lg-2"></div>
-        <div class="col-lg-6 col-md-12 d-none" id="setSelection">
-          <h3 class="visible fillertext boldTitle">Naam van minifig</h3>
-          <p class="fillertext" id="minifigName"></p>
-          <h4 class="visible fillertext boldTitle">Sets waar deze in voorkomt</h4>
-
-          <div class="custom-control custom-radio fillertext">
-            <input
-              type="radio"
-              id="customRadio1"
-              name="customRadio"
-              class="custom-control-input visible"
-            />
-            <label class="custom-control-label visible" for="customRadio1">
-              <img
-                class="img-fluid visible w-50 h-50"
-                id="setImage1"
-                src="./images/legomasters_large_withlogo.png"
-                alt="placeholder"
-            /></label>
-                        </div>
-                        <div class="custom-control custom-radio visible fillertext">
-                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input visible" />
-                            <label class="custom-control-label visible" for="customRadio2"><img
-                class="img-fluid visible w-50 h-50"
-                id="setImage2"
-                src="./images/lotr_large_withlogo.png"
-                alt="placeholder2"
-            /></label>
-                        </div>
-                        <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
-            Set bevestigen
-          </button>
-                        <button type="button" id="stopSort" class="btn btn-light mt-2 visible d-none fillertext" data-toggle="modal" data-target="#stopSortModal">
-            Stoppen met ordenen
-          </button>
+              </div>
+              </form>
                 </div>
             </div>
-        </div>
-        </div>
+
+          <div class="row m-5"> 
+            <div class="col-lg-4 col-sm-12">
+              <div class="alert alert-info fillertext" role="alert">
+                <strong>Aantal minifigs nog te ordenen:</strong>
+                <p id="counterDown">0</p>
+                <strong>Aantal minifigs al geordend:</strong>
+                <p id="counterUp">0</p>
+              </div>
+         
+              <img
+                class="img-fluid"
+                id="minifigImage"
+                src="./images/legomasters_large_withlogo.png"
+                alt="placeholder"
+              />
+            </div>
+          
+          <div class="col-lg-2"></div>
+            <div class="col-lg-6 col-md-12 d-none" id="setSelection">
+                <h3 class="visible fillertext boldTitle">Naam van minifig</h3>
+                <p class="fillertext" id="minifigName"></p>
+                <h4 class="visible fillertext boldTitle">Sets waar deze in voorkomt</h4>
+
+              <div class="custom-control custom-radio fillertext">
+                <input
+                  type="radio"
+                  id="customRadio1"
+                  name="customRadio"
+                  class="custom-control-input visible"
+                />
+                <label class="custom-control-label visible" for="customRadio1">
+                  <img
+                    class="img-fluid visible w-50 h-50"
+                    id="setImage1"
+                    src="./images/legomasters_large_withlogo.png"
+                    alt="placeholder"
+                  />
+                </label>
+              </div>
+
+              <div class="custom-control custom-radio visible fillertext">
+                <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input visible" />
+                <label class="custom-control-label visible" for="customRadio2">
+                  <img
+                  class="img-fluid visible w-50 h-50"
+                  id="setImage2"
+                  src="./images/lotr_large_withlogo.png"
+                  alt="placeholder2"
+                  />
+                </label>
+              </div>
+              
+                <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
+                  Set bevestigen
+                </button>
+                
+                <button type="button" id="stopSort" class="btn btn-light mt-2 visible d-none fillertext" data-toggle="modal" data-target="#stopSortModal">
+                  Stoppen met ordenen
+                </button>
+                </div>
+            </div>
+    </div>
 
         <!--FOOTER-->
         <footer class="navbar d-none d-lg-block text-lg-start fixed-bottom  mt-5">
@@ -192,7 +210,6 @@
                         <a class="footer-link" href=""><i class="fab fa-instagram-square"></i></a>
                     </div>
                 </div>
-            </div>
             </div>
         </footer>
         <!--FOOTER-->
@@ -273,7 +290,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+      </div>
         <!--DONE SORTING MODAL END-->
 
         <!--END CONTENT-->
