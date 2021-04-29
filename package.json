@@ -1,0 +1,19 @@
+{
+  "name": "thr33by",
+  "version": "1.0.0",
+  "description": "Maurits De Muer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mauritsdemuer/THR33BY-PROJECT.git"
+  },
+  "author": "Maurits De Muer, Jenny Michielsen, Yoram Lenaers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mauritsdemuer/THR33BY-PROJECT/issues"
+  },
+  "homepage": "https://github.com/mauritsdemuer/THR33BY-PROJECT#readme"
+}
