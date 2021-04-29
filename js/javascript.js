@@ -106,7 +106,7 @@ startSortButton.addEventListener("click", () => {
     counterDown <= 0 ||
     counterDown % 1 != 0
   ) {
-    alert("Dit is geen geldige waarde. Probeer opnieuw!");
+    $("#inputErrorModal").modal();
   } else {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
