@@ -69,6 +69,16 @@ nav {
   list-style-type: none;
 }
 
+.alert-custom {
+  background-color: #e93582 !important;
+  color: white !important;
+  border-color: #e93582 !important;
+}
+
+#minifigImage {
+  padding-top: 5% !important;
+}
+
 #gameList > li::before {
   content: "\2022";
   color: #e93582;
@@ -176,8 +186,8 @@ footer {
 /* LEGO PAGE */
 
 #minifigImage {
-  width: 30rem !important;
-  height: 30rem !important;
+  width: 25rem !important;
+  height: 25rem !important;
 }
 
 #contwrap {
@@ -279,8 +289,8 @@ ul.images li {
   }
 
   #minifigImage {
-    width: 30rem !important;
-    height: 30rem !important;
+    width: 25rem !important;
+    height: 25rem !important;
   }
 }
 
@@ -305,8 +315,8 @@ ul.images li {
   }
 
   #minifigImage {
-    width: 20rem !important;
-    height: 20rem !important;
+    width: 15rem !important;
+    height: 15rem !important;
   }
 }
 
@@ -332,5 +342,6 @@ ul.images li {
   #minifigImage {
     width: 10rem !important;
     height: 10rem !important;
+    padding-bottom: 10%;
   }
 }

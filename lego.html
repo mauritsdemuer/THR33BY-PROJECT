@@ -150,7 +150,7 @@
           <form class="visible" id="sortForm">
             <div class="form-group" id="formToHideAfterClick">
               <label class="fillertext" for="formGroupExampleInput"
-                >Hoeveel minifigs wil je ordenen?</label
+                >Hoeveel minifigs wilt u ordenen?</label
               >
               <input
                 type="text"
@@ -174,7 +174,11 @@
 
       <div class="row m-5">
         <div class="col-lg-4 col-sm-12">
-          <div class="alert alert-info fillertext" role="alert">
+          <div
+            class="alert alert-custom alert-info fillertext d-none"
+            role="alert"
+            id="minifigAlert"
+          >
             <strong>Aantal minifigs nog te ordenen:</strong>
             <p id="counterDown">0</p>
             <strong>Aantal minifigs al geordend:</strong>
@@ -182,10 +186,10 @@
           </div>
 
           <img
-            class="img-fluid"
+            class="img-fluid d-none"
             id="minifigImage"
             src="./images/legomasters_large_withlogo.png"
-            alt="placeholder"
+            alt="Minifig afbeelding"
           />
         </div>
 
