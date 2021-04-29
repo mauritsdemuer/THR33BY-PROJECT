@@ -156,7 +156,7 @@ footer {
 
 .fillertext {
   font-size: 1.5em !important;
-  text-align: justify;
+  text-align: left;
   padding-bottom: 2%;
 }
 
@@ -261,8 +261,8 @@ ul.images li {
     margin-bottom: 10pt;
   }
   .fillertext {
-    font-size: 1.5em !important;
-    text-align: justify;
+    font-size: 1.2em !important;
+    text-align: left;
   }
 
   #minifigImage {
