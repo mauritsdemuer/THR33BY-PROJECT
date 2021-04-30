@@ -137,8 +137,9 @@ startSortButton.addEventListener("click", () => {
     setImage1.src = randomizeArray(setlocations);
     setImage2.src = randomizeArray(setlocations);
 
-    //verbergt het initiele sorteerformulier tot er gerefresht wordt
+    //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
     $("#sortForm").addClass("d-none");
+    $("#gameRules").addClass("d-none");
 
     //verwijdert de d-none class zodat de content zichtbaar wordt on click
     $("#stopSort").removeClass("d-none");
