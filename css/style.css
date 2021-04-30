@@ -185,6 +185,11 @@ footer {
 
 /* LEGO PAGE */
 
+#counterDown,
+#counterUp {
+  font-weight: normal;
+}
+
 #gameRules {
   padding-bottom: 5%;
 }
