@@ -1,3 +1,26 @@
+// minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
+let inline1 = document.getElementById("inline1");
+
+// voorlopige minifiglocaties
+const minifiglocations = [];
+
+//array voor minifignames
+const minifigNames = [];
+
+//array met minifigIDs voor set call
+const minifigIds = [];
+
+// aray met setSrc
+const setsSrc = ["https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"];
+
+// voorlopige setlocaties (pre API)
+const setlocations = [
+  "./images/legosets/creator_set.jpg",
+  "./images/legosets/fishing_store_set.jpg",
+  "./images/legosets/friends_set.jpeg",
+  "./images/legosets/ideas_set.jpg",
+];
+
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
 // param number is user input over aantal te ordenen minifigs
 // fetch miniFigs
@@ -28,40 +51,29 @@ const getMinifigsSets = async (minifigId) => {
   return response.results;
 };
 
-const changeInlineImages = (inlineId, names, source) => {
+const changeInlineImages = (inlineId, names, source, sets) => {
   let inline1 = document.getElementById(inlineId);
-  inline1.addEventListener("click", () => {
+  /*inline1.addEventListener("click", () => {
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = names[inlineId];
     showText(names[inlineId], "minifigName");
   });
   inline1.src = source[inlineId];
-  inline1.alt = names[inlineId];
+  inline1.alt = names[inlineId];*/
+
+  //let randomJeneratorNumber = Math.floor(Math.random() * 1 + 1);
+  //console.log(randomJeneratorNumber);
+  //console.log(setsSrc);
+
+  let setImage = document.getElementById(`setImage1`);
+  setImage.src = sets[inlineId];
+  console.log(inlineId);
+  console.log(sets[0]);
+  console.log('nummerke: '+sets.indexOf("https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"));
+
 };
 
-// minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
-let inline1 = document.getElementById("inline1");
-
-// voorlopige minifiglocaties
-const minifiglocations = [];
-
-//array voor minifignames
-const minifigNames = [];
-
-//array met minifigIDs voor set call
-const minifigIds = [];
-
-// aray met setSrc
-const setsSrc = [];
-
-// voorlopige setlocaties (pre API)
-const setlocations = [
-  "./images/legosets/creator_set.jpg",
-  "./images/legosets/fishing_store_set.jpg",
-  "./images/legosets/friends_set.jpeg",
-  "./images/legosets/ideas_set.jpg",
-];
 
 // functie om tekst te vervangen
 let showText = (text, id) => {
@@ -141,14 +153,15 @@ startSortButton.addEventListener("click", () => {
         minifigNames.push(result.name);
         minifiglocations.push(result.set_img_url);
         minifigIds.push(result.set_num);
-        getMinifigsSets(result.set_num).then((set) => {
+        /*getMinifigsSets(result.set_num).then((set) => {
           setsSrc.push(set[0].set_img_url);
-        });
+        });*/
       });
 
       for (let i = 0; i < counterDown; i++) {
         createFigImageList(i);
-        changeInlineImages(i, minifigNames, minifiglocations);
+        changeInlineImages(i, minifigNames, minifiglocations, setsSrc);
+        console.log('test: '+setsSrc[0]);
       }
     });
 

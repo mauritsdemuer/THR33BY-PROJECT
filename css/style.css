@@ -254,6 +254,11 @@ ul.images li {
   height: 150px;
 }
 
+/*input*/
+#formGroupExampleInput {
+  font-style: italic;
+}
+
 /* MODAL STYLING */
 .modal-body,
 .modal-header,
