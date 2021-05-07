@@ -1,27 +1,43 @@
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
-//param number is user input over aantal te ordenen minifigs
-const getMinifigs = async(number) => {
-    let result = await fetch(
-        `https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`, {
-            headers: {
-                Accept: "application/json",
-            },
-        }
-    );
-    let response = await result.json();
-    return response.results;
+// param number is user input over aantal te ordenen minifigs
+// fetch miniFigs
+const getMinifigs = async (number) => {
+  let result = await fetch(
+    `https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  );
+  let response = await result.json();
+  return response.results;
+};
+
+// fetch miniFigsSets
+const getMinifigsSets = async (minifigId) => {
+  let result = await fetch(
+    `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/${apiKey}`,
+    {
+      headers: {
+        Accept: "application/json",
+      },
+    }
+  );
+  let response = await result.json();
+  return response.results;
 };
 
 const changeInlineImages = (inlineId, names, source) => {
-    let inline1 = document.getElementById(inlineId);
-    inline1.addEventListener("click", () => {
-        let minifigImage = document.getElementById("minifigImage");
-        minifigImage.src = inline1.src;
-        minifigImage.alt = names[inlineId];
-        showText(names[inlineId], "minifigName");
-    });
-    inline1.src = source[inlineId];
-    inline1.alt = names[inlineId];
+  let inline1 = document.getElementById(inlineId);
+  inline1.addEventListener("click", () => {
+    let minifigImage = document.getElementById("minifigImage");
+    minifigImage.src = inline1.src;
+    minifigImage.alt = names[inlineId];
+    showText(names[inlineId], "minifigName");
+  });
+  inline1.src = source[inlineId];
+  inline1.alt = names[inlineId];
 };
 
 // minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
@@ -29,47 +45,51 @@ let inline1 = document.getElementById("inline1");
 
 // voorlopige minifiglocaties
 const minifiglocations = [];
+
 //array voor minifignames
 const minifigNames = [];
+
 //array met minifigIDs voor set call
 const minifigIds = [];
 
+// aray met setSrc
+const setsSrc = [];
 
 // voorlopige setlocaties (pre API)
 const setlocations = [
-    "./images/legosets/creator_set.jpg",
-    "./images/legosets/fishing_store_set.jpg",
-    "./images/legosets/friends_set.jpeg",
-    "./images/legosets/ideas_set.jpg",
+  "./images/legosets/creator_set.jpg",
+  "./images/legosets/fishing_store_set.jpg",
+  "./images/legosets/friends_set.jpeg",
+  "./images/legosets/ideas_set.jpg",
 ];
 
 // functie om tekst te vervangen
 let showText = (text, id) => {
-    let changeText = document.getElementById(id);
-    changeText.textContent = text;
-    return;
+  let changeText = document.getElementById(id);
+  changeText.textContent = text;
+  return;
 };
 
 // random function met een array als input die dan meteen een object uit dat array teruggeeft
 const randomizeArray = (array, counter) => {
-    let response = array[Math.floor(Math.random() * array.length)];
-    if (counter === 0) {
-        response = "images/legomasters_large_withlogo.png";
-    } else {
-        while (response === undefined) {
-            response = array[Math.floor(Math.random() * array.length)];
-        }
+  let response = array[Math.floor(Math.random() * array.length)];
+  if (counter === 0) {
+    response = "images/legomasters_large_withlogo.png";
+  } else {
+    while (response === undefined) {
+      response = array[Math.floor(Math.random() * array.length)];
     }
+  }
 
-    return response;
+  return response;
 };
 
 // Functie om data van formulier op te halen
 const getDataFromForm = (form, data) => {
-    let chosenForm = document.getElementById(form);
-    let formData = new FormData(chosenForm);
-    let chosenData = formData.get(data);
-    return chosenData;
+  let chosenForm = document.getElementById(form);
+  let formData = new FormData(chosenForm);
+  let chosenData = formData.get(data);
+  return chosenData;
 };
 
 // initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden
@@ -79,131 +99,127 @@ let counterUp = 0;
 
 // maak <li> met a, img & img attributes aan
 const createFigImageList = (id) => {
-    let ul = document.getElementById("inlineSet");
-    let li = document.createElement("li");
-    let a = document.createElement("a");
-    let image = document.createElement("img");
-    image.setAttribute("class", "minifigInline");
-    image.setAttribute("src", "");
-    image.setAttribute("id", id);
-    image.setAttribute("alt", "");
+  let ul = document.getElementById("inlineSet");
+  let li = document.createElement("li");
+  let a = document.createElement("a");
+  let image = document.createElement("img");
+  image.setAttribute("class", "minifigInline");
+  image.setAttribute("src", "");
+  image.setAttribute("id", id);
+  image.setAttribute("alt", "");
 
-    // alles aan elkaar hangen
-    ul.appendChild(li);
-    li.appendChild(a);
-    a.appendChild(image);
+  // alles aan elkaar hangen
+  ul.appendChild(li);
+  li.appendChild(a);
+  a.appendChild(image);
 };
 const fillArrayWithImgURL = (array, number, results) => {
-    array[number] = results[number].set_img_url;
+  array[number] = results[number].set_img_url;
 };
 const fillArrayWithNames = (array, number, results) => {
-    array[number] = results[number].name;
+  array[number] = results[number].name;
 };
 
 startSortButton.addEventListener("click", () => {
-    counterDown = getDataFromForm("sortForm", "sortButton");
-    //check of de gebruiker een nummer ingeeft
-    if (
-        isNaN(counterDown) ||
-        counterDown === "" ||
-        counterDown <= 0 ||
-        counterDown % 1 != 0
-    ) {
-        $("#inputErrorModal").modal();
-    } else if (counterDown > 30) {
-        $("#tooManyModal").modal();
-    } else {
-        //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
-        showText(counterDown, "counterDown");
-        showText(counterUp, "counterUp");
-        getMinifigs(counterDown).then(results => {
-            results.forEach(result => {
-                minifigNames.push(result.name);
-                minifiglocations.push(result.set_img_url);
-                minifigIds.push(result.set_num)
-
-            });
-            console.log(minifigIds);
-            console.log(minifigNames);
-            console.log(minifiglocations);
-            for (let i = 0; i < counterDown; i++) {
-                createFigImageList(i);
-                changeInlineImages(i, minifigNames, minifiglocations);
-                //fillArrayWithImgURL(minifiglocations, i, results);
-                //fillArrayWithNames(minifigNames, i, results);
-                //console.log(minifigNames);
-            };
-        })
-
-        // creëer x <li> adhv hoeveelheid gegeven user input
-
-    }
-
+  counterDown = getDataFromForm("sortForm", "sortButton");
+  //check of de gebruiker een nummer ingeeft
+  if (
+    isNaN(counterDown) ||
+    counterDown === "" ||
+    counterDown <= 0 ||
+    counterDown % 1 != 0
+  ) {
+    $("#inputErrorModal").modal();
+  } else if (counterDown > 1000) {
+    $("#tooManyModal").modal();
+  } else {
+    //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
+    showText(counterDown, "counterDown");
+    showText(counterUp, "counterUp");
     getMinifigs(counterDown).then((results) => {
-        let defImage = document.getElementById("minifigImage");
-        defImage.src = results[0].set_img_url;
-        showText(results[0].name, "minifigName");
+      results.forEach((result) => {
+        minifigNames.push(result.name);
+        minifiglocations.push(result.set_img_url);
+        minifigIds.push(result.set_num);
+        getMinifigsSets(result.set_num).then((set) => {
+          setsSrc.push(set[0].set_img_url);
+        });
+      });
+
+      for (let i = 0; i < counterDown; i++) {
+        createFigImageList(i);
+        changeInlineImages(i, minifigNames, minifiglocations);
+      }
     });
 
-    //geeft een random waarde aan de set images vanuit een array
-    let setImage1 = document.getElementById("setImage1");
-    let setImage2 = document.getElementById("setImage2");
-    setImage1.src = randomizeArray(setlocations);
-    setImage2.src = randomizeArray(setlocations);
+    // creëer x <li> adhv hoeveelheid gegeven user input
+  }
 
-    //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
-    $("#sortForm").addClass("d-none");
-    $("#gameRules").addClass("d-none");
+  getMinifigs(counterDown).then((results) => {
+    let defImage = document.getElementById("minifigImage");
+    defImage.src = results[0].set_img_url;
+    showText(results[0].name, "minifigName");
+  });
 
-    //verwijdert de d-none class zodat de content zichtbaar wordt on click
-    $("#stopSort").removeClass("d-none");
-    $("#inlineSet").removeClass("d-none");
-    $("#setSelection").removeClass("d-none");
-    $("#minifigAlert").removeClass("d-none");
-    $("#minifigImage").removeClass("d-none");
+  //geeft een random waarde aan de set images vanuit een array
+  let setImage1 = document.getElementById("setImage1");
+  let setImage2 = document.getElementById("setImage2");
+  setImage1.src = randomizeArray(setlocations);
+  setImage2.src = randomizeArray(setlocations);
+
+  //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
+  $("#sortForm").addClass("d-none");
+  $("#gameRules").addClass("d-none");
+
+  //verwijdert de d-none class zodat de content zichtbaar wordt on click
+  $("#stopSort").removeClass("d-none");
+  $("#inlineSet").removeClass("d-none");
+  $("#setSelection").removeClass("d-none");
+  $("#minifigAlert").removeClass("d-none");
+  $("#minifigImage").removeClass("d-none");
 });
 
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
-sortSetButton.addEventListener("click", function() {
-    // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
-    if (counterDown !== 0) {
-        counterDown--;
-        counterUp++;
-        showText(counterDown, "counterDown");
-        showText(counterUp, "counterUp");
-        removeInline();
+sortSetButton.addEventListener("click", function () {
+  // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
+  if (counterDown !== 0) {
+    counterDown--;
+    counterUp++;
+    showText(counterDown, "counterDown");
+    showText(counterUp, "counterUp");
+    removeInline();
 
-        // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
-        let minifigImage = document.getElementById("minifigImage");
-        minifigImage.src = randomizeArray(minifiglocations, counterDown);
+    // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
+    let minifigImage = document.getElementById("minifigImage");
+    minifigImage.src = randomizeArray(minifiglocations, counterDown);
 
-        // setimage wordt voorlopig nog random geselecteerd
-        let setImage1 = document.getElementById("setImage1");
-        let setImage2 = document.getElementById("setImage2");
-        setImage1.src = randomizeArray(setlocations, counterDown);
-        setImage2.src = randomizeArray(setlocations, counterDown);
-        showText(
-            minifigNames[minifiglocations.indexOf(minifigImage.src)],
-            "minifigName"
-        );
-    }
-    if (counterDown === 0) {
-        // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh
-        $("#finishSortModal").modal("toggle");
-    }
+    // setimage wordt voorlopig nog random geselecteerd
+    let setImage1 = document.getElementById("setImage1");
+    let setImage2 = document.getElementById("setImage2");
+    setImage1.src = randomizeArray(setlocations, counterDown);
+    setImage2.src = randomizeArray(setlocations, counterDown);
+    showText(
+      minifigNames[minifiglocations.indexOf(minifigImage.src)],
+      "minifigName"
+    );
+  }
+  if (counterDown === 0) {
+    // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh
+    $("#finishSortModal").modal("toggle");
+  }
 });
 
 const removeInline = () => {
-    let minifigImage = document.getElementById("minifigImage");
-    let inlineImage = document.getElementById(
-        minifiglocations.indexOf(minifigImage.src)
-    );
-    let inlineLink = inlineImage.parentNode;
-    let listItem = inlineLink.parentNode;
-    let unorderedList = listItem.parentNode;
-    inlineLink.removeChild(inlineImage);
-    listItem.removeChild(inlineLink);
-    unorderedList.removeChild(listItem);
-    minifiglocations[minifiglocations.indexOf(minifigImage.src)] = undefined;
+  let minifigImage = document.getElementById("minifigImage");
+  let inlineImage = document.getElementById(
+    minifiglocations.indexOf(minifigImage.src)
+  );
+  let inlineLink = inlineImage.parentNode;
+  let listItem = inlineLink.parentNode;
+  let unorderedList = listItem.parentNode;
+  inlineLink.removeChild(inlineImage);
+  listItem.removeChild(inlineLink);
+  unorderedList.removeChild(listItem);
+  minifiglocations[minifiglocations.indexOf(minifigImage.src)] = undefined;
 };
