@@ -12,16 +12,16 @@ const getMinifigs = async(number) => {
     return response.results;
 };
 
-const changeInlineImages = (inlineId, response) => {
+const changeInlineImages = (inlineId, names, source) => {
     let inline1 = document.getElementById(inlineId);
     inline1.addEventListener("click", () => {
         let minifigImage = document.getElementById("minifigImage");
         minifigImage.src = inline1.src;
-        minifigImage.alt = response.name;
-        showText(response.name, "minifigName");
+        minifigImage.alt = names[inlineId];
+        showText(names[inlineId], "minifigName");
     });
-    inline1.src = response.set_img_url;
-    inline1.alt = response.name;
+    inline1.src = source[inlineId];
+    inline1.alt = names[inlineId];
 };
 
 // minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
@@ -126,42 +126,41 @@ startSortButton.addEventListener("click", () => {
             console.log(minifigIds);
             console.log(minifigNames);
             console.log(minifiglocations);
-        })
-
-        // creëer x <li> adhv hoeveelheid gegeven user input
-        for (let i = 0; i < counterDown; i++) {
-            getMinifigs(counterDown).then((results) => {
+            for (let i = 0; i < counterDown; i++) {
                 createFigImageList(i);
-                changeInlineImages(i, results[i]);
+                changeInlineImages(i, minifigNames, minifiglocations);
                 //fillArrayWithImgURL(minifiglocations, i, results);
                 //fillArrayWithNames(minifigNames, i, results);
                 //console.log(minifigNames);
-            });
-        }
+            };
+        })
 
-        getMinifigs(counterDown).then((results) => {
-            let defImage = document.getElementById("minifigImage");
-            defImage.src = results[0].set_img_url;
-            showText(results[0].name, "minifigName");
-        });
+        // creëer x <li> adhv hoeveelheid gegeven user input
 
-        //geeft een random waarde aan de set images vanuit een array
-        let setImage1 = document.getElementById("setImage1");
-        let setImage2 = document.getElementById("setImage2");
-        setImage1.src = randomizeArray(setlocations);
-        setImage2.src = randomizeArray(setlocations);
-
-        //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
-        $("#sortForm").addClass("d-none");
-        $("#gameRules").addClass("d-none");
-
-        //verwijdert de d-none class zodat de content zichtbaar wordt on click
-        $("#stopSort").removeClass("d-none");
-        $("#inlineSet").removeClass("d-none");
-        $("#setSelection").removeClass("d-none");
-        $("#minifigAlert").removeClass("d-none");
-        $("#minifigImage").removeClass("d-none");
     }
+
+    getMinifigs(counterDown).then((results) => {
+        let defImage = document.getElementById("minifigImage");
+        defImage.src = results[0].set_img_url;
+        showText(results[0].name, "minifigName");
+    });
+
+    //geeft een random waarde aan de set images vanuit een array
+    let setImage1 = document.getElementById("setImage1");
+    let setImage2 = document.getElementById("setImage2");
+    setImage1.src = randomizeArray(setlocations);
+    setImage2.src = randomizeArray(setlocations);
+
+    //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
+    $("#sortForm").addClass("d-none");
+    $("#gameRules").addClass("d-none");
+
+    //verwijdert de d-none class zodat de content zichtbaar wordt on click
+    $("#stopSort").removeClass("d-none");
+    $("#inlineSet").removeClass("d-none");
+    $("#setSelection").removeClass("d-none");
+    $("#minifigAlert").removeClass("d-none");
+    $("#minifigImage").removeClass("d-none");
 });
 
 // sort set button
