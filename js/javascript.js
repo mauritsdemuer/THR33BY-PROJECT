@@ -13,6 +13,9 @@ let minifigIds = [];
 // aray met setSrc
 let setsSrc = [];
 
+let promise1;
+let promise2;
+
 // voorlopige setlocaties (pre API)
 const setlocations = [
   "./images/legosets/creator_set.jpg",
@@ -23,6 +26,9 @@ const setlocations = [
 
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
 // param number is user input over aantal te ordenen minifigs
+
+
+
 // fetch miniFigs
 const getMinifigs = async (number) => {
   let result = await fetch(
@@ -56,7 +62,9 @@ const getMinifigsSets = async (minifigId) => {
   }
 };
 
-const changeInlineImages = (inlineId, names, source, sets) => {
+
+
+const changeInlineImages = (inlineId, names, source) => {
   let inline1 = document.getElementById(inlineId);
   inline1.addEventListener("click", () => {
     let minifigImage = document.getElementById("minifigImage");
@@ -66,17 +74,8 @@ const changeInlineImages = (inlineId, names, source, sets) => {
   });
   inline1.src = source[inlineId];
   inline1.alt = names[inlineId];
-
-  let randomJeneratorNumber = Math.floor(Math.random() * 1 + 1);
-  console.log(randomJeneratorNumber);
-  console.log(setsSrc);
-
-  let setImage1 = document.getElementById("setImage1");
-  setImage1.src = sets[inlineId];
-  console.log(setImage1.src);
-  console.log(inlineId);
-  console.log(sets[inlineId]);
-  console.log('nummerke: ' + sets.indexOf("https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"));
+let setimage = document.getElementById("setImage1");
+setimage.src = setsSrc[inlineId];
 
 };
 
@@ -116,20 +115,24 @@ let counterDown = 0;
 let counterUp = 0;
 
 // maak <li> met a, img & img attributes aan
-const createFigImageList = (id) => {
-  let ul = document.getElementById("inlineSet");
-  let li = document.createElement("li");
-  let a = document.createElement("a");
-  let image = document.createElement("img");
-  image.setAttribute("class", "minifigInline");
-  image.setAttribute("src", "");
-  image.setAttribute("id", id);
-  image.setAttribute("alt", "");
+const createFigImageList = (number) => {
+  for(let i=0; i<number; i++){
+    let ul = document.getElementById("inlineSet");
+    let li = document.createElement("li");
+    let a = document.createElement("a");
+    let image = document.createElement("img");
+    image.setAttribute("class", "minifigInline");
+    image.setAttribute("src", "");
+    image.setAttribute("id", i);
+    image.setAttribute("alt", "");
+  
+    // alles aan elkaar hangen
+    ul.appendChild(li);
+    li.appendChild(a);
+    a.appendChild(image);
+    changeInlineImages(i,minifigNames,minifiglocations);
+  }
 
-  // alles aan elkaar hangen
-  ul.appendChild(li);
-  li.appendChild(a);
-  a.appendChild(image);
 };
 const fillArrayWithImgURL = (array, number, results) => {
   array[number] = results[number].set_img_url;
@@ -138,7 +141,7 @@ const fillArrayWithNames = (array, number, results) => {
   array[number] = results[number].name;
 };
 
-startSortButton.addEventListener("click", () => 
+startSortButton.addEventListener("click",async () => 
 {
   counterDown = getDataFromForm("sortForm", "sortButton");
   //check of de gebruiker een nummer ingeeft
@@ -156,68 +159,50 @@ startSortButton.addEventListener("click", () =>
   } else 
   {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
-    showText(counterDown, "counterDown");
-    showText(counterUp, "counterUp");
-
-    getMinifigs(counterDown).then((minifigData)=>
-    {
-      minifigData.forEach(minifig => 
-      {
+showText(counterDown, "counterDown");
+    await getMinifigs(counterDown).then((minifigdata)=>{
+      minifigdata.forEach(minifig => {
         minifiglocations.push(minifig.set_img_url);
+        minifigIds.push(minifig.set_num);
         minifigNames.push(minifig.name);
-        minifigIds.push(minifig.set_num)
-
-        
-      }).then(()=>{
-        minifigIds.forEach(minifigId=>{
-          getMinifigsSets(minifigId).then((setURL)=>
-          {
-            let nummerke = minifigIds.indexOf(minifigId);
-            createFigImageList(nummerke);
-
-            setsSrc.push(setURL);
-
-          })
-                      
-        })
-      }).then(()=>{
-        for(let i = 0; i<setsSrc.length; i++)
-        changeInlineImages(i, minifigNames, minifiglocations,setsSrc);
-
       });
-
+    }).then(()=>{
+      minifigIds.forEach((minifigId)=>{
+        getMinifigsSets(minifigId).then((setSource)=>{
+          setsSrc.push(setSource);
+        })
+      })
+    }).then(()=>{
+      createFigImageList(counterDown);
     })
-   
+    /*let setImage1 = document.getElementById("setImage1");
+    let setImage2 = document.getElementById("setImage2");
+    setImage1.src = randomizeArray(setlocations);
+    setImage2.src = randomizeArray(setlocations);*/
+  
+    //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
+    $("#sortForm").addClass("d-none");
+    $("#gameRules").addClass("d-none");
+  
+    //verwijdert de d-none class zodat de content zichtbaar wordt on click
+    $("#stopSort").removeClass("d-none");
+    $("#inlineSet").removeClass("d-none");
+    $("#setSelection").removeClass("d-none");
+    $("#minifigAlert").removeClass("d-none");
+    $("#minifigImage").removeClass("d-none");
   };
+
+   
+  
   
 
 
   // creëer x <li> adhv hoeveelheid gegeven user input
 
 
-  getMinifigs(counterDown).then((results) => {
-    let defImage = document.getElementById("minifigImage");
-    defImage.src = results[0].set_img_url;
-    showText(results[0].name, "minifigName");
-  });
 
-  //geeft een random waarde aan de set images vanuit een array
-  let setImage1 = document.getElementById("setImage1");
-  let setImage2 = document.getElementById("setImage2");
-  //setImage1.src = randomizeArray(setlocations);
-  //setImage2.src = randomizeArray(setlocations);
 
-  //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
-  $("#sortForm").addClass("d-none");
-  $("#gameRules").addClass("d-none");
-
-  //verwijdert de d-none class zodat de content zichtbaar wordt on click
-  $("#stopSort").removeClass("d-none");
-  $("#inlineSet").removeClass("d-none");
-  $("#setSelection").removeClass("d-none");
-  $("#minifigAlert").removeClass("d-none");
-  $("#minifigImage").removeClass("d-none");
-});
+  //geeft een random waarde aan de set images vanuit een arr
 
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
@@ -262,4 +247,4 @@ const removeInline = () => {
   listItem.removeChild(inlineLink);
   unorderedList.removeChild(listItem);
   minifiglocations[minifiglocations.indexOf(minifigImage.src)] = undefined;
-};
+};});
