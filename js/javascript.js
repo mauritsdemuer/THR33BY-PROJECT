@@ -2,16 +2,16 @@
 let inline1 = document.getElementById("inline1");
 
 // voorlopige minifiglocaties
-const minifiglocations = [];
+let minifiglocations = [];
 
 //array voor minifignames
-const minifigNames = [];
+let minifigNames = [];
 
 //array met minifigIDs voor set call
-const minifigIds = [];
+let minifigIds = [];
 
 // aray met setSrc
-const setsSrc = ["https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"];
+let setsSrc = [];
 
 // voorlopige setlocaties (pre API)
 const setlocations = [
@@ -39,38 +39,44 @@ const getMinifigs = async (number) => {
 
 // fetch miniFigsSets
 const getMinifigsSets = async (minifigId) => {
-  let result = await fetch(
-    `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/${apiKey}`,
-    {
-      headers: {
-        Accept: "application/json",
-      },
-    }
-  );
-  let response = await result.json();
-  return response.results;
+  try {
+    let result = await fetch(
+      `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/${apiKey}`,
+      {
+        headers: {
+          Accept: "application/json",
+        },
+      }
+    );
+    let response = await result.json();
+    return response.results[0].set_img_url;
+  }
+  catch (exc) {
+    console.log(exc);
+  }
 };
 
 const changeInlineImages = (inlineId, names, source, sets) => {
   let inline1 = document.getElementById(inlineId);
-  /*inline1.addEventListener("click", () => {
+  inline1.addEventListener("click", () => {
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = names[inlineId];
     showText(names[inlineId], "minifigName");
   });
   inline1.src = source[inlineId];
-  inline1.alt = names[inlineId];*/
+  inline1.alt = names[inlineId];
 
-  //let randomJeneratorNumber = Math.floor(Math.random() * 1 + 1);
-  //console.log(randomJeneratorNumber);
-  //console.log(setsSrc);
+  let randomJeneratorNumber = Math.floor(Math.random() * 1 + 1);
+  console.log(randomJeneratorNumber);
+  console.log(setsSrc);
 
-  let setImage = document.getElementById(`setImage1`);
-  setImage.src = sets[inlineId];
+  let setImage1 = document.getElementById("setImage1");
+  setImage1.src = sets[inlineId];
+  console.log(setImage1.src);
   console.log(inlineId);
-  console.log(sets[0]);
-  console.log('nummerke: '+sets.indexOf("https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"));
+  console.log(sets[inlineId]);
+  console.log('nummerke: ' + sets.indexOf("https://cdn.rebrickable.com/media/sets/31105-1/16479.jpg"));
 
 };
 
@@ -132,7 +138,8 @@ const fillArrayWithNames = (array, number, results) => {
   array[number] = results[number].name;
 };
 
-startSortButton.addEventListener("click", () => {
+startSortButton.addEventListener("click", () => 
+{
   counterDown = getDataFromForm("sortForm", "sortButton");
   //check of de gebruiker een nummer ingeeft
   if (
@@ -140,33 +147,53 @@ startSortButton.addEventListener("click", () => {
     counterDown === "" ||
     counterDown <= 0 ||
     counterDown % 1 != 0
-  ) {
+  ) 
+  {
     $("#inputErrorModal").modal();
-  } else if (counterDown > 1000) {
+  } else if (counterDown > 1000) 
+  {
     $("#tooManyModal").modal();
-  } else {
+  } else 
+  {
     //teller wordt aangemaakt en geïnitialiseerd volgens input van de gebruiker
     showText(counterDown, "counterDown");
     showText(counterUp, "counterUp");
-    getMinifigs(counterDown).then((results) => {
-      results.forEach((result) => {
-        minifigNames.push(result.name);
-        minifiglocations.push(result.set_img_url);
-        minifigIds.push(result.set_num);
-        /*getMinifigsSets(result.set_num).then((set) => {
-          setsSrc.push(set[0].set_img_url);
-        });*/
+
+    getMinifigs(counterDown).then((minifigData)=>
+    {
+      minifigData.forEach(minifig => 
+      {
+        minifiglocations.push(minifig.set_img_url);
+        minifigNames.push(minifig.name);
+        minifigIds.push(minifig.set_num)
+
+        
+      }).then(()=>{
+        minifigIds.forEach(minifigId=>{
+          getMinifigsSets(minifigId).then((setURL)=>
+          {
+            let nummerke = minifigIds.indexOf(minifigId);
+            createFigImageList(nummerke);
+
+            setsSrc.push(setURL);
+
+          })
+                      
+        })
+      }).then(()=>{
+        for(let i = 0; i<setsSrc.length; i++)
+        changeInlineImages(i, minifigNames, minifiglocations,setsSrc);
+
       });
 
-      for (let i = 0; i < counterDown; i++) {
-        createFigImageList(i);
-        changeInlineImages(i, minifigNames, minifiglocations, setsSrc);
-        console.log('test: '+setsSrc[0]);
-      }
-    });
+    })
+   
+  };
+  
 
-    // creëer x <li> adhv hoeveelheid gegeven user input
-  }
+
+  // creëer x <li> adhv hoeveelheid gegeven user input
+
 
   getMinifigs(counterDown).then((results) => {
     let defImage = document.getElementById("minifigImage");
@@ -177,8 +204,8 @@ startSortButton.addEventListener("click", () => {
   //geeft een random waarde aan de set images vanuit een array
   let setImage1 = document.getElementById("setImage1");
   let setImage2 = document.getElementById("setImage2");
-  setImage1.src = randomizeArray(setlocations);
-  setImage2.src = randomizeArray(setlocations);
+  //setImage1.src = randomizeArray(setlocations);
+  //setImage2.src = randomizeArray(setlocations);
 
   //verbergt het initiele sorteerformulier & spelregels tot er bevestigd wordt
   $("#sortForm").addClass("d-none");
@@ -208,10 +235,10 @@ sortSetButton.addEventListener("click", function () {
     minifigImage.src = randomizeArray(minifiglocations, counterDown);
 
     // setimage wordt voorlopig nog random geselecteerd
-    let setImage1 = document.getElementById("setImage1");
-    let setImage2 = document.getElementById("setImage2");
-    setImage1.src = randomizeArray(setlocations, counterDown);
-    setImage2.src = randomizeArray(setlocations, counterDown);
+    /*  let setImage1 = document.getElementById("setImage1");
+      let setImage2 = document.getElementById("setImage2");
+      setImage1.src = randomizeArray(setlocations, counterDown);
+      setImage2.src = randomizeArray(setlocations, counterDown);*/
     showText(
       minifigNames[minifiglocations.indexOf(minifigImage.src)],
       "minifigName"
