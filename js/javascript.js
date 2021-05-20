@@ -13,14 +13,6 @@ let minifigIds = [];
 // aray met setSrc
 let setsSrc = [];
 
-// voorlopige setlocaties (pre API)
-const setlocations = [
-  "./images/legosets/creator_set.jpg",
-  "./images/legosets/fishing_store_set.jpg",
-  "./images/legosets/friends_set.jpeg",
-  "./images/legosets/ideas_set.jpg",
-];
-
 const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
 // param number is user input over aantal te ordenen minifigs
 
@@ -85,11 +77,10 @@ const randomizeArray = (array, counter) => {
       response = array[Math.floor(Math.random() * array.length)];
     }
   }
-
   return response;
 };
 
-// Functie om data van formulier op te halen
+// functie om data van formulier op te halen
 const getDataFromForm = (form, data) => {
   let chosenForm = document.getElementById(form);
   let formData = new FormData(chosenForm);
