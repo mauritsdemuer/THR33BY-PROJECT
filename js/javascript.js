@@ -1,8 +1,10 @@
+const authKey = "key 3ef36135e7fda4370a11fd6191fef2af";
+
 // minifig inline
 let inline1 = document.getElementById("inline1");
 
 // minifig img urls
-let minifigImgUrl = [];
+let minifigImgs = [];
 
 // minifig names
 let minifigNames = [];
@@ -11,9 +13,7 @@ let minifigNames = [];
 let minifigIds = [];
 
 // minifig set urls
-let minifigSetsUrl = [];
-
-const authKey = "key 3ef36135e7fda4370a11fd6191fef2af";
+let minifigSets = [];
 
 // parameter number is user input
 // fetch miniFigs
@@ -63,14 +63,14 @@ let startSortButton = document.getElementById("startSorting");
 let counterDown = 0;
 let counterUp = 0;
 
-// func() tekst vervangen
+// tekst vervangen
 let showText = (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
 };
 
-// func() data uit form halen
+// data uit form halen
 const getDataFromForm = (form, data) => {
   let chosenForm = document.getElementById(form);
   let formData = new FormData(chosenForm);
@@ -78,7 +78,7 @@ const getDataFromForm = (form, data) => {
   return chosenData;
 };
 
-// func() met array parameter => geeft object uit array terug
+//  func met array parameter => geeft object uit array terug
 const randomizeArray = (array, counter) => {
   let response = array[Math.floor(Math.random() * array.length)];
   if (counter === 0) {
@@ -107,7 +107,7 @@ const createFigImageList = (number) => {
     ul.appendChild(li);
     li.appendChild(a);
     a.appendChild(image);
-    changeInlineImages(i, minifigNames, minifigImgUrl);
+    changeInlineImages(i, minifigNames, minifigImgs);
   }
 };
 
@@ -117,7 +117,7 @@ const miniFigDataGetAndPush = async (counterDown) => {
   minifigs.forEach((fig) => {
     minifigNames.push(fig.name);
     minifigIds.push(fig.set_num);
-    minifigImgUrl.push(fig.set_img_url);
+    minifigImgs.push(fig.set_img_url);
   });
 };
 
@@ -126,13 +126,13 @@ const miniFigSetsGetAndPush = () => {
   minifigIds.forEach((id) => {
     getMinifigSets(id).then((setUrl) => {
       setTimeout(() => {
-        minifigSetsUrl.push(setUrl);
+        minifigSets.push(setUrl);
       }, 100);
     });
   });
 };
 
-// func() laat content zien na fetches & data insertion
+// laat content zien na fetches & data insertion
 const showContent = (counterDown) => {
   showText(counterDown, "counterDown");
   createFigImageList(counterDown);
@@ -149,9 +149,9 @@ const showContent = (counterDown) => {
   $("#minifigImage").removeClass("d-none");
 
   let setImage = document.getElementById("setImage1");
-  setImage.src = minifigSetsUrl[0];
+  setImage.src = minifigSets[0];
   let setImage2 = document.getElementById("setImage2");
-  setImage2.src = minifigSetsUrl[1];
+  setImage2.src = minifigSets[1];
 };
 
 // aantal bevestigen begint
@@ -187,7 +187,7 @@ sortSetButton.addEventListener("click", function () {
 
     // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
     let minifigImage = document.getElementById("minifigImage");
-    minifigImage.src = randomizeArray(minifigImgUrl, counterDown);
+    minifigImage.src = randomizeArray(minifigImgs, counterDown);
 
     // setimage wordt voorlopig nog random geselecteerd
     /*  let setImage1 = document.getElementById("setImage1");
@@ -196,7 +196,7 @@ sortSetButton.addEventListener("click", function () {
       setImage2.src = randomizeArray(setlocations, counterDown);*/
 
     showText(
-      minifigNames[minifigImgUrl.indexOf(minifigImage.src)],
+      minifigNames[minifigImgs.indexOf(minifigImage.src)],
       "minifigName"
     );
   }
@@ -209,7 +209,7 @@ sortSetButton.addEventListener("click", function () {
 const removeInline = () => {
   let minifigImage = document.getElementById("minifigImage");
   let inlineImage = document.getElementById(
-    minifigImgUrl.indexOf(minifigImage.src)
+    minifigImgs.indexOf(minifigImage.src)
   );
   let inlineLink = inlineImage.parentNode;
   let listItem = inlineLink.parentNode;
@@ -217,5 +217,5 @@ const removeInline = () => {
   inlineLink.removeChild(inlineImage);
   listItem.removeChild(inlineLink);
   unorderedList.removeChild(listItem);
-  minifigImgUrl[minifigImgUrl.indexOf(minifigImage.src)] = undefined;
+  minifigImgs[minifigImgs.indexOf(minifigImage.src)] = undefined;
 };
