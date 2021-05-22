@@ -114,11 +114,11 @@ const createFigImageList = (number) => {
 // call getMinifigs aan & zet data in arrays
 const miniFigDataGetAndPush = async (counterDown) => {
   let minifigs = await getMinifigs(counterDown);
-  minifigs.forEach((fig) => {
-    minifigNames.push(fig.name);
-    minifigIds.push(fig.set_num);
-    minifigImgs.push(fig.set_img_url);
-  });
+  for (let figData of minifigs) {
+    minifigNames.push(figData.name);
+    minifigIds.push(figData.set_num);
+    minifigImgs.push(figData.set_img_url);
+  }
 };
 
 // call getMinifigSets & zet data in array

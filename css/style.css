@@ -208,6 +208,10 @@ footer {
   height: 0.8rem;
 }
 
+#userInput {
+  font-style: italic;
+}
+
 /* Track */
 
 #inlineSet::-webkit-scrollbar-track {
