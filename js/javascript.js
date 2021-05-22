@@ -122,14 +122,11 @@ const miniFigDataGetAndPush = async (counterDown) => {
 };
 
 // call getMinifigSets & zet data in array
-const miniFigSetsGetAndPush = () => {
-  minifigIds.forEach((id) => {
-    getMinifigSets(id).then((setUrl) => {
-      setTimeout(() => {
-        minifigSets.push(setUrl);
-      }, 100);
-    });
-  });
+const miniFigSetsGetAndPush = async () => {
+  for (let id of minifigIds) {
+    let minifigSetsUrl = await getMinifigSets(id);
+    minifigSets.push(minifigSetsUrl);
+  }
 };
 
 // laat content zien na fetches & data insertion
@@ -154,7 +151,7 @@ const showContent = (counterDown) => {
   setImage2.src = minifigSets[1];
 };
 
-const beginGame = async () => {
+const beginGame = () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
   // check of de gebruiker een getal ingeeft met aantal condities
   if (
@@ -167,9 +164,11 @@ const beginGame = async () => {
   } else if (counterDown > 20) {
     return $("#tooManyModal").modal();
   } else {
-    await miniFigDataGetAndPush(counterDown);
-    miniFigSetsGetAndPush();
-    setTimeout(showContent, 300, counterDown);
+    miniFigDataGetAndPush(counterDown).then(() => {
+      miniFigSetsGetAndPush().then(() => {
+        showContent(counterDown);
+      });
+    });
   }
 };
 
