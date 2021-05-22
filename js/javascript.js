@@ -164,6 +164,9 @@ const beginGame = () => {
   } else if (counterDown > 20) {
     return $("#tooManyModal").modal();
   } else {
+    // verwijder onnodige elementen terwijl game op promises wacht
+    $("#formToHideAfterClick").addClass("d-none");
+    $("#loadingTime").removeClass("d-none");
     miniFigDataGetAndPush(counterDown).then(() => {
       miniFigSetsGetAndPush().then(() => {
         showContent(counterDown);

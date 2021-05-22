@@ -212,6 +212,24 @@ footer {
   font-style: italic;
 }
 
+#loadingTime {
+  width: 100%;
+}
+
+#startSorting {
+  background-color: #e93582;
+  border: #e93582;
+  color: white;
+}
+
+#startSorting:hover {
+  background-color: #f876af !important;
+}
+
+#userInput::placeholder {
+  font-size: 1.25rem;
+}
+
 /* Track */
 
 #inlineSet::-webkit-scrollbar-track {
