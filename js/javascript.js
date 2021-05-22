@@ -1,4 +1,4 @@
-const authKey = "key 3ef36135e7fda4370a11fd6191fef2af";
+const authKey = "key 942f5d37e43f1d374cce3d22f908b3d4";
 
 // minifig inline
 let inline1 = document.getElementById("inline1");
