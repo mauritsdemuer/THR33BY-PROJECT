@@ -1,51 +1,49 @@
-// minifig Inline: hier wordt het element geïdentificeerd en wordt er onclick deze minifig getoond en de bijhorende sets (voorlopig met een random functie, later met API call)
+// minifig inline
 let inline1 = document.getElementById("inline1");
 
-// voorlopige minifiglocaties
-let minifigLocations = [];
+// minifig img urls
+let minifigImgUrl = [];
 
-//array voor minifignames
+// minifig names
 let minifigNames = [];
 
-//array met minifigIDs voor set call
+// minifig ids
 let minifigIds = [];
 
-// aray met setSrc
-let setsSrc = [];
+// minifig set urls
+let minifigSetsUrl = [];
 
-const apiKey = "?key=3ef36135e7fda4370a11fd6191fef2af";
-// param number is user input over aantal te ordenen minifigs
+const authKey = "key 3ef36135e7fda4370a11fd6191fef2af";
 
+// parameter number is user input
 // fetch miniFigs
 const getMinifigs = async (number) => {
-  let result = await fetch(
-    `https://rebrickable.com/api/v3/lego/minifigs/${apiKey}&page_size=${number}`,
+  let fetchFigs = await fetch(
+    `https://rebrickable.com/api/v3/lego/minifigs/?page_size=${number}`,
     {
       headers: {
         Accept: "application/json",
+        Authorization: authKey,
       },
     }
   );
-  let response = await result.json();
-  return response.results;
+  let minifigs = await fetchFigs.json();
+  return minifigs.results;
 };
 
-// fetch miniFigsSets
-const getMinifigsSets = async (minifigId) => {
-  try {
-    let result = await fetch(
-      `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/${apiKey}`,
-      {
-        headers: {
-          Accept: "application/json",
-        },
-      }
-    );
-    let response = await result.json();
-    return response.results[0].set_img_url;
-  } catch (exc) {
-    console.log(exc);
-  }
+// fetch miniFigSets
+const getMinifigSets = async (minifigId) => {
+  let fetchSets = await fetch(
+    `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/`,
+    {
+      headers: {
+        Accept: "application/json",
+        Authorization: authKey,
+      },
+    }
+  );
+  let minifigSets = await fetchSets.json();
+  return minifigSets.results[0].set_img_url;
 };
 
 const changeInlineImages = (inlineId, names, source) => {
@@ -60,14 +58,27 @@ const changeInlineImages = (inlineId, names, source) => {
   inline1.alt = names[inlineId];
 };
 
-// functie om tekst te vervangen
+// initialisatie van de startSortButton
+let startSortButton = document.getElementById("startSorting");
+let counterDown = 0;
+let counterUp = 0;
+
+// func() tekst vervangen
 let showText = (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
 };
 
-// random function met een array als input die dan meteen een object uit dat array teruggeeft
+// func() data uit form halen
+const getDataFromForm = (form, data) => {
+  let chosenForm = document.getElementById(form);
+  let formData = new FormData(chosenForm);
+  let chosenData = formData.get(data);
+  return chosenData;
+};
+
+// func() met array parameter => geeft object uit array terug
 const randomizeArray = (array, counter) => {
   let response = array[Math.floor(Math.random() * array.length)];
   if (counter === 0) {
@@ -79,19 +90,6 @@ const randomizeArray = (array, counter) => {
   }
   return response;
 };
-
-// functie om data van formulier op te halen
-const getDataFromForm = (form, data) => {
-  let chosenForm = document.getElementById(form);
-  let formData = new FormData(chosenForm);
-  let chosenData = formData.get(data);
-  return chosenData;
-};
-
-// initialisatie van de startsortbutton en bijhorende parameters, dit moest buiten de functie omdat de counter buiten deze eventlistener gebruikt moet worden
-let startSortButton = document.getElementById("startSorting");
-let counterDown = 0;
-let counterUp = 0;
 
 // maak <li> met a, img & img attributes aan
 const createFigImageList = (number) => {
@@ -109,33 +107,33 @@ const createFigImageList = (number) => {
     ul.appendChild(li);
     li.appendChild(a);
     a.appendChild(image);
-    changeInlineImages(i, minifigNames, minifigLocations);
+    changeInlineImages(i, minifigNames, minifigImgUrl);
   }
 };
 
-// roept getminifigs aan & zet data in zijn bijhorende arrays
+// call getMinifigs aan & zet data in arrays
 const miniFigDataGetAndPush = async (counterDown) => {
-  await getMinifigs(counterDown).then((minifigData) => {
-    minifigData.forEach((minifig) => {
-      minifigLocations.push(minifig.set_img_url);
-      minifigIds.push(minifig.set_num);
-      minifigNames.push(minifig.name);
-    });
+  let minifigs = await getMinifigs(counterDown);
+  minifigs.forEach((fig) => {
+    minifigNames.push(fig.name);
+    minifigIds.push(fig.set_num);
+    minifigImgUrl.push(fig.set_img_url);
   });
 };
 
-// roept getSets aan & zet set img url in setsSrc
-const miniFigSetsGetAndPush = async () => {
+// call getMinifigSets & zet data in array
+const miniFigSetsGetAndPush = () => {
   minifigIds.forEach((id) => {
-    getMinifigsSets(id).then((setUrl) => {
-      setTimeout(function () {
-        setsSrc.push(setUrl);
+    getMinifigSets(id).then((setUrl) => {
+      setTimeout(() => {
+        minifigSetsUrl.push(setUrl);
       }, 100);
     });
   });
 };
 
-const showContent = async (counterDown) => {
+// func() laat content zien na fetches & data insertion
+const showContent = (counterDown) => {
   showText(counterDown, "counterDown");
   createFigImageList(counterDown);
 
@@ -143,7 +141,7 @@ const showContent = async (counterDown) => {
   $("#sortForm").addClass("d-none");
   $("#gameRules").addClass("d-none");
 
-  //verwijdert de d-none class zodat de content zichtbaar wordt on click
+  // verwijdert de d-none class zodat de content zichtbaar wordt on click
   $("#stopSort").removeClass("d-none");
   $("#inlineSet").removeClass("d-none");
   $("#setSelection").removeClass("d-none");
@@ -151,15 +149,15 @@ const showContent = async (counterDown) => {
   $("#minifigImage").removeClass("d-none");
 
   let setImage = document.getElementById("setImage1");
-  setImage.src = setsSrc[0];
+  setImage.src = minifigSetsUrl[0];
   let setImage2 = document.getElementById("setImage2");
-  setImage2.src = setsSrc[1];
+  setImage2.src = minifigSetsUrl[1];
 };
 
-// bij aantal bevestigen begint
+// aantal bevestigen begint
 startSortButton.addEventListener("click", async () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
-  // check of de gebruiker een juist nummer ingeeft
+  // check of de gebruiker een getal ingeeft met aantal condities
   if (
     isNaN(counterDown) ||
     counterDown === "" ||
@@ -171,8 +169,8 @@ startSortButton.addEventListener("click", async () => {
     return $("#tooManyModal").modal();
   } else {
     await miniFigDataGetAndPush(counterDown);
-    await miniFigSetsGetAndPush();
-    setTimeout(showContent, 500, counterDown);
+    miniFigSetsGetAndPush();
+    setTimeout(showContent, 300, counterDown);
   }
 });
 
@@ -189,20 +187,21 @@ sortSetButton.addEventListener("click", function () {
 
     // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
     let minifigImage = document.getElementById("minifigImage");
-    minifigImage.src = randomizeArray(minifigLocations, counterDown);
+    minifigImage.src = randomizeArray(minifigImgUrl, counterDown);
 
     // setimage wordt voorlopig nog random geselecteerd
     /*  let setImage1 = document.getElementById("setImage1");
       let setImage2 = document.getElementById("setImage2");
       setImage1.src = randomizeArray(setlocations, counterDown);
       setImage2.src = randomizeArray(setlocations, counterDown);*/
+
     showText(
-      minifigNames[minifigLocations.indexOf(minifigImage.src)],
+      minifigNames[minifigImgUrl.indexOf(minifigImage.src)],
       "minifigName"
     );
   }
   if (counterDown === 0) {
-    // modal wanneer de gebruiker alle minifigs heeft gesorteerd gevolgd door een refresh
+    // modal sorting done & refresh page achteraf
     $("#finishSortModal").modal("toggle");
   }
 });
@@ -210,7 +209,7 @@ sortSetButton.addEventListener("click", function () {
 const removeInline = () => {
   let minifigImage = document.getElementById("minifigImage");
   let inlineImage = document.getElementById(
-    minifigLocations.indexOf(minifigImage.src)
+    minifigImgUrl.indexOf(minifigImage.src)
   );
   let inlineLink = inlineImage.parentNode;
   let listItem = inlineLink.parentNode;
@@ -218,5 +217,5 @@ const removeInline = () => {
   inlineLink.removeChild(inlineImage);
   listItem.removeChild(inlineLink);
   unorderedList.removeChild(listItem);
-  minifigLocations[minifigLocations.indexOf(minifigImage.src)] = undefined;
+  minifigImgUrl[minifigImgUrl.indexOf(minifigImage.src)] = undefined;
 };
