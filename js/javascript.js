@@ -15,8 +15,7 @@ let minifigIds = [];
 // minifig set urls
 let minifigSets = [];
 
-// parameter number is user input
-// fetch miniFigs
+// fetch miniFigs met user input als param
 const getMinifigs = async (number) => {
   let fetchFigs = await fetch(
     `https://rebrickable.com/api/v3/lego/minifigs/?page_size=${number}`,
@@ -31,7 +30,7 @@ const getMinifigs = async (number) => {
   return minifigs.results;
 };
 
-// fetch miniFigSets
+// fetch miniFigSets met minifigId uit getMinifigs als param
 const getMinifigSets = async (minifigId) => {
   let fetchSets = await fetch(
     `https://rebrickable.com/api/v3/lego/minifigs/${minifigId}/sets/`,
@@ -60,6 +59,7 @@ const changeInlineImages = (inlineId, names, source) => {
 
 // initialisatie van de startSortButton
 let startSortButton = document.getElementById("startSorting");
+let userInput = document.getElementById("userInput");
 let counterDown = 0;
 let counterUp = 0;
 
@@ -154,8 +154,7 @@ const showContent = (counterDown) => {
   setImage2.src = minifigSets[1];
 };
 
-// aantal bevestigen begint
-startSortButton.addEventListener("click", async () => {
+const beginGame = async () => {
   counterDown = getDataFromForm("sortForm", "sortButton");
   // check of de gebruiker een getal ingeeft met aantal condities
   if (
@@ -172,11 +171,21 @@ startSortButton.addEventListener("click", async () => {
     miniFigSetsGetAndPush();
     setTimeout(showContent, 300, counterDown);
   }
+};
+
+// aantal bevestigen onclick button start
+startSortButton.addEventListener("click", beginGame);
+// aantal bevestigen on ENTER start
+userInput.addEventListener("keydown", (event) => {
+  if (event.code === "Enter") {
+    event.preventDefault();
+    beginGame();
+  }
 });
 
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
-sortSetButton.addEventListener("click", function () {
+sortSetButton.addEventListener("click", () => {
   // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
   if (counterDown !== 0) {
     counterDown--;
