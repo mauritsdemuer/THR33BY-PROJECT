@@ -51,11 +51,24 @@ const changeInlineImages = (inlineId, names, source) => {
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = names[inlineId];
+    changeSetImage();
     showText(names[inlineId], "minifigName");
   });
   inline1.src = source[inlineId];
   inline1.alt = names[inlineId];
 };
+
+const checkInput = () =>{
+  let radioBtns = document.getElementsByName("customRadio");
+  if (radioBtns[0].checked === false){
+//alert("YOU ARE SO WRONG YOUR MAMA IS ASHAMED OF YOU");
+return false
+  }
+  else{
+    return true;
+  }
+
+}
 
 // initialisatie van de startSortButton
 let startSortButton = document.getElementById("startSorting");
@@ -129,10 +142,36 @@ const miniFigSetsGetAndPush = async () => {
   }
 };
 
+//randomiset set images
+const changeSetImage = ()=>{
+  //haalt setimage element op uit DOM
+  let setimage = document.getElementById("setImage1");
+//haalt minifigImage op uit DOM
+let minifigImage = document.getElementById("minifigImage");
+
+//haalt index van minifigImage uit array
+let numberTwo = minifigImgs.indexOf(minifigImage.src);
+
+  //verandert src attribuut van setimage
+  setimage.src = minifigSets[numberTwo];
+  let setImageTwo= document.getElementById("setImage2");
+  setImageTwo.src=randomizeArray(minifigSets,counterDown);
+  while(setImageTwo.src === setimage.src){
+    setImageTwo.src = randomizeArray(minifigSets,counterDown)
+  }
+  
+
+
+
+
+};
+
 // laat content zien na fetches & data insertion
 const showContent = (counterDown) => {
   showText(counterDown, "counterDown");
   createFigImageList(counterDown);
+  let minifigImage = document.getElementById("minifigImage");
+  minifigImage.src=minifigImgs[0]
 
   // verberg dingen na begin van spel
   $("#sortForm").addClass("d-none");
@@ -145,10 +184,10 @@ const showContent = (counterDown) => {
   $("#minifigAlert").removeClass("d-none");
   $("#minifigImage").removeClass("d-none");
 
-  let setImage = document.getElementById("setImage1");
+  /*let setImage = document.getElementById("setImage1");
   setImage.src = minifigSets[0];
   let setImage2 = document.getElementById("setImage2");
-  setImage2.src = minifigSets[1];
+  setImage2.src = minifigSets[1];*/
 };
 
 const beginGame = () => {
@@ -170,6 +209,8 @@ const beginGame = () => {
     miniFigDataGetAndPush(counterDown).then(() => {
       miniFigSetsGetAndPush().then(() => {
         showContent(counterDown);
+      }).then(()=>{
+        changeSetImage();
       });
     });
   }
@@ -188,33 +229,48 @@ userInput.addEventListener("keydown", (event) => {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", () => {
+  let wrongImage= document.getElementById("setImage2");
+  let rightImage= document.getElementById("setImage1");
+  wrongImage.style.border= "none";
+  rightImage.style.border = "none"
+  let checkje = checkInput();
+  if(checkje){
+    if (counterDown !== 0) {
+      counterDown--;
+      counterUp++;
+      showText(counterDown, "counterDown");
+      showText(counterUp, "counterUp");
+      removeInline();
+  
+      // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
+      let minifigImage = document.getElementById("minifigImage");
+      minifigImage.src = randomizeArray(minifigImgs, counterDown);
+      changeSetImage();
+  
+      // setimage wordt voorlopig nog random geselecteerd
+      /*  let setImage1 = document.getElementById("setImage1");
+        let setImage2 = document.getElementById("setImage2");
+        setImage1.src = randomizeArray(setlocations, counterDown);
+        setImage2.src = randomizeArray(setlocations, counterDown);*/
+  
+      showText(
+        minifigNames[minifigImgs.indexOf(minifigImage.src)],
+        "minifigName"
+      );
+    }
+    if (counterDown === 0) {
+      // modal sorting done & refresh page achteraf
+      $("#finishSortModal").modal("toggle");
+    }
+
+  }else{
+  wrongImage.style.border = "1rem solid red";
+  rightImage.style.border ="1rem solid green";
+
+
+  }
   // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
-  if (counterDown !== 0) {
-    counterDown--;
-    counterUp++;
-    showText(counterDown, "counterDown");
-    showText(counterUp, "counterUp");
-    removeInline();
-
-    // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
-    let minifigImage = document.getElementById("minifigImage");
-    minifigImage.src = randomizeArray(minifigImgs, counterDown);
-
-    // setimage wordt voorlopig nog random geselecteerd
-    /*  let setImage1 = document.getElementById("setImage1");
-      let setImage2 = document.getElementById("setImage2");
-      setImage1.src = randomizeArray(setlocations, counterDown);
-      setImage2.src = randomizeArray(setlocations, counterDown);*/
-
-    showText(
-      minifigNames[minifigImgs.indexOf(minifigImage.src)],
-      "minifigName"
-    );
-  }
-  if (counterDown === 0) {
-    // modal sorting done & refresh page achteraf
-    $("#finishSortModal").modal("toggle");
-  }
+ 
 });
 
 const removeInline = () => {

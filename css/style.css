@@ -194,7 +194,7 @@ footer {
   padding-bottom: 5%;
 }
 
-#minifigImage {
+#minifigImage, .setImage {
   width: 25rem !important;
   height: 25rem !important;
 }
@@ -315,7 +315,7 @@ ul.images li {
     text-align: left;
   }
 
-  #minifigImage {
+  #minifigImage, .setImage {
     width: 25rem !important;
     height: 25rem !important;
   }
@@ -341,7 +341,7 @@ ul.images li {
     width: 60%;
   }
 
-  #minifigImage {
+  #minifigImage, .setImage {
     width: 15rem !important;
     height: 15rem !important;
   }
@@ -366,7 +366,7 @@ ul.images li {
     width: 50%;
   }
 
-  #minifigImage {
+  #minifigImage, .setImage {
     width: 10rem !important;
     height: 10rem !important;
     padding-bottom: 10%;
