@@ -51,24 +51,22 @@ const changeInlineImages = (inlineId, names, source) => {
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = names[inlineId];
-    changeSetImage();
+    changesetImage();
     showText(names[inlineId], "minifigName");
   });
   inline1.src = source[inlineId];
   inline1.alt = names[inlineId];
 };
 
-const checkInput = () =>{
-  let radioBtns = document.getElementsByName("customRadio");
-  if (radioBtns[0].checked === false){
-//alert("YOU ARE SO WRONG YOUR MAMA IS ASHAMED OF YOU");
-return false
-  }
-  else{
+// radio button check
+const checkInput = () => {
+  let radioButtons = document.getElementsByName("customRadio");
+  if (radioButtons[0].checked === false) {
+    return false;
+  } else {
     return true;
   }
-
-}
+};
 
 // initialisatie van de startSortButton
 let startSortButton = document.getElementById("startSorting");
@@ -142,28 +140,24 @@ const miniFigSetsGetAndPush = async () => {
   }
 };
 
-//randomiset set images
-const changeSetImage = ()=>{
-  //haalt setimage element op uit DOM
-  let setimage = document.getElementById("setImage1");
-//haalt minifigImage op uit DOM
-let minifigImage = document.getElementById("minifigImage");
+// randomiset set images
+const changesetImage = () => {
+  // haalt setImage element op uit DOM
+  let setImage = document.getElementById("setImage1");
+  // haalt minifigImage op uit DOM
+  let minifigImage = document.getElementById("minifigImage");
 
-//haalt index van minifigImage uit array
-let numberTwo = minifigImgs.indexOf(minifigImage.src);
+  // haalt index van minifigImage uit array
+  let numberTwo = minifigImgs.indexOf(minifigImage.src);
 
-  //verandert src attribuut van setimage
-  setimage.src = minifigSets[numberTwo];
-  let setImageTwo= document.getElementById("setImage2");
-  setImageTwo.src=randomizeArray(minifigSets,counterDown);
-  while(setImageTwo.src === setimage.src){
-    setImageTwo.src = randomizeArray(minifigSets,counterDown)
+  // verandert src attribuut van setImage
+  setImage.src = minifigSets[numberTwo];
+  let setImageTwo = document.getElementById("setImage2");
+
+  setImageTwo.src = randomizeArray(minifigSets, counterDown);
+  while (setImageTwo.src === setImage.src) {
+    setImageTwo.src = randomizeArray(minifigSets, counterDown);
   }
-  
-
-
-
-
 };
 
 // laat content zien na fetches & data insertion
@@ -171,7 +165,7 @@ const showContent = (counterDown) => {
   showText(counterDown, "counterDown");
   createFigImageList(counterDown);
   let minifigImage = document.getElementById("minifigImage");
-  minifigImage.src=minifigImgs[0]
+  minifigImage.src = minifigImgs[0];
 
   // verberg dingen na begin van spel
   $("#sortForm").addClass("d-none");
@@ -183,11 +177,6 @@ const showContent = (counterDown) => {
   $("#setSelection").removeClass("d-none");
   $("#minifigAlert").removeClass("d-none");
   $("#minifigImage").removeClass("d-none");
-
-  /*let setImage = document.getElementById("setImage1");
-  setImage.src = minifigSets[0];
-  let setImage2 = document.getElementById("setImage2");
-  setImage2.src = minifigSets[1];*/
 };
 
 const beginGame = () => {
@@ -197,7 +186,8 @@ const beginGame = () => {
     isNaN(counterDown) ||
     counterDown === "" ||
     counterDown <= 0 ||
-    counterDown % 1 != 0
+    counterDown % 1 != 0 ||
+    counterDown <= 2
   ) {
     return $("#inputErrorModal").modal();
   } else if (counterDown > 20) {
@@ -207,11 +197,13 @@ const beginGame = () => {
     $("#formToHideAfterClick").addClass("d-none");
     $("#loadingTime").removeClass("d-none");
     miniFigDataGetAndPush(counterDown).then(() => {
-      miniFigSetsGetAndPush().then(() => {
-        showContent(counterDown);
-      }).then(()=>{
-        changeSetImage();
-      });
+      miniFigSetsGetAndPush()
+        .then(() => {
+          showContent(counterDown);
+        })
+        .then(() => {
+          changesetImage();
+        });
     });
   }
 };
@@ -220,7 +212,7 @@ const beginGame = () => {
 startSortButton.addEventListener("click", beginGame);
 // aantal bevestigen on ENTER start
 userInput.addEventListener("keydown", (event) => {
-  if (event.code === "Enter") {
+  if (event.code === "Enter" || event.code === "NumpadEnter") {
     event.preventDefault();
     beginGame();
   }
@@ -229,48 +221,39 @@ userInput.addEventListener("keydown", (event) => {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", () => {
-  let wrongImage= document.getElementById("setImage2");
-  let rightImage= document.getElementById("setImage1");
-  wrongImage.style.border= "none";
-  rightImage.style.border = "none"
-  let checkje = checkInput();
-  if(checkje){
+  let rightImage = document.getElementById("setImage1");
+  let wrongImage = document.getElementById("setImage2");
+  rightImage.style.border = "none";
+  wrongImage.style.border = "none";
+
+  let checkSetInput = checkInput();
+  if (checkSetInput) {
     if (counterDown !== 0) {
       counterDown--;
       counterUp++;
       showText(counterDown, "counterDown");
       showText(counterUp, "counterUp");
       removeInline();
-  
+
       // bij het bevestigen van een set wordt er een nieuwe minifig ingeladen
       let minifigImage = document.getElementById("minifigImage");
       minifigImage.src = randomizeArray(minifigImgs, counterDown);
-      changeSetImage();
-  
-      // setimage wordt voorlopig nog random geselecteerd
-      /*  let setImage1 = document.getElementById("setImage1");
-        let setImage2 = document.getElementById("setImage2");
-        setImage1.src = randomizeArray(setlocations, counterDown);
-        setImage2.src = randomizeArray(setlocations, counterDown);*/
-  
+      changesetImage();
+
       showText(
         minifigNames[minifigImgs.indexOf(minifigImage.src)],
         "minifigName"
       );
     }
+
     if (counterDown === 0) {
       // modal sorting done & refresh page achteraf
       $("#finishSortModal").modal("toggle");
     }
-
-  }else{
-  wrongImage.style.border = "1rem solid red";
-  rightImage.style.border ="1rem solid green";
-
-
+  } else {
+    rightImage.style.border = "1rem solid green";
+    wrongImage.style.border = "1rem solid red";
   }
-  // eerste check of de counter niet nul is, de counter wordt aangepast bij het klikken en de tekst ook meteen vervangen
- 
 });
 
 const removeInline = () => {
