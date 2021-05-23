@@ -1,3 +1,4 @@
+
 /* GENERAL */
 body {
   min-height: 100vh;
@@ -19,6 +20,9 @@ body {
     url("Roboto-ThinItalic-webfont.svg#RobotoThinItalic") format("svg");
   font-weight: 200;
 }
+
+
+/* NAVIGATION BAR*/
 
 .logonav {
   width: 65%;
@@ -96,6 +100,9 @@ nav {
   padding: 2%;
 }
 
+
+/* FOOTER */
+
 footer {
   background-color: #141414 !important;
 }
@@ -135,6 +142,8 @@ footer {
 .content-wrapper {
   padding-bottom: 40% !important;
 }
+
+
 /* HOME PAGE */
 
 .welkom-text {
@@ -182,6 +191,7 @@ footer {
   text-align: left;
   padding-bottom: 2%;
 }
+
 
 /* LEGO PAGE */
 
@@ -281,7 +291,9 @@ ul.images li {
   height: 150px;
 }
 
+
 /* MODAL STYLING */
+
 .modal-body,
 .modal-header,
 .modal-footer,
@@ -307,9 +319,11 @@ ul.images li {
   background-color: #f876af !important;
 }
 
+
 /* MEDIA QUERIES */
 
-/* DESKTOP BIG */
+/* Desktop big */
+
 @media (max-width: 1800px) {
   .nav-item {
     font-size: 2em !important;
@@ -331,7 +345,8 @@ ul.images li {
   }
 }
 
-/* DESKTOP MEDIUM */
+/* Desktop medium */
+
 @media (max-width: 1300px) {
   .nav-item {
     font-size: 1.5em !important;
@@ -347,6 +362,7 @@ ul.images li {
     font-size: 1.5em !important;
     text-align: left;
   }
+
   .logonav {
     width: 60%;
   }
@@ -358,7 +374,8 @@ ul.images li {
   }
 }
 
-/* TABLET & MOBILE */
+/* Tablet & mobile */
+
 @media (max-width: 800px) {
   .nav-item {
     font-size: 1em !important;
@@ -373,6 +390,7 @@ ul.images li {
     font-size: 1em !important;
     text-align: left;
   }
+  
   .logonav {
     width: 50%;
   }

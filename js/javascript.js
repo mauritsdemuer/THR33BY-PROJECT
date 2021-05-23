@@ -251,8 +251,8 @@ sortSetButton.addEventListener("click", () => {
       $("#finishSortModal").modal("toggle");
     }
   } else {
-    rightImage.style.border = "1rem solid green";
-    wrongImage.style.border = "1rem solid red";
+    rightImage.style.border = "1rem solid limegreen";
+    wrongImage.style.border = "1rem solid crimson";
   }
 });
 
