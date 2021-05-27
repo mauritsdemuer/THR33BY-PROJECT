@@ -48,6 +48,7 @@ const getMinifigSets = async (minifigId) => {
 const changeInlineImages = (inlineId, names, source) => {
   let inline1 = document.getElementById(inlineId);
   inline1.addEventListener("click", () => {
+    removeImgBorders();
     let minifigImage = document.getElementById("minifigImage");
     minifigImage.src = inline1.src;
     minifigImage.alt = names[inlineId];
@@ -68,9 +69,11 @@ const checkInput = () => {
   }
 };
 
-// initialisatie van de startSortButton
+// belangrijke getElement & initialisatie variabelen
 let startSortButton = document.getElementById("startSorting");
 let userInput = document.getElementById("userInput");
+let rightImage = document.getElementById("setImage1");
+let wrongImage = document.getElementById("setImage2");
 let counterDown = 0;
 let counterUp = 0;
 
@@ -79,6 +82,12 @@ let showText = (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
   return;
+};
+
+// verwijder verkeerde/juiste img borders
+const removeImgBorders = () => {
+  rightImage.style.border = "none";
+  wrongImage.style.border = "none";
 };
 
 // data uit form halen
@@ -221,11 +230,7 @@ userInput.addEventListener("keydown", (event) => {
 // sort set button
 let sortSetButton = document.getElementById("sortSet");
 sortSetButton.addEventListener("click", () => {
-  let rightImage = document.getElementById("setImage1");
-  let wrongImage = document.getElementById("setImage2");
-  rightImage.style.border = "none";
-  wrongImage.style.border = "none";
-
+  removeImgBorders();
   let checkSetInput = checkInput();
   if (checkSetInput) {
     if (counterDown !== 0) {
