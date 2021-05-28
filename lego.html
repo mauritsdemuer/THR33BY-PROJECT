@@ -1,334 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./images/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./images/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
 
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png" />
-  <link rel="manifest" href="./images/site.webmanifest" />
-  <link rel="mask-icon" href="./images/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
-  <meta name="msapplication-TileColor" content="#da532c" />
-  <meta name="theme-color" content="#ffffff" />
+    <script
+      src="https://kit.fontawesome.com/edf7182f3b.js"
+      crossorigin="anonymous"
+    ></script>
 
-  <script src="https://kit.fontawesome.com/edf7182f3b.js" crossorigin="anonymous"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+    </style>
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-  </style>
+    <script src="./js/javascript.js" defer></script>
 
-  <script src="./js/javascript.js" defer></script>
+    <title>THR33BY Lego: Minifigs sorteren</title>
 
-  <title>THR33BY Lego: Minifigs sorteren</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/bundle.js"></script>
+  </head>
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
-  <script src="js/bundle.js"></script>
-</head>
-
-<body class="text-white bg-body">
-  <!--NAV-->
-  <nav class="
+  <body class="text-white bg-body">
+    <!--NAV-->
+    <nav
+      class="
         navbar navbar-dark
         shadow-lg
         navbar-expand-lg
         sticky-top
         d-flex
         justify-content-end
-      " id="header">
-    <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
-      <span class="navbar-toggler-icon"> </span>
-    </button>
+      "
+      id="header"
+    >
+      <button
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#collapse_target"
+      >
+        <span class="navbar-toggler-icon"> </span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="collapse_target">
-      <a class="navbar-brand" href="index.html"><img class="logonav" src="./images/logo.png" alt="THR33BY Logo" /></a>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item m-3">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
+      <div class="collapse navbar-collapse" id="collapse_target">
+        <a class="navbar-brand" href="index.html"
+          ><img class="logonav" src="./images/logo.png" alt="THR33BY Logo"
+        /></a>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item m-3">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
 
-        <li class="nav-item m-3">
-          <a class="nav-link active clicked" href="lego.html">Lego Masters</a>
-        </li>
-        <li class="nav-item m-3">
-          <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">FIFA</a>
-        </li>
-        <li class="nav-item m-3">
-          <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">Lord of the Rings</a>
-        </li>
-        <li class="nav-item m-3">
-          <a class="nav-link" data-toggle="modal" data-target="#reisErrorModal" href="#">Fortnite</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!--END NAV-->
+          <li class="nav-item m-3">
+            <a class="nav-link active clicked" href="lego.html">Lego Masters</a>
+          </li>
+          <li class="nav-item m-3">
+            <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#reisErrorModal"
+              href="#"
+              >FIFA</a
+            >
+          </li>
+          <li class="nav-item m-3">
+            <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#reisErrorModal"
+              href="#"
+              >Lord of the Rings</a
+            >
+          </li>
+          <li class="nav-item m-3">
+            <a
+              class="nav-link"
+              data-toggle="modal"
+              data-target="#reisErrorModal"
+              href="#"
+              >Fortnite</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--END NAV-->
 
-  <!--CONTENT-->
-  <div class="container-fluid content-wrapper pb-5" id="contwrap">
-    <div class="row m-5">
-      <h2 class="text-uppercase font-weight-bold text-center text-title">
-        Minifigs ordenen
-      </h2>
-    </div>
-    <div class="row m-5" id="inlineMiniFigDiv">
-      <!--INLINE LIST MINI FIGS-->
-      <ul class="images d-none" id="inlineSet">
-        <!--JAVASCRIPT FILLS THIS GAP-->
-      </ul>
-    </div>
-    <div class="row m-5">
-      <div class="col-lg-4 col-sm-12">
-        <div id="gameRules">
-          <h2 class="text-uppercase font-weight-bold text-title">
-            Hoe werkt het?
-          </h2>
-          <p class="fillertext">
-            1. Geef het aantal minifigs (min. 3, max. 20) dat u wenst te ordenen
-            in en bevestig
-          </p>
-          <p class="fillertext">
-            2. Selecteer een minifig uit de lijst en selecteer de volgens u
-            bijhorende set
-          </p>
-          <p class="fillertext">3. Bevestig uw keuze</p>
+    <!--CONTENT-->
+    <div class="container-fluid content-wrapper pb-5" id="contwrap">
+      <div class="row m-5">
+        <h2 class="text-uppercase font-weight-bold text-center text-title">
+          Minifigs ordenen
+        </h2>
+      </div>
+      <div class="row m-5" id="inlineMiniFigDiv">
+        <!--INLINE LIST MINI FIGS-->
+        <ul class="images d-none" id="inlineSet">
+          <!--JAVASCRIPT FILLS THIS GAP-->
+        </ul>
+      </div>
+      <div class="row m-5">
+        <div class="col-lg-4 col-sm-12">
+          <div id="gameRules">
+            <h2 class="text-uppercase font-weight-bold text-title">
+              Hoe werkt het?
+            </h2>
+            <p class="fillertext">
+              1. Geef het aantal minifigs (min. 3, max. 20) dat u wenst te
+              ordenen in en bevestig
+            </p>
+            <p class="fillertext">
+              2. Selecteer een minifig uit de lijst en selecteer de volgens u
+              bijhorende set
+            </p>
+            <p class="fillertext">3. Bevestig uw keuze</p>
+          </div>
+          <form class="visible" id="sortForm">
+            <div class="form-group" id="formToHideAfterClick">
+              <label class="fillertext" for="formGroupExampleInput"
+                >Hoeveel minifigs wilt u ordenen?</label
+              >
+              <input
+                type="text"
+                class="form-control mt-2 fillertext"
+                id="userInput"
+                name="sortButton"
+                placeholder="Geef hier het aantal minifigs in"
+              />
+
+              <button
+                type="button"
+                class="btn btn-light mt-2 fillertext"
+                id="startSorting"
+              >
+                Start
+              </button>
+            </div>
+            <img
+              id="loadingTime"
+              class="d-none img-fluid"
+              src="./images/loading.svg"
+              alt="Loading the game"
+            />
+          </form>
         </div>
-        <form class="visible" id="sortForm">
-          <div class="form-group" id="formToHideAfterClick">
-            <label class="fillertext" for="formGroupExampleInput">Hoeveel minifigs wilt u ordenen?</label>
-            <input type="text" class="form-control mt-2 fillertext" id="userInput" name="sortButton"
-              placeholder="Geef hier het aantal minifigs in" />
+      </div>
+      <div class="row m-5">
+        <div class="col-lg-4 col-sm-12">
+          <div
+            class="alert alert-custom alert-info fillertext d-none boldTitle"
+            role="alert"
+            id="minifigAlert"
+          >
+            Aantal minifigs nog te ordenen:
+            <p id="counterDown">0</p>
+            Aantal minifigs al geordend:
+            <p id="counterUp">0</p>
+          </div>
+          <img
+            class="img-fluid d-none"
+            id="minifigImage"
+            src="./images/legomasters_large_withlogo.png"
+            alt="Minifig afbeelding"
+          />
+        </div>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-6 col-md-12 d-none" id="setSelection">
+          <h3 class="visible fillertext text-title text-uppercase">
+            Naam van minifig
+          </h3>
+          <p class="fillertext" id="minifigName"></p>
+          <h4 class="visible fillertext text-title text-uppercase">
+            Sets waar deze in voorkomt
+          </h4>
 
-            <button type="button" class="btn btn-light mt-2 fillertext" id="startSorting">
-              Start
+          <div class="custom-control custom-radio fillertext">
+            <input
+              type="radio"
+              id="customRadio1"
+              name="customRadio"
+              class="custom-control-input visible"
+            />
+            <label class="custom-control-label visible" for="customRadio1">
+              <img
+                class="img-fluid visible setImage"
+                id="setImage1"
+                src=""
+                alt="First Lego set image"
+              />
+            </label>
+          </div>
+
+          <div
+            class="custom-control custom-radio visible fillertext"
+            id="wrongImage"
+          >
+            <input
+              type="radio"
+              id="customRadio2"
+              name="customRadio"
+              class="custom-control-input visible"
+            />
+            <label class="custom-control-label visible" for="customRadio2">
+              <img
+                class="img-fluid visible setImage"
+                id="setImage2"
+                src=""
+                alt="Second Lego set image"
+              />
+            </label>
+          </div>
+
+          <button
+            type="button"
+            id="sortSet"
+            class="btn btn-light mt-2 visible fillertext"
+          >
+            Set bevestigen
+          </button>
+
+          <button
+            type="button"
+            id="stopSort"
+            class="btn btn-light mt-2 visible d-none fillertext"
+            data-toggle="modal"
+            data-target="#stopSortModal"
+          >
+            Stoppen met ordenen
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--FOOTER-->
+    <footer class="navbar d-none d-lg-block text-lg-start fixed-bottom mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="footertext col-7 mt-auto pl-5">
+            <p class="footer-title text-uppercase">
+              © 2021 THR33BY || About us
+            </p>
+            <p class="foottext">
+              Team THR33BY bestaat uit drie studenten van AP hogeschool: Jenny
+              Michielsen, Maurits De Muer en Yoram Lenaers.
+            </p>
+            <p class="footer-title"></p>
+          </div>
+          <div class="col-3"></div>
+          <div class="col-2 mt-auto pb-4">
+            <a class="footer-link" href=""
+              ><i class="fab fa-facebook-square"></i
+            ></a>
+            <a class="footer-link" href=""
+              ><i class="fab fa-twitter-square"></i
+            ></a>
+            <a class="footer-link" href=""
+              ><i class="fab fa-instagram-square"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--FOOTER-->
+
+    <div
+      class="modal fade rounded-0"
+      id="reisErrorModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="reisErrorModalCenterTitle"
+      aria-hidden="true"
+    >
+      <!--REIS ERROR MODAL-->
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reisErrorModalHeader">
+              Fout opgetreden!
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+            >
+              <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <img id="loadingTime" class="d-none img-fluid" src="./images/loading.svg" alt="Loading the game" />
-        </form>
-      </div>
-    </div>
-    <div class="row m-5">
-      <div class="col-lg-4 col-sm-12">
-        <div class="alert alert-custom alert-info fillertext d-none boldTitle" role="alert" id="minifigAlert">
-          Aantal minifigs nog te ordenen:
-          <p id="counterDown">0</p>
-          Aantal minifigs al geordend:
-          <p id="counterUp">0</p>
-        </div>
-        <img class="img-fluid d-none" id="minifigImage" src="./images/legomasters_large_withlogo.png"
-          alt="Minifig afbeelding" />
-      </div>
-      <div class="col-lg-2"></div>
-      <div class="col-lg-6 col-md-12 d-none" id="setSelection">
-        <h3 class="visible fillertext text-title text-uppercase">
-          Naam van minifig
-        </h3>
-        <p class="fillertext" id="minifigName"></p>
-        <h4 class="visible fillertext text-title text-uppercase">
-          Sets waar deze in voorkomt
-        </h4>
-
-        <div class="custom-control custom-radio fillertext">
-          <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input visible" />
-          <label class="custom-control-label visible" for="customRadio1">
-            <img class="img-fluid visible setImage" id="setImage1" src="" alt="First Lego set image" />
-          </label>
-        </div>
-
-        <div class="custom-control custom-radio visible fillertext" id="wrongImage">
-          <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input visible" />
-          <label class="custom-control-label visible" for="customRadio2">
-            <img class="img-fluid visible setImage" id="setImage2" src="" alt="Second Lego set image" />
-          </label>
-        </div>
-
-        <button type="button" id="sortSet" class="btn btn-light mt-2 visible fillertext">
-          Set bevestigen
-        </button>
-
-        <button type="button" id="stopSort" class="btn btn-light mt-2 visible d-none fillertext" data-toggle="modal"
-          data-target="#stopSortModal">
-          Stoppen met ordenen
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!--FOOTER-->
-  <footer class="navbar d-none d-lg-block text-lg-start fixed-bottom mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="footertext col-7 mt-auto pl-5">
-          <p class="footer-title text-uppercase">
-            © 2021 THR33BY || About us
-          </p>
-          <p class="foottext">
-            Team THR33BY bestaat uit drie studenten van AP hogeschool: Jenny
-            Michielsen, Maurits De Muer en Yoram Lenaers.
-          </p>
-          <p class="footer-title"></p>
-        </div>
-        <div class="col-3"></div>
-        <div class="col-2 mt-auto pb-4">
-          <a class="footer-link" href=""><i class="fab fa-facebook-square"></i></a>
-          <a class="footer-link" href=""><i class="fab fa-twitter-square"></i></a>
-          <a class="footer-link" href=""><i class="fab fa-instagram-square"></i></a>
+          <div class="modal-body">
+            U kan niet reizen naar dit thema.<br />
+            <b>Reden:</b> Niet ingeschreven.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              data-dismiss="modal"
+            >
+              Ander thema kiezen
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </footer>
-  <!--FOOTER-->
+    <!--END REIS ERROR MODAL-->
 
-  <div class="modal fade rounded-0" id="reisErrorModal" tabindex="-1" role="dialog"
-    aria-labelledby="reisErrorModalCenterTitle" aria-hidden="true">
-    <!--REIS ERROR MODAL-->
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reisErrorModalHeader">
-            Fout opgetreden!
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          U kan niet reizen naar dit thema.<br />
-          <b>Reden:</b> Niet ingeschreven.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
-            Ander thema kiezen
-          </button>
+    <!--STOP SORTING CONFIRMATION MODAL-->
+    <div
+      class="modal fade rounded-0"
+      id="stopSortModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="stopSortingModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title strongtext" id="stopSortingModalHeader">
+              Stoppen met ordenen.
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              onclick="window.location.reload();"
+            >
+              Ja
+            </button>
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              data-dismiss="modal"
+            >
+              Nee
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--END REIS ERROR MODAL-->
+    <!--END STOP SORTING CONFIRMATION MODAL-->
 
-  <!--STOP SORTING CONFIRMATION MODAL-->
-  <div class="modal fade rounded-0" id="stopSortModal" tabindex="-1" role="dialog"
-    aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title strongtext" id="stopSortingModalHeader">
-            Stoppen met ordenen.
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Bent u zeker dat u wilt stoppen met Lego Minifigs ordenen?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark modal-button" onclick="window.location.reload();">
-            Ja
-          </button>
-          <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
-            Nee
-          </button>
+    <!--DONE SORTING MODAL-->
+    <div
+      class="modal fade rounded-0"
+      id="finishSortModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="stopSortingModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title strongtext" id="doneSortingModalHeader">
+              Klaar met sorteren.
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+              onclick="window.location.reload();"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Alle minifigs zijn gesorteerd! 👍
+            <p id="userScore"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              onclick="window.location.reload();"
+            >
+              OK
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--END STOP SORTING CONFIRMATION MODAL-->
+    <!--DONE SORTING MODAL END-->
 
-  <!--DONE SORTING MODAL-->
-  <div class="modal fade rounded-0" id="finishSortModal" tabindex="-1" role="dialog"
-    aria-labelledby="stopSortingModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title strongtext" id="doneSortingModalHeader">
-            Klaar met sorteren.
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten"
-            onclick="window.location.reload();">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">Alle minifigs zijn gesorteerd! 👍</div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark modal-button" onclick="window.location.reload();">
-            OK
-          </button>
+    <!--USER INPUT ERROR MODAL-->
+    <div
+      class="modal fade rounded-0"
+      id="inputErrorModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="inputErrorModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title strongtext" id="inputErrorModalHeader">
+              Ongeldige waarde.
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            U heeft een ongeldige waarde ingegeven voor het aantal minifigs dat
+            u wilt ordenen.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              data-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--DONE SORTING MODAL END-->
+    <!--USER INPUT ERROR MODAL END-->
 
-  <!--USER INPUT ERROR MODAL-->
-  <div class="modal fade rounded-0" id="inputErrorModal" tabindex="-1" role="dialog"
-    aria-labelledby="inputErrorModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title strongtext" id="inputErrorModalHeader">
-            Ongeldige waarde.
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          U heeft een ongeldige waarde ingegeven voor het aantal minifigs dat
-          u wilt ordenen.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
-            OK
-          </button>
+    <!--TOO MANY MODAL-->
+    <div
+      class="modal fade rounded-0"
+      id="tooManyModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="tooManyModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title strongtext" id="tooManyModalHeader">
+              Niet overdrijven.
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Sluiten"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            U kan een maximum aantal van 20 minifigs per sessie ordenen.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-dark modal-button"
+              data-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <!--USER INPUT ERROR MODAL END-->
+    <!--TOO MANY MODAL END-->
 
-  <!--TOO MANY MODAL-->
-  <div class="modal fade rounded-0" id="tooManyModal" tabindex="-1" role="dialog"
-    aria-labelledby="tooManyModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title strongtext" id="tooManyModalHeader">
-            Niet overdrijven.
-          </h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Sluiten">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          U kan een maximum aantal van 20 minifigs per sessie ordenen.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-dark modal-button" data-dismiss="modal">
-            OK
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--TOO MANY MODAL END-->
-
-  <!--END CONTENT-->
-</body>
-
+    <!--END CONTENT-->
+  </body>
 </html>

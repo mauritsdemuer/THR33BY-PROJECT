@@ -76,12 +76,13 @@ let rightImage = document.getElementById("setImage1");
 let wrongImage = document.getElementById("setImage2");
 let counterDown = 0;
 let counterUp = 0;
+let userScore = document.getElementById("userScore");
+userScore = 0;
 
 // tekst vervangen
 let showText = (text, id) => {
   let changeText = document.getElementById(id);
   changeText.textContent = text;
-  return;
 };
 
 // verwijder verkeerde/juiste img borders
@@ -172,6 +173,7 @@ const changesetImage = () => {
 // laat content zien na fetches & data insertion
 const showContent = (counterDown) => {
   showText(counterDown, "counterDown");
+  showText(minifigNames[0], "minifigName");
   createFigImageList(counterDown);
   let minifigImage = document.getElementById("minifigImage");
   minifigImage.src = minifigImgs[0];
@@ -234,6 +236,7 @@ sortSetButton.addEventListener("click", () => {
   let checkSetInput = checkInput();
   if (checkSetInput) {
     if (counterDown !== 0) {
+      userScore++;
       counterDown--;
       counterUp++;
       showText(counterDown, "counterDown");
@@ -254,10 +257,15 @@ sortSetButton.addEventListener("click", () => {
     if (counterDown === 0) {
       // modal sorting done & refresh page achteraf
       $("#finishSortModal").modal("toggle");
+      showText(`Uw score: ${userScore}/${counterUp}`, "userScore");
+      $("#finishSortModal").on("hidden.bs.modal", () => {
+        location.reload();
+      });
     }
   } else {
     rightImage.style.border = "1rem solid limegreen";
     wrongImage.style.border = "1rem solid crimson";
+    userScore--;
   }
 });
 
